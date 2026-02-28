@@ -2,10 +2,10 @@ import TierSelector from "./TierSelector"
 
 export default function Header() {
   return (
-    <header className="items-center justify-between py-2 px-4 shadow-sm">
+    <header className="flex justify-between py-2 px-4 shadow-sm">
+      <div className="mr-2">RESET</div>
+      <div className="mr-2">LOGO</div>
       <TierSelector />
-      <div>{/* Logo/Title */}</div>
-      <div>{/* Reset Button */}</div>
     </header>
   );
 }

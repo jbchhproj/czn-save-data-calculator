@@ -27,14 +27,7 @@ export default function RootLayout({
     <html lang="en">
       <body className="min-h-screen flex flex-col">
         {/* Header */}
-        <header className="w-full flex items-center justify-between p-4 bg-white shadow">
-          {/* TierSelector placeholder */}
-          <Header />
-          {/* Logo/Title placeholder */}
-          
-          {/* ResetButton placeholder */}
-
-        </header>
+        <Header />
 
         {/* Main Content */}
         <main className="flex-1 flex flex-col items-center justify-center p-4">

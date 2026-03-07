@@ -1,53 +1,50 @@
 import React, { useState } from "react";
 
-interface TierStepperProps {
-  min?: number;
-  max?: number;
-  value?: number;
-  onChange?: (tier: number) => void;
-}
+export default function TierStepper() {
+  const [tier, setTier] = useState(1);
+  const minTier = 1;
+  const maxTier = 15;
 
-const TierStepper: React.FC<TierStepperProps> = ({ min = 1, max = 16, value, onChange }) => {
-  const [tier, setTier] = useState(value ?? min);
+  const options = Array.from({ length: maxTier }, (_, i) => (
+    <option key={i + minTier} value={i + minTier}>
+      {i + minTier}
+    </option>
+  ));
 
-  const handleChange = (newTier: number) => {
-    if (newTier < min || newTier > max) return;
-    setTier(newTier);
-    onChange?.(newTier);
+  const handleTierChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setTier(Number(event.target.value));
   };
 
   return (
     <div className="flex items-center gap-2">
       <button
-        type="button"
-        className="px-2 py-1 bg-gray-700 text-white rounded disabled:opacity-50"
-        onClick={() => handleChange(tier - 1)}
-        disabled={tier <= min}
         aria-label="Decrease tier"
+        type="button"
+        className="bg-blue-500 hover:bg-blue-400 py-2 px-4"
+        disabled={tier <= minTier}
+        onClick={() => setTier(tier - 1)}
       >
         -
       </button>
-      <select
-        className="px-3 py-1 bg-gray-800 text-white rounded appearance-none text-center"
-        value={tier}
-        onChange={e => handleChange(Number(e.target.value))}
-        aria-label="Select tier"
-      >
-        {Array.from({ length: max - min + 1 }, (_, i) => (
-          <option key={i + min} value={i + min}>{i + min}</option>
-        ))}
-      </select>
+      <label htmlFor="tier-select" className="mx-2">
+        <select
+          id="tier-select"
+          className="bg-blue-500 hover:bg-blue-400 px-2 py-1 rounded"
+          value={tier}
+          onChange={handleTierChange}
+        >
+          {options}
+        </select>
+      </label>
       <button
-        type="button"
-        className="px-2 py-1 bg-gray-700 text-white rounded disabled:opacity-50"
-        onClick={() => handleChange(tier + 1)}
-        disabled={tier >= max}
         aria-label="Increase tier"
+        type="button"
+        className="bg-blue-500 hover:bg-blue-400 py-2 px-4"
+        disabled={tier >= maxTier}
+        onClick={() => setTier(tier + 1)}
       >
         +
       </button>
     </div>
   );
-};
-
-export default TierStepper;
+}

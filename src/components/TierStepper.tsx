@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 
-export default function TierStepper() {
-  const [tier, setTier] = useState(1);
+interface TierSelectorProps {
+  tier : number;
+  setTier : (tier: number) => void;
+}
+
+export default function TierStepper({ tier, setTier }: TierSelectorProps) {
   const minTier = 1;
   const maxTier = 15;
 

@@ -3,17 +3,17 @@ import ResultsSection from "./ResultsSection";
 
 interface MainContentProps {
   tier: number;
-  currentFaintMemory: number;
+  faintMemory: number;
 }
 
 export default function MainContent({
   tier,
-  currentFaintMemory,
+  faintMemory,
 }: MainContentProps) {
   return (
     <main className="">
       <ResultsSection tier={tier} />
-      <SelectionSection currentFaintMemory={currentFaintMemory} />
+      <SelectionSection faintMemory={faintMemory} />
     </main>
   );
 }

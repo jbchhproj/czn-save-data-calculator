@@ -2,11 +2,11 @@ import { selectionBlockConfigs } from "@/data/selectionBlockConfigs";
 import SelectionBlock from "./SelectionBlock";
 
 interface SelectionSectionProps {
-  currentFaintMemory: number;
+  faintMemory: number;
 }
 
 export default function SelectionSection({
-  currentFaintMemory,
+  faintMemory,
 }: SelectionSectionProps) {
   return (
     <div>

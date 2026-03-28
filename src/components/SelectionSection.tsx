@@ -1,4 +1,5 @@
 import { selectionBlockConfigs } from "@/data/selectionBlockConfigs";
+import SelectionBlock from "./SelectionBlock";
 
 interface SelectionSectionProps {
   currentFaintMemory: number;

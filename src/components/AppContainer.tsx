@@ -24,9 +24,9 @@ export default function AppContainer({
 }: {
   children: React.ReactNode;
 }) {
-  /* PROPS */
   const [tier, setTier] = useState(1);
   const [isDeepTraumaActive, setIsDeepTraumaActive] = useState(false);
+  const [currentFaintMemory, setCurrentFaintMemory] = useState(0);
 
   useEffect(() => {
     if (isDeepTraumaActive) {
@@ -41,18 +41,16 @@ export default function AppContainer({
   }, [isDeepTraumaActive]);
 
   return (
-    <>
+    <div className="min-h-screen flex flex-col">
       <Header
         tier={tier}
         setTier={setTier}
         isDeepTraumaActive={isDeepTraumaActive}
         setIsDeepTraumaActive={setIsDeepTraumaActive}
       />
-      <main className="flex-1 flex flex-col items-center justify-center p-4">
-        {children}
-      </main>
-      <MainContent tier={tier} />
+      <main>{children}</main>
+      <MainContent tier={tier} currentFaintMemory={currentFaintMemory} />
       <SiteFooter />
-    </>
+    </div>
   );
 }

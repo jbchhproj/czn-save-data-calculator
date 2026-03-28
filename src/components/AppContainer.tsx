@@ -1,17 +1,9 @@
 "use client";
 import Header from "@/components/Header";
 import { useState, useEffect } from "react";
+import MainContent from "./MainContent"
 
-// Placeholder for ResultBar and SiteFooter
-function ResultBar({ tier }: { tier: number }) {
-  return (
-    <footer className="w-full p-4 bg-white shadow">
-      Calculation Results: Tier {tier}
-    </footer>
-  );
-}
-
-function SiteFooter() {
+function SiteFooter(  ) {
   return (
     <div className="w-full p-2 text-center text-xs text-gray-500">
       Support me on <a href="https://ko-fi.com/yourkofi" target="_blank" rel="noopener noreferrer" className="underline">Ko-fi</a>
@@ -46,7 +38,7 @@ export default function AppContainer({ children }: { children: React.ReactNode }
       <main className="flex-1 flex flex-col items-center justify-center p-4">
         {children}
       </main>
-      <ResultBar tier={tier} />
+      <MainContent tier={tier} />
       <SiteFooter />
     </>
   );

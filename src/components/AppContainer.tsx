@@ -27,6 +27,7 @@ export default function AppContainer({
   const [tier, setTier] = useState(1);
   const [isDeepTraumaActive, setIsDeepTraumaActive] = useState(false);
   const [faintMemory, setFaintMemory] = useState(0);
+  const [cardRemovals, setCardRemovals] = useState(0);
 
   useEffect(() => {
     if (isDeepTraumaActive) {
@@ -49,7 +50,12 @@ export default function AppContainer({
         setIsDeepTraumaActive={setIsDeepTraumaActive}
       />
       <main>{children}</main>
-      <MainContent tier={tier} faintMemory={faintMemory} />
+      <MainContent
+        tier={tier}
+        faintMemory={faintMemory}
+        cardRemovals={cardRemovals}
+        setCardRemovals={setCardRemovals}
+      />
       <SiteFooter />
     </div>
   );

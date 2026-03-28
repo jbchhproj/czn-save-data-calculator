@@ -1,4 +1,3 @@
-"use client";
 import TierStepper from "./TierStepper";
 import DeepTrauma from "./DeepTrauma";
 

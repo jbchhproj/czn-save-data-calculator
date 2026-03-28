@@ -1,15 +1,16 @@
 import React, { useState } from "react";
 
-interface TierSelectorProps {
+interface TierStepperProps {
   tier : number;
   setTier : (tier: number) => void;
+  isDeepTraumaActive : boolean;
 }
 
-export default function TierStepper({ tier, setTier }: TierSelectorProps) {
-  const minTier = 1;
-  const maxTier = 15;
+export default function TierStepper({ tier, setTier, isDeepTraumaActive }: TierStepperProps) {
+  const minTier = isDeepTraumaActive ? 2 : 1;
+  const maxTier = isDeepTraumaActive ? 16 : 15;
 
-  const options = Array.from({ length: maxTier }, (_, i) => (
+  const options = Array.from({ length: maxTier - minTier + 1 }, (_, i) => (
     <option key={i + minTier} value={i + minTier}>
       {i + minTier}
     </option>

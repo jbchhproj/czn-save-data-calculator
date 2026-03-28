@@ -8,25 +8,29 @@ interface TierSelectorProps {
   setIsDeepTraumaActive: (isActive: boolean) => void;
 }
 
-export default function TierSelector(
-    { tier, setTier, isDeepTraumaActive, setIsDeepTraumaActive }: TierSelectorProps) {
-    return (
-        <div className="flex flex-col items-start gap-y-2 p-2 rounded">
-            <div className="flex items-center gap-2 text-white">
-                DEEP TRAUMA
-                <DeepTrauma 
-                isDeepTraumaActive={isDeepTraumaActive} 
-                setIsDeepTraumaActive={setIsDeepTraumaActive} 
-                />
-            </div>
-            <div className="flex items-center gap-2 text-white">
-                TIER
-                <TierStepper 
-                tier={tier} 
-                setTier={setTier}
-                isDeepTraumaActive={isDeepTraumaActive}
-                />
-            </div>
-        </div>
-    );
+export default function TierSelector({
+  tier,
+  setTier,
+  isDeepTraumaActive,
+  setIsDeepTraumaActive,
+}: TierSelectorProps) {
+  return (
+    <div className="flex flex-col items-start gap-y-2 p-2 rounded">
+      <div className="flex items-center gap-2 text-white">
+        DEEP TRAUMA
+        <DeepTrauma
+          isDeepTraumaActive={isDeepTraumaActive}
+          setIsDeepTraumaActive={setIsDeepTraumaActive}
+        />
+      </div>
+      <div className="flex items-center gap-2 text-white">
+        TIER
+        <TierStepper
+          tier={tier}
+          setTier={setTier}
+          isDeepTraumaActive={isDeepTraumaActive}
+        />
+      </div>
+    </div>
+  );
 }

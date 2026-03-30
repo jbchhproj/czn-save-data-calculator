@@ -53,6 +53,7 @@ export default function AppContainer({
       <MainContent
         tier={tier}
         faintMemory={faintMemory}
+        setFaintMemory={setFaintMemory}
         cardRemovals={cardRemovals}
         setCardRemovals={setCardRemovals}
       />

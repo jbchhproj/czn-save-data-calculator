@@ -1,5 +1,13 @@
+type SelectionBlockType =
+  | "removal"
+  | "aqcusition"
+  | "duplication"
+  | "refinement"
+  | "transformation";
+
 export interface SelectionBlockConfig {
   id: string; // Unique identifier for the block (used as React key)
+  type: SelectionBlockType;
   label: string; // Short description or name for the block
   tooltip: string; // Tooltip text to explain the block
   min: number; // Minimum allowed value for the block's counter

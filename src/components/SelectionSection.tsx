@@ -1,4 +1,4 @@
-import { selectionBlockConfigs } from "@/data/selectionBlockConfigs";
+import { selectionBlockConfigs } from "../data/selectionBlockConfigs";
 import SelectionBlock from "./SelectionBlock";
 
 interface SelectionSectionProps {
@@ -17,7 +17,7 @@ export default function SelectionSection({
   return (
     <>
       {selectionBlockConfigs.map((config) => (
-        <SelectionBlock
+        <SelectionBlock   
           key={config.id}
           config={config}
           faintMemory={faintMemory}

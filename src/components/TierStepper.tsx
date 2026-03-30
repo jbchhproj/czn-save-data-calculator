@@ -1,12 +1,16 @@
 import React, { useState } from "react";
 
 interface TierStepperProps {
-  tier : number;
-  setTier : (tier: number) => void;
-  isDeepTraumaActive : boolean;
+  tier: number;
+  setTier: (tier: number) => void;
+  isDeepTraumaActive: boolean;
 }
 
-export default function TierStepper({ tier, setTier, isDeepTraumaActive }: TierStepperProps) {
+export default function TierStepper({
+  tier,
+  setTier,
+  isDeepTraumaActive,
+}: TierStepperProps) {
   const minTier = isDeepTraumaActive ? 2 : 1;
   const maxTier = isDeepTraumaActive ? 16 : 15;
 

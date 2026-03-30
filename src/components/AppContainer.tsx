@@ -1,0 +1,63 @@
+"use client";
+import Header from "@/components/Header";
+import { useState, useEffect } from "react";
+import MainContent from "./MainContent";
+
+function SiteFooter() {
+  return (
+    <div className="w-full p-2 text-center text-xs text-gray-500">
+      Support me on{" "}
+      <a
+        href="https://ko-fi.com/yourkofi"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="underline"
+      >
+        Ko-fi
+      </a>
+    </div>
+  );
+}
+
+export default function AppContainer({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  const [tier, setTier] = useState(1);
+  const [isDeepTraumaActive, setIsDeepTraumaActive] = useState(false);
+  const [faintMemory, setFaintMemory] = useState(0);
+  const [cardRemovals, setCardRemovals] = useState(0);
+
+  useEffect(() => {
+    if (isDeepTraumaActive) {
+      if (tier < 2) {
+        setTier(2);
+      } else if (tier < 16) {
+        setTier(tier + 1);
+      }
+    } else {
+      setTier((prev) => Math.max(1, prev - 1));
+    }
+  }, [isDeepTraumaActive]);
+
+  return (
+    <div className="min-h-screen flex flex-col">
+      <Header
+        tier={tier}
+        setTier={setTier}
+        isDeepTraumaActive={isDeepTraumaActive}
+        setIsDeepTraumaActive={setIsDeepTraumaActive}
+      />
+      <main>{children}</main>
+      <MainContent
+        tier={tier}
+        faintMemory={faintMemory}
+        setFaintMemory={setFaintMemory}
+        cardRemovals={cardRemovals}
+        setCardRemovals={setCardRemovals}
+      />
+      <SiteFooter />
+    </div>
+  );
+}

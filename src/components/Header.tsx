@@ -1,31 +1,27 @@
-"use client";
 import ResetButton from "./ResetButton";
-import TierSelector from "./TierSelector"
-import { useState, useEffect } from "react";
+import TierSelector from "./TierSelector";
 
-export default function Header() {
+interface TierSelectorProps {
+  tier: number;
+  setTier: (tier: number) => void;
+  isDeepTraumaActive: boolean;
+  setIsDeepTraumaActive: (isActive: boolean) => void;
+}
 
-  const [tier, setTier] = useState(1);
-  const [isDeepTraumaActive, setIsDeepTraumaActive] = useState(false);
-
-  useEffect(() => {
-    if (isDeepTraumaActive) {
-      if (tier < 2) {
-        setTier(2);
-      } else if (tier < 16) {
-        setTier(tier + 1);
-      }
-    } else {
-      setTier(prev => Math.max(1, prev - 1));
-    }
-  }, [isDeepTraumaActive]);
-
+export default function Header({
+  tier,
+  setTier,
+  isDeepTraumaActive,
+  setIsDeepTraumaActive,
+}: TierSelectorProps) {
   return (
     <header className="flex justify-between py-2 px-4 shadow-sm">
-      <ResetButton onReset={() => {
-        setTier(1);
-        setIsDeepTraumaActive(false);
-      }} />
+      <ResetButton
+        onReset={() => {
+          setTier(1);
+          setIsDeepTraumaActive(false);
+        }}
+      />
       <div className="mr-2">LOGO</div>
       <TierSelector
         tier={tier}

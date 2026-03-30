@@ -1,6 +1,6 @@
 import { SelectionBlockConfig } from "@/types/SelectionBlockConfig";
 
-export const selectionBlockConfigs: SelectionBlockConfig[] = [
+export const SelectionBlockConfigs: SelectionBlockConfig[] = [
   {
     /* unique identifier for this selection block used internally by react */
     id: "block1",

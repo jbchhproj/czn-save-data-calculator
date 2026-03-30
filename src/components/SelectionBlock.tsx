@@ -18,7 +18,7 @@ export default function SelectionBlock({
 }: SelectionBlockProps) {
   return (
     <div>
-      TOOLTIP {config.label}: {faintMemory}
+      o {config.label}: {faintMemory}
       <SelectionBlockStepper
         cardRemovals={cardRemovals}
         setCardRemovals={setCardRemovals}

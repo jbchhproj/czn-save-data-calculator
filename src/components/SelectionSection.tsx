@@ -15,7 +15,7 @@ export default function SelectionSection({
   setCardRemovals,
 }: SelectionSectionProps) {
   return (
-    <div>
+    <>
       {selectionBlockConfigs.map((config) => (
         <SelectionBlock
           key={config.id}
@@ -26,6 +26,6 @@ export default function SelectionSection({
           setCardRemovals={setCardRemovals}
         />
       ))}
-    </div>
+    </>
   );
 }

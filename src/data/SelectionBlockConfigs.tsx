@@ -16,7 +16,7 @@ export const SelectionBlockConfigs: SelectionBlockConfig[] = [
       if (action === "decrement" && current > 0) return current - 1;
       return current;
     },
-    contribution: (current) => current * 2,
+    faintMemoryContribution: (current) => current * 20,
   },
   {
     /* unique identifier for this selection block used internally by react */
@@ -34,7 +34,7 @@ export const SelectionBlockConfigs: SelectionBlockConfig[] = [
       if (action === "decrement" && current > 0) return current - 1;
       return current;
     },
-    contribution: (current) => current * 2,
+    faintMemoryContribution: (current) => current * 0,
   },
 ];
 

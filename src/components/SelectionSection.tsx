@@ -2,26 +2,33 @@ import { SelectionBlockConfigs } from "@/data/SelectionBlockConfigs";
 import SelectionBlock from "./SelectionBlock";
 
 interface SelectionSectionProps {
-  faintMemory: number;
-  setFaintMemory: (value: number) => void;
+  faintMemories: number[];
+  setFaintMemories: (value: number[]) => void;
   cardRemovals: number;
   setCardRemovals: (value: number) => void;
 }
 
 export default function SelectionSection({
-  faintMemory,
-  setFaintMemory,
+  faintMemories,
+  setFaintMemories,
   cardRemovals,
   setCardRemovals,
 }: SelectionSectionProps) {
+  // Helper to update a single block's value in the array
+  const handleSetDisplayCount = (idx: number, val: number) => {
+    const newMemories = [...faintMemories];
+    newMemories[idx] = val;
+    setFaintMemories(newMemories);
+  };
+
   return (
     <>
-      {SelectionBlockConfigs.map((config) => (
-        <SelectionBlock   
+      {SelectionBlockConfigs.map((config, idx) => (
+        <SelectionBlock
           key={config.id}
           config={config}
-          faintMemory={faintMemory}
-          setFaintMemory={setFaintMemory}
+          displayCount={faintMemories[idx]}
+          setDisplayCount={val => handleSetDisplayCount(idx, val)}
           cardRemovals={cardRemovals}
           setCardRemovals={setCardRemovals}
         />

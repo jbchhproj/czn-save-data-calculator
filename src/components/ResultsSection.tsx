@@ -1,14 +1,17 @@
 interface ResultsSectionProps {
   tier: number;
+  totalFaintMemory: number;
 }
 
-export default function ResultsSection({ tier }: ResultsSectionProps) {
-  let maxFaintMemory = tier * 10;
-  let currentFaintMemory = 0;
+export default function ResultsSection({
+  tier,
+  totalFaintMemory,
+}: ResultsSectionProps) {
+  let faintMemoryLimit = tier * 10;
 
   return (
     <div className="text-white">
-      FAINT MEMORY: {currentFaintMemory} / {maxFaintMemory}
+      FAINT MEMORY: {totalFaintMemory} / {faintMemoryLimit}
     </div>
   );
 }

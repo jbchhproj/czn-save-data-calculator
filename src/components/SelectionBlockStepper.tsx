@@ -1,28 +1,28 @@
-import { useState } from "react";
-
 interface SelectionBlockStepperProps {
-  cardRemovals: number; // shared total
+  displayCount: number;
+  setDisplayCount: (value: number) => void;
+  cardRemovals: number;
   setCardRemovals: (value: number) => void;
-  maxRemovals?: number; // optional, default 5
+  maxRemovals?: number;
 }
 
 export default function SelectionBlockStepper({
+  displayCount,
+  setDisplayCount,
   cardRemovals,
   setCardRemovals,
   maxRemovals = 5,
 }: SelectionBlockStepperProps) {
-  const [displayCount, setDisplayCount] = useState(0);
-
   const handleIncrement = () => {
     if (cardRemovals < maxRemovals) {
-      setDisplayCount((prev) => prev + 1);
+      setDisplayCount(displayCount + 1);
       setCardRemovals(cardRemovals + 1);
     }
   };
 
   const handleDecrement = () => {
     if (displayCount > 0) {
-      setDisplayCount((prev) => prev - 1);
+      setDisplayCount(displayCount - 1);
       setCardRemovals(cardRemovals - 1);
     }
   };

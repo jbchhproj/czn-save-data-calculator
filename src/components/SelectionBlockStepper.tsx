@@ -32,7 +32,7 @@ export default function SelectionBlockStepper({
       <button
         aria-label="Decrease card removals"
         type="button"
-        className="bg-blue-500 hover:bg-blue-400 py-2 px-4"
+        className="bg-blue-500 hover:bg-blue-400 py-2 px-4 rounded"
         disabled={stepperCount <= 0}
         onClick={handleDecrement}
       >
@@ -42,7 +42,7 @@ export default function SelectionBlockStepper({
       <button
         aria-label="Increase card removals"
         type="button"
-        className="bg-blue-500 hover:bg-blue-400 py-2 px-4"
+        className="bg-blue-500 hover:bg-blue-400 py-2 px-4 rounded"
         disabled={cardRemovals >= maxRemovals}
         onClick={handleIncrement}
       >

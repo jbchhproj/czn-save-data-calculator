@@ -29,7 +29,7 @@ export default function TierStepper({
       <button
         aria-label="Decrease tier"
         type="button"
-        className="bg-blue-500 hover:bg-blue-400 py-2 px-4"
+        className="bg-blue-500 hover:bg-blue-400 py-2 px-4 rounded"
         disabled={tier <= minTier}
         onClick={() => setTier(tier - 1)}
       >
@@ -38,7 +38,7 @@ export default function TierStepper({
       <label htmlFor="tier-select" className="mx-2">
         <select
           id="tier-select"
-          className="bg-blue-500 hover:bg-blue-400 px-2 py-1 rounded"
+          className="bg-blue-500 hover:bg-blue-400 px-2 py-1"
           value={tier}
           onChange={handleTierChange}
         >
@@ -48,7 +48,7 @@ export default function TierStepper({
       <button
         aria-label="Increase tier"
         type="button"
-        className="bg-blue-500 hover:bg-blue-400 py-2 px-4"
+        className="bg-blue-500 hover:bg-blue-400 py-2 px-4 rounded"
         disabled={tier >= maxTier}
         onClick={() => setTier(tier + 1)}
       >

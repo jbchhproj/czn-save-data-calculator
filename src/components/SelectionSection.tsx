@@ -15,7 +15,7 @@ export default function SelectionSection({
   setCardRemovals,
 }: SelectionSectionProps) {
   // Helper to update a single block's value in the array
-  const handleSetDisplayCount = (idx: number, val: number) => {
+  const handleSetStepperCount = (idx: number, val: number) => {
     const newMemories = [...faintMemories];
     newMemories[idx] = val;
     setFaintMemories(newMemories);
@@ -27,8 +27,8 @@ export default function SelectionSection({
         <SelectionBlock
           key={config.id}
           config={config}
-          displayCount={faintMemories[idx]}
-          setDisplayCount={val => handleSetDisplayCount(idx, val)}
+          stepperCount={faintMemories[idx]}
+          setStepperCount={(val) => handleSetStepperCount(idx, val)}
           cardRemovals={cardRemovals}
           setCardRemovals={setCardRemovals}
         />

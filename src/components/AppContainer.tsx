@@ -2,7 +2,6 @@
 import Header from "@/components/Header";
 import { useState, useEffect } from "react";
 import MainContent from "./MainContent";
-import SelectionBlock from "./SelectionBlock";
 import { SelectionBlockConfigs } from "@/data/SelectionBlockConfigs";
 
 function SiteFooter() {

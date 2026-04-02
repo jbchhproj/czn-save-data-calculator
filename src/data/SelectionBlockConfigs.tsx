@@ -11,9 +11,9 @@ export const SelectionBlockConfigs: SelectionBlockConfig[] = [
     tooltip: "Cards that combatants begin with upon entering chaos.",
     min: 0,
     max: 5,
-    rule: (current, action) => {
-      if (action === "increment" && current < 5) return current + 1;
-      if (action === "decrement" && current > 0) return current - 1;
+    stepRule: (current, action, config) => {
+      if (action === "increment" && current < config.max) return current + 1;
+      if (action === "decrement" && current > config.min) return current - 1;
       return current;
     },
     faintMemoryContribution: (current) => current * 20,
@@ -29,9 +29,9 @@ export const SelectionBlockConfigs: SelectionBlockConfig[] = [
       "Cards that can be acquired during chaos progression by sparking epiphanies or through certain events in unidentified areas.",
     min: 0,
     max: 5,
-    rule: (current, action) => {
-      if (action === "increment" && current < 5) return current + 1;
-      if (action === "decrement" && current > 0) return current - 1;
+    stepRule: (current, action, config) => {
+      if (action === "increment" && current < config.max) return current + 1;
+      if (action === "decrement" && current > config.min) return current - 1;
       return current;
     },
     faintMemoryContribution: (current) => current * 0,

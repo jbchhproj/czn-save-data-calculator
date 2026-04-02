@@ -20,6 +20,7 @@ export default function SelectionBlock({
     <div>
       {config.label}: {config.faintMemoryContribution(stepperCount)}
       <SelectionBlockStepper
+        config={config}
         stepperCount={stepperCount}
         setStepperCount={setStepperCount}
         cardRemovals={cardRemovals}

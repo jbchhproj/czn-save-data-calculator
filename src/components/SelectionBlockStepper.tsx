@@ -1,4 +1,7 @@
+import { SelectionBlockConfig } from "@/types/SelectionBlockConfig";
+
 interface SelectionBlockStepperProps {
+  config: SelectionBlockConfig;
   stepperCount: number;
   setStepperCount: (value: number) => void;
   cardRemovals: number;
@@ -7,6 +10,7 @@ interface SelectionBlockStepperProps {
 }
 
 export default function SelectionBlockStepper({
+  config,
   stepperCount,
   setStepperCount,
   cardRemovals,
@@ -15,14 +19,14 @@ export default function SelectionBlockStepper({
 }: SelectionBlockStepperProps) {
   const handleIncrement = () => {
     if (cardRemovals < maxRemovals) {
-      setStepperCount(stepperCount + 1);
+      setStepperCount(config.stepRule(stepperCount, "increment", config));
       setCardRemovals(cardRemovals + 1);
     }
   };
 
   const handleDecrement = () => {
     if (stepperCount > 0) {
-      setStepperCount(stepperCount - 1);
+      setStepperCount(config.stepRule(stepperCount, "decrement", config));
       setCardRemovals(cardRemovals - 1);
     }
   };

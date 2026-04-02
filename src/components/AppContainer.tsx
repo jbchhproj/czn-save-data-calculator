@@ -25,8 +25,8 @@ export default function AppContainer({
 }: {
   children: React.ReactNode;
 }) {
-  const [tier, setTier] = useState(1);
   const [isDeepTraumaActive, setIsDeepTraumaActive] = useState(false);
+  const [tier, setTier] = useState(1);
   const [faintMemories, setFaintMemories] = useState(() =>
     Array(SelectionBlockConfigs.length).fill(0),
   );
@@ -53,10 +53,10 @@ export default function AppContainer({
   return (
     <div className="min-h-screen flex flex-col">
       <Header
-        tier={tier}
-        setTier={setTier}
         isDeepTraumaActive={isDeepTraumaActive}
         setIsDeepTraumaActive={setIsDeepTraumaActive}
+        tier={tier}
+        setTier={setTier}
       />
       <main>{children}</main>
       <MainContent

@@ -1,3 +1,4 @@
+export const CARD_REMOVAL_LIMIT = 5;
 import { SelectionBlockConfig } from "@/types/SelectionBlockConfig";
 
 export const SelectionBlockConfigs: SelectionBlockConfig[] = [

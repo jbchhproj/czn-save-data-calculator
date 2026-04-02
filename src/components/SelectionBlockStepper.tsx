@@ -1,4 +1,5 @@
 import { SelectionBlockConfig } from "@/types/SelectionBlockConfig";
+import { CARD_REMOVAL_LIMIT } from "@/data/SelectionBlockConfigs";
 
 interface SelectionBlockStepperProps {
   config: SelectionBlockConfig;
@@ -6,7 +7,6 @@ interface SelectionBlockStepperProps {
   setStepperCount: (value: number) => void;
   cardRemovals: number;
   setCardRemovals: (value: number) => void;
-  maxRemovals?: number;
 }
 
 export default function SelectionBlockStepper({
@@ -15,10 +15,9 @@ export default function SelectionBlockStepper({
   setStepperCount,
   cardRemovals,
   setCardRemovals,
-  maxRemovals = 5,
 }: SelectionBlockStepperProps) {
   const handleIncrement = () => {
-    if (cardRemovals < maxRemovals) {
+    if (cardRemovals < CARD_REMOVAL_LIMIT) {
       setStepperCount(config.stepRule(stepperCount, "increment", config));
       setCardRemovals(cardRemovals + 1);
     }
@@ -47,7 +46,7 @@ export default function SelectionBlockStepper({
         aria-label="Increase card removals"
         type="button"
         className="bg-blue-500 hover:bg-blue-400 py-2 px-4 rounded"
-        disabled={cardRemovals >= maxRemovals}
+        disabled={cardRemovals >= CARD_REMOVAL_LIMIT}
         onClick={handleIncrement}
       >
         +

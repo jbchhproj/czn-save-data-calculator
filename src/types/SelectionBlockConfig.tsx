@@ -18,4 +18,6 @@ export interface SelectionBlockConfig {
     config: SelectionBlockConfig,
   ) => number; // Function that determines how the value changes when incrementing or decrementing
   faintMemoryContribution: (current: number) => number; // Function that determines how this block's value contributes to the overall calculation
+  /* Block specific properties can be added here */
+  /* Season specific properties can be added here */
 }

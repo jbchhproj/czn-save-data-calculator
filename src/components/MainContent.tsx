@@ -1,5 +1,5 @@
-import SelectionSection from "./SelectionSection";
-import ResultsSection from "./ResultsSection";
+import ResultsArea from "./ResultsArea";
+import SelectionArea from "./SelectionArea";
 
 interface MainContentProps {
   tier: number;
@@ -20,8 +20,8 @@ export default function MainContent({
 }: MainContentProps) {
   return (
     <main className="">
-      <ResultsSection tier={tier} totalFaintMemory={totalFaintMemory} />
-      <SelectionSection
+      <ResultsArea tier={tier} totalFaintMemory={totalFaintMemory} />
+      <SelectionArea
         faintMemories={faintMemories}
         setFaintMemories={setFaintMemories}
         cardRemovals={cardRemovals}

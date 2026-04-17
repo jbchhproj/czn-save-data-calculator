@@ -147,15 +147,14 @@ export const SelectionBlockConfigs: SelectionBlockConfig[] = [
     },
     faintMemoryContribution: (current) => current * 0,
   },
-    {
+  {
     /* unique identifier for this selection block used internally by react */
     id: "block9",
     type: "seasonal",
     /* user-facing title */
     label: "Acquire Forbidden Card",
     /* user-facing explanatory text */
-    tooltip:
-      "Cards that can be acquired during S1.",
+    tooltip: "Cards that can be acquired during S1.",
     min: 0,
     max: 999,
     stepRule: (current, action, config) => {
@@ -165,15 +164,14 @@ export const SelectionBlockConfigs: SelectionBlockConfig[] = [
     },
     faintMemoryContribution: (current) => current * 20,
   },
-      {
+  {
     /* unique identifier for this selection block used internally by react */
     id: "block10",
     type: "seasonal",
     /* user-facing title */
     label: "Equipment Refinement",
     /* user-facing explanatory text */
-    tooltip:
-      "Equipment enhancements obtained during S2.",
+    tooltip: "Equipment enhancements obtained during S2.",
     min: 0,
     max: 999,
     stepRule: (current, action, config) => {
@@ -183,15 +181,14 @@ export const SelectionBlockConfigs: SelectionBlockConfig[] = [
     },
     faintMemoryContribution: (current) => current * 10,
   },
-        {
+  {
     /* unique identifier for this selection block used internally by react */
     id: "block11",
     type: "seasonal",
     /* user-facing title */
     label: "Acquire Persona Card",
     /* user-facing explanatory text */
-    tooltip:
-      "Cards that can be acquired during S3.",
+    tooltip: "Cards that can be acquired during S3.",
     min: 0,
     max: 999,
     stepRule: (current, action, config) => {

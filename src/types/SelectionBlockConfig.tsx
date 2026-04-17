@@ -1,6 +1,6 @@
 type SelectionBlockType =
   | "removal"
-  | "aqcusition"
+  | "acquisition"
   | "duplication"
   | "refinement"
   | "transformation";

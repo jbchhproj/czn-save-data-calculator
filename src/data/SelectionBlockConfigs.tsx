@@ -37,6 +37,24 @@ export const SelectionBlockConfigs: SelectionBlockConfig[] = [
     },
     faintMemoryContribution: (current) => current * 0,
   },
+    {
+    /* unique identifier for this selection block used internally by react */
+    id: "block3",
+    type: "acquisition",
+    /* user-facing title */
+    label: "Acquire Neutral Card",
+    /* user-facing explanatory text */
+    tooltip:
+      "Cards that can be acquired during chaos progression though shops or through certain events in unidentified areas.",
+    min: 0,
+    max: 999,
+    stepRule: (current, action, config) => {
+      if (action === "increment" && current < config.max) return current + 1;
+      if (action === "decrement" && current > config.min) return current - 1;
+      return current;
+    },
+    faintMemoryContribution: (current) => current * 20,
+  },
 ];
 
 /*

@@ -1,9 +1,10 @@
 type SelectionBlockType =
-  | "removal"
   | "acquisition"
+  | "divine epiphany"
   | "duplication"
-  | "refinement"
-  | "transformation";
+  | "removal"
+  | "transformation"
+  | "seasonal";
 
 export interface SelectionBlockConfig {
   id: string; // Unique identifier for the block (used as React key)

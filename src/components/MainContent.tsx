@@ -1,27 +1,29 @@
-import SelectionSection from "./SelectionSection";
-import ResultsSection from "./ResultsSection";
+import ResultsArea from "./ResultsArea";
+import SelectionArea from "./SelectionArea";
 
 interface MainContentProps {
   tier: number;
-  faintMemory: number;
-  setFaintMemory: (value: number) => void;
+  faintMemories: number[];
+  setFaintMemories: (value: number[]) => void;
+  totalFaintMemory: number;
   cardRemovals: number;
   setCardRemovals: (value: number) => void;
 }
 
 export default function MainContent({
   tier,
-  faintMemory,
-  setFaintMemory,
+  faintMemories,
+  setFaintMemories,
+  totalFaintMemory,
   cardRemovals,
   setCardRemovals,
 }: MainContentProps) {
   return (
     <main className="">
-      <ResultsSection tier={tier} />
-      <SelectionSection
-        faintMemory={faintMemory}
-        setFaintMemory={setFaintMemory}
+      <ResultsArea tier={tier} totalFaintMemory={totalFaintMemory} />
+      <SelectionArea
+        faintMemories={faintMemories}
+        setFaintMemories={setFaintMemories}
         cardRemovals={cardRemovals}
         setCardRemovals={setCardRemovals}
       />

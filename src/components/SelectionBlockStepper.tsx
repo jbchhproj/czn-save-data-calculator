@@ -1,29 +1,42 @@
-import { useState } from "react";
+import { SelectionBlockConfig } from "@/types/SelectionBlockConfig";
+import { CARD_REMOVAL_LIMIT } from "@/data/SelectionBlockConfigs";
 
 interface SelectionBlockStepperProps {
-  cardRemovals: number; // shared total
+  config: SelectionBlockConfig;
+  stepperCount: number;
+  setStepperCount: (value: number) => void;
+  cardRemovals: number;
   setCardRemovals: (value: number) => void;
-  maxRemovals?: number; // optional, default 5
+  cardRemovalLimit?: number;
 }
 
 export default function SelectionBlockStepper({
+  config,
+  stepperCount,
+  setStepperCount,
   cardRemovals,
   setCardRemovals,
-  maxRemovals = 5,
+  cardRemovalLimit = CARD_REMOVAL_LIMIT
 }: SelectionBlockStepperProps) {
-  const [displayCount, setDisplayCount] = useState(0);
+  const isRemoval = config.type === "removal";
+  const canIncrement = !isRemoval || cardRemovals < cardRemovalLimit;
+  const canDecrement = stepperCount > 0;
 
   const handleIncrement = () => {
-    if (cardRemovals < maxRemovals) {
-      setDisplayCount((prev) => prev + 1);
-      setCardRemovals(cardRemovals + 1);
+    if (canIncrement) {
+      setStepperCount(config.stepRule(stepperCount, "increment", config));
+      if (isRemoval) {
+        setCardRemovals(cardRemovals + 1);
+      }
     }
   };
 
   const handleDecrement = () => {
-    if (displayCount > 0) {
-      setDisplayCount((prev) => prev - 1);
-      setCardRemovals(cardRemovals - 1);
+    if (canDecrement) {
+      setStepperCount(config.stepRule(stepperCount, "decrement", config));
+      if (isRemoval) {
+        setCardRemovals(cardRemovals - 1);
+      }
     }
   };
 
@@ -32,18 +45,18 @@ export default function SelectionBlockStepper({
       <button
         aria-label="Decrease card removals"
         type="button"
-        className="bg-blue-500 hover:bg-blue-400 py-2 px-4"
-        disabled={displayCount <= 0}
+        className="bg-blue-500 hover:bg-blue-400 py-2 px-4 rounded"
+        disabled={!canDecrement}
         onClick={handleDecrement}
       >
         -
       </button>
-      <span>{displayCount}</span>
+      <span>{stepperCount}</span>
       <button
         aria-label="Increase card removals"
         type="button"
-        className="bg-blue-500 hover:bg-blue-400 py-2 px-4"
-        disabled={cardRemovals >= maxRemovals}
+        className="bg-blue-500 hover:bg-blue-400 py-2 px-4 rounded"
+        disabled={!canIncrement}
         onClick={handleIncrement}
       >
         +

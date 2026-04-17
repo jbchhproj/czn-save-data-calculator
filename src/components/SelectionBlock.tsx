@@ -3,23 +3,26 @@ import SelectionBlockStepper from "./SelectionBlockStepper";
 
 interface SelectionBlockProps {
   config: SelectionBlockConfig;
-  faintMemory: number;
-  setFaintMemory: (value: number) => void;
+  stepperCount: number;
+  setStepperCount: (value: number) => void;
   cardRemovals: number;
   setCardRemovals: (value: number) => void;
 }
 
 export default function SelectionBlock({
   config,
-  faintMemory,
-  setFaintMemory,
+  stepperCount,
+  setStepperCount,
   cardRemovals,
   setCardRemovals,
 }: SelectionBlockProps) {
   return (
     <div>
-      o {config.label}: {faintMemory}
+      {config.label}: {config.faintMemoryContribution(stepperCount)}
       <SelectionBlockStepper
+        config={config}
+        stepperCount={stepperCount}
+        setStepperCount={setStepperCount}
         cardRemovals={cardRemovals}
         setCardRemovals={setCardRemovals}
       />

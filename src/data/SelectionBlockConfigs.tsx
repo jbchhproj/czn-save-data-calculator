@@ -141,7 +141,7 @@ export const SelectionBlockConfigs: SelectionBlockConfig[] = [
       "All count toward the 5-removal limit.",
     ],
     min: 0,
-    max: 5,
+    max: 4,
     stepRule: (current, action, config) => {
       if (action === "increment" && current < config.max) return current + 1;
       if (action === "decrement" && current > config.min) return current - 1;

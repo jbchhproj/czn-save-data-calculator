@@ -21,23 +21,30 @@ export default function SelectionBlockStepper({
   cardRemovalLimit = CARD_REMOVAL_LIMIT,
 }: SelectionBlockStepperProps) {
   const isRemoval = config.type === "removal";
-  const canIncrement = !isRemoval || cardRemovals < cardRemovalLimit;
-  const canDecrement = stepperCount > 0;
+  const canIncrement =
+    stepperCount < config.max && (!isRemoval || cardRemovals < cardRemovalLimit);
+  const canDecrement = stepperCount > config.min;
 
   const handleIncrement = () => {
     if (canIncrement) {
-      setStepperCount(config.stepRule(stepperCount, "increment", config));
+      const nextCount = config.stepRule(stepperCount, "increment", config);
+      if (nextCount === stepperCount) return;
+
+      setStepperCount(nextCount);
       if (isRemoval) {
-        setCardRemovals(cardRemovals + 1);
+        setCardRemovals(cardRemovals + (nextCount - stepperCount));
       }
     }
   };
 
   const handleDecrement = () => {
     if (canDecrement) {
-      setStepperCount(config.stepRule(stepperCount, "decrement", config));
+      const nextCount = config.stepRule(stepperCount, "decrement", config);
+      if (nextCount === stepperCount) return;
+
+      setStepperCount(nextCount);
       if (isRemoval) {
-        setCardRemovals(cardRemovals - 1);
+        setCardRemovals(cardRemovals - (stepperCount - nextCount));
       }
     }
   };

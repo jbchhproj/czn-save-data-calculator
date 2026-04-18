@@ -16,14 +16,14 @@ export default function TierSelector({
 }: TierSelectorProps) {
   return (
     <div className="flex flex-col items-start gap-y-2 p-2 rounded">
-      <div className="flex items-center gap-2 text-white">
+      <div className="flex items-center gap-2">
         DEEP TRAUMA
         <DeepTrauma
           isDeepTraumaActive={isDeepTraumaActive}
           setIsDeepTraumaActive={setIsDeepTraumaActive}
         />
       </div>
-      <div className="flex items-center gap-2 text-white">
+      <div className="flex items-center gap-2">
         TIER
         <TierStepper
           tier={tier}

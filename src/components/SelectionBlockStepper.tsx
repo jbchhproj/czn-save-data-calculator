@@ -1,5 +1,7 @@
 import { SelectionBlockConfig } from "@/types/SelectionBlockConfig";
 import { CARD_REMOVAL_LIMIT } from "@/data/SelectionBlockConfigs";
+import PlusIcon from "./icons/PlusIcon";
+import MinusIcon from "./icons/MinusIcon";
 
 interface SelectionBlockStepperProps {
   config: SelectionBlockConfig;
@@ -49,7 +51,7 @@ export default function SelectionBlockStepper({
         disabled={!canDecrement}
         onClick={handleDecrement}
       >
-        -
+        <MinusIcon />
       </button>
       <span className="text-sm sm:text-base">{stepperCount}</span>
       <button
@@ -59,7 +61,7 @@ export default function SelectionBlockStepper({
         disabled={!canIncrement}
         onClick={handleIncrement}
       >
-        +
+        <PlusIcon />
       </button>
     </div>
   );

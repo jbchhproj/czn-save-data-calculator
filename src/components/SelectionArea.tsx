@@ -1,5 +1,7 @@
+import { useState } from "react";
 import { SelectionBlockConfigs } from "@/data/SelectionBlockConfigs";
 import SelectionBlock from "./SelectionBlock";
+import { config } from "process";
 
 interface SelectionSectionProps {
   faintMemories: number[];
@@ -14,6 +16,11 @@ export default function SelectionSection({
   cardRemovals,
   setCardRemovals,
 }: SelectionSectionProps) {
+  const [expandedBlockId, setExpandedBlockId] = useState<string | null>(null);
+  const handleToggleExpand = (id: string) => {
+    setExpandedBlockId((prev) => (prev === id ? null : id));
+  };
+
   // Helper to update a single block's value in the array
   const handleSetStepperCount = (idx: number, val: number) => {
     const newMemories = [...faintMemories];
@@ -31,6 +38,8 @@ export default function SelectionSection({
           setStepperCount={(val) => handleSetStepperCount(idx, val)}
           cardRemovals={cardRemovals}
           setCardRemovals={setCardRemovals}
+          isExpanded={expandedBlockId === config.id}
+          onToggleExpand={handleToggleExpand}
         />
       ))}
     </>

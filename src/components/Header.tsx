@@ -6,6 +6,7 @@ interface TierSelectorProps {
   setTier: (tier: number) => void;
   isDeepTraumaActive: boolean;
   setIsDeepTraumaActive: (isActive: boolean) => void;
+  onReset: () => void;
 }
 
 export default function Header({
@@ -13,15 +14,11 @@ export default function Header({
   setTier,
   isDeepTraumaActive,
   setIsDeepTraumaActive,
+  onReset,
 }: TierSelectorProps) {
   return (
     <header className="flex justify-between items-center w-full py-2 px-2 shadow-sm overflow-x-hidden">
-      <ResetButton
-        onReset={() => {
-          setTier(1);
-          setIsDeepTraumaActive(false);
-        }}
-      />
+      <ResetButton onReset={onReset} />
       <div className="mr-2">LOGO</div>
       <TierSelector
         tier={tier}

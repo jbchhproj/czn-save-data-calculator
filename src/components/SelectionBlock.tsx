@@ -1,5 +1,7 @@
 import { SelectionBlockConfig } from "@/types/SelectionBlockConfig";
 import SelectionBlockStepper from "./SelectionBlockStepper";
+import QuestionCircleIcon from "./icons/QuestionCircleIcon";
+import ExpandMinusIcon from "./icons/ExpandMinusIcon";
 
 interface SelectionBlockProps {
   config: SelectionBlockConfig;
@@ -41,7 +43,11 @@ export default function SelectionBlock({
             onClick={() => onToggleExpand(config.id)}
             className="w-6 h-6 flex items-center justify-center text-blue-500 text-lg rounded-full hover:bg-blue-100 focus:outline-none"
           >
-            {isExpanded ? "▲" : "ℹ️"}
+            {isExpanded ? (
+              <ExpandMinusIcon />
+            ) : (
+              <QuestionCircleIcon />
+            )}
           </button>
           <SelectionBlockStepper
             config={config}

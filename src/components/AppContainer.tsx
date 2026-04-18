@@ -9,7 +9,7 @@ function SiteFooter() {
     <div className="w-full p-2 text-center text-xs text-gray-500">
       Support me on{" "}
       <a
-        href="https://ko-fi.com/yourkofi"
+        href="https://ko-fi.com/wanpoenjoyer"
         target="_blank"
         rel="noopener noreferrer"
         className="underline"

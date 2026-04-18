@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import PlusIcon from "./icons/PlusIcon";
+import MinusIcon from "./icons/MinusIcon";
+import ChevronDownIcon from "./icons/ChevronDownIcon";
 
 interface TierStepperProps {
   tier: number;
@@ -33,17 +36,22 @@ export default function TierStepper({
         disabled={tier <= minTier}
         onClick={() => setTier(tier - 1)}
       >
-        -
+        <MinusIcon />
       </button>
       <label htmlFor="tier-select" className="mx-2">
-        <select
-          id="tier-select"
-          className="bg-blue-500 hover:bg-blue-400 px-2 sm:px-4 py-1 sm:py-2 text-sm sm:text-base"
-          value={tier}
-          onChange={handleTierChange}
-        >
-          {options}
-        </select>
+        <div className="relative">
+          <select
+            id="tier-select"
+            className="bg-blue-500 hover:bg-blue-400 px-2 sm:px-4 py-1 sm:py-2 text-sm sm:text-base pr-8 appearance-none rounded"
+            value={tier}
+            onChange={handleTierChange}
+          >
+            {options}
+          </select>
+          <span className="pointer-events-none absolute inset-y-0 right-2 flex items-center">
+            <ChevronDownIcon />
+          </span>
+        </div>
       </label>
       <button
         aria-label="Increase tier"
@@ -52,7 +60,7 @@ export default function TierStepper({
         disabled={tier >= maxTier}
         onClick={() => setTier(tier + 1)}
       >
-        +
+        <PlusIcon />
       </button>
     </div>
   );

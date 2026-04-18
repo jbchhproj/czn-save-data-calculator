@@ -10,7 +10,8 @@ export const SelectionBlockConfigs: SelectionBlockConfig[] = [
     label: "Acquire Neutral Card",
     /* user-facing explanatory text */
     description: [
-      "Cards that can be acquired during chaos progression though shops or through certain events in unidentified areas.",
+      "Acquired in shops or chaos events.",
+      "Always worth 20 points, even with epiphany.",
     ],
     min: 0,
     max: 999,
@@ -29,7 +30,8 @@ export const SelectionBlockConfigs: SelectionBlockConfig[] = [
     label: "Acquire Common Monster Card",
     /* user-facing explanatory text */
     description: [
-      "Cards that can be acquired during chaos progression though defeating certain enemies.",
+      "Acquired by defeating enemies.",
+      "Always 20 points, even with epiphany.",
     ],
     min: 0,
     max: 999,
@@ -48,7 +50,8 @@ export const SelectionBlockConfigs: SelectionBlockConfig[] = [
     label: "Acquire Rare Monster Card",
     /* user-facing explanatory text */
     description: [
-      "Cards that can be acquired during chaos progression though defeating certain enemies.",
+      "Acquired by defeating enemies.",
+      "Always 50 points, even with epiphany.",
     ],
     min: 0,
     max: 999,
@@ -67,7 +70,8 @@ export const SelectionBlockConfigs: SelectionBlockConfig[] = [
     label: "Acquire Legendary Monster Card",
     /* user-facing explanatory text */
     description: [
-      "Cards that can be acquired during chaos progression though defeating certain enemies.",
+      "Acquired by defeating enemies.",
+      "Always 80 points, even with epiphany.",
     ],
     min: 0,
     max: 999,
@@ -78,7 +82,6 @@ export const SelectionBlockConfigs: SelectionBlockConfig[] = [
     },
     faintMemoryContribution: (current) => current * 80,
   },
-
   {
     /* unique identifier for this selection block used internally by react */
     id: "block5",
@@ -87,7 +90,8 @@ export const SelectionBlockConfigs: SelectionBlockConfig[] = [
     label: "Divine Epiphany",
     /* user-facing explanatory text */
     description: [
-      "This includes divine epiphanies applied to both starting and epiphany cards.",
+      "Applied to starting or epiphany cards.",
+      "Each is worth 20 points.",
     ],
     min: 0,
     max: 999,
@@ -106,7 +110,10 @@ export const SelectionBlockConfigs: SelectionBlockConfig[] = [
     label: "Duplicate Card",
     /* user-facing explanatory text */
     description: [
-      "Up to 2 duplicate actions will not contribute to faint memory points",
+      "First 2 duplicates: no points.",
+      "Each extra duplicate: 40 points.",
+      "Max 4 copies of a card per save data.",
+      "Transformed/removed duplicates are not counted.",
     ],
     min: 0,
     max: 4,
@@ -126,7 +133,7 @@ export const SelectionBlockConfigs: SelectionBlockConfig[] = [
     label: "Remove Starting Card",
     /* user-facing explanatory text */
     description: [
-      "Starting cards when entering chaos.",
+      "The 4 cards at the top of your character’s card tab.",
       "Removing non-starting cards: no points.",
       "Removing starting cards: 20 points.",
       "Card transformations count as removals.",
@@ -150,7 +157,11 @@ export const SelectionBlockConfigs: SelectionBlockConfig[] = [
     label: "Remove Epiphany Card",
     /* user-facing explanatory text */
     description: [
-      "Cards that can be acquired during chaos progression by sparking epiphanies or through certain events in unidentified areas.",
+      "Removing non-starting cards: no points.",
+      "Removing starting cards: 20 points.",
+      "Card transformations count as removals.",
+      "Removing duplicates: no points.",
+      "All count toward the 5-removal limit.",
     ],
     min: 0,
     max: 5,
@@ -168,7 +179,7 @@ export const SelectionBlockConfigs: SelectionBlockConfig[] = [
     /* user-facing title */
     label: "Acquire Forbidden Card",
     /* user-facing explanatory text */
-    description: ["Cards that can be acquired during S1."],
+    description: ["Obtained during Season 1: Forbidden Catalyst."],
     min: 0,
     max: 999,
     stepRule: (current, action, config) => {
@@ -185,7 +196,7 @@ export const SelectionBlockConfigs: SelectionBlockConfig[] = [
     /* user-facing title */
     label: "Equipment Refinement",
     /* user-facing explanatory text */
-    description: ["Equipment enhancements obtained during S2."],
+    description: ["Obtained during Season 2: Seed of Karmic Fire."],
     min: 0,
     max: 999,
     stepRule: (current, action, config) => {
@@ -202,7 +213,9 @@ export const SelectionBlockConfigs: SelectionBlockConfig[] = [
     /* user-facing title */
     label: "Acquire Persona Card",
     /* user-facing explanatory text */
-    description: ["Cards that can be acquired during S3."],
+    description: [
+      "Obtained during Season 3: A Song Rippling Through the Stars.",
+    ],
     min: 0,
     max: 999,
     stepRule: (current, action, config) => {
@@ -213,15 +226,3 @@ export const SelectionBlockConfigs: SelectionBlockConfig[] = [
     faintMemoryContribution: (current) => current * 20,
   },
 ];
-
-/*
-Business Logic:
-
-Card Removal:
-REMOVAL of cards other than starting cards are not tallied into points, but will count towards the total number of cards removed.
-REMOVAL of Starting cards count for 20 points, and will also count towards the total number of cards removed.
-In instances such as CARD TRANSFORMATION, cards that have been changed into other cards will be treated as a REMOVAL, and will be counted towards the total number of cards removed.
-REMOVAL of duplicated cards will not be counted towards points, but will count towards the total number of cards removed.
-REMOVAL can be performed up to 5 times.
-
-*/

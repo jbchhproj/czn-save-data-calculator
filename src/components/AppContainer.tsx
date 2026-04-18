@@ -9,7 +9,7 @@ function SiteFooter() {
     <div className="w-full p-2 text-center text-xs text-gray-500">
       Support me on{" "}
       <a
-        href="https://ko-fi.com/yourkofi"
+        href="https://ko-fi.com/wanpoenjoyer"
         target="_blank"
         rel="noopener noreferrer"
         className="underline"
@@ -50,6 +50,13 @@ export default function AppContainer({
     0,
   );
 
+  const handleReset = () => {
+    setTier(1);
+    setIsDeepTraumaActive(false);
+    setFaintMemories(Array(SelectionBlockConfigs.length).fill(0));
+    setCardRemovals(0);
+  };
+
   return (
     <div className="min-h-screen flex flex-col">
       <Header
@@ -57,6 +64,7 @@ export default function AppContainer({
         setIsDeepTraumaActive={setIsDeepTraumaActive}
         tier={tier}
         setTier={setTier}
+        onReset={handleReset}
       />
       <main>{children}</main>
       <MainContent

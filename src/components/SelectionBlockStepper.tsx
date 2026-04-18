@@ -16,7 +16,7 @@ export default function SelectionBlockStepper({
   setStepperCount,
   cardRemovals,
   setCardRemovals,
-  cardRemovalLimit = CARD_REMOVAL_LIMIT
+  cardRemovalLimit = CARD_REMOVAL_LIMIT,
 }: SelectionBlockStepperProps) {
   const isRemoval = config.type === "removal";
   const canIncrement = !isRemoval || cardRemovals < cardRemovalLimit;

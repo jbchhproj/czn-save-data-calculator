@@ -9,8 +9,9 @@ export const SelectionBlockConfigs: SelectionBlockConfig[] = [
     /* user-facing title */
     label: "Acquire Neutral Card",
     /* user-facing explanatory text */
-    tooltip:
+    description: [
       "Cards that can be acquired during chaos progression though shops or through certain events in unidentified areas.",
+    ],
     min: 0,
     max: 999,
     stepRule: (current, action, config) => {
@@ -27,8 +28,9 @@ export const SelectionBlockConfigs: SelectionBlockConfig[] = [
     /* user-facing title */
     label: "Acquire Common Monster Card",
     /* user-facing explanatory text */
-    tooltip:
+    description: [
       "Cards that can be acquired during chaos progression though defeating certain enemies.",
+    ],
     min: 0,
     max: 999,
     stepRule: (current, action, config) => {
@@ -45,8 +47,9 @@ export const SelectionBlockConfigs: SelectionBlockConfig[] = [
     /* user-facing title */
     label: "Acquire Rare Monster Card",
     /* user-facing explanatory text */
-    tooltip:
+    description: [
       "Cards that can be acquired during chaos progression though defeating certain enemies.",
+    ],
     min: 0,
     max: 999,
     stepRule: (current, action, config) => {
@@ -63,8 +66,9 @@ export const SelectionBlockConfigs: SelectionBlockConfig[] = [
     /* user-facing title */
     label: "Acquire Legendary Monster Card",
     /* user-facing explanatory text */
-    tooltip:
+    description: [
       "Cards that can be acquired during chaos progression though defeating certain enemies.",
+    ],
     min: 0,
     max: 999,
     stepRule: (current, action, config) => {
@@ -82,8 +86,9 @@ export const SelectionBlockConfigs: SelectionBlockConfig[] = [
     /* user-facing title */
     label: "Divine Epiphany",
     /* user-facing explanatory text */
-    tooltip:
+    description: [
       "This includes divine epiphanies applied to both starting and epiphany cards.",
+    ],
     min: 0,
     max: 999,
     stepRule: (current, action, config) => {
@@ -100,8 +105,9 @@ export const SelectionBlockConfigs: SelectionBlockConfig[] = [
     /* user-facing title */
     label: "Duplicate Card",
     /* user-facing explanatory text */
-    tooltip:
+    description: [
       "Up to 2 duplicate actions will not contribute to faint memory points",
+    ],
     min: 0,
     max: 4,
     stepRule: (current, action, config) => {
@@ -119,7 +125,14 @@ export const SelectionBlockConfigs: SelectionBlockConfig[] = [
     /* user-facing title */
     label: "Remove Starting Card",
     /* user-facing explanatory text */
-    tooltip: "Cards that combatants begin with upon entering chaos.",
+    description: [
+      "Starting cards when entering chaos.",
+      "Removing non-starting cards: no points.",
+      "Removing starting cards: 20 points.",
+      "Card transformations count as removals.",
+      "Removing duplicates: no points.",
+      "All count toward the 5-removal limit.",
+    ],
     min: 0,
     max: 5,
     stepRule: (current, action, config) => {
@@ -136,8 +149,9 @@ export const SelectionBlockConfigs: SelectionBlockConfig[] = [
     /* user-facing title */
     label: "Remove Epiphany Card",
     /* user-facing explanatory text */
-    tooltip:
+    description: [
       "Cards that can be acquired during chaos progression by sparking epiphanies or through certain events in unidentified areas.",
+    ],
     min: 0,
     max: 5,
     stepRule: (current, action, config) => {
@@ -154,7 +168,7 @@ export const SelectionBlockConfigs: SelectionBlockConfig[] = [
     /* user-facing title */
     label: "Acquire Forbidden Card",
     /* user-facing explanatory text */
-    tooltip: "Cards that can be acquired during S1.",
+    description: ["Cards that can be acquired during S1."],
     min: 0,
     max: 999,
     stepRule: (current, action, config) => {
@@ -171,7 +185,7 @@ export const SelectionBlockConfigs: SelectionBlockConfig[] = [
     /* user-facing title */
     label: "Equipment Refinement",
     /* user-facing explanatory text */
-    tooltip: "Equipment enhancements obtained during S2.",
+    description: ["Equipment enhancements obtained during S2."],
     min: 0,
     max: 999,
     stepRule: (current, action, config) => {
@@ -188,7 +202,7 @@ export const SelectionBlockConfigs: SelectionBlockConfig[] = [
     /* user-facing title */
     label: "Acquire Persona Card",
     /* user-facing explanatory text */
-    tooltip: "Cards that can be acquired during S3.",
+    description: ["Cards that can be acquired during S3."],
     min: 0,
     max: 999,
     stepRule: (current, action, config) => {
@@ -208,6 +222,6 @@ REMOVAL of cards other than starting cards are not tallied into points, but will
 REMOVAL of Starting cards count for 20 points, and will also count towards the total number of cards removed.
 In instances such as CARD TRANSFORMATION, cards that have been changed into other cards will be treated as a REMOVAL, and will be counted towards the total number of cards removed.
 REMOVAL of duplicated cards will not be counted towards points, but will count towards the total number of cards removed.
-Removal can be performed up to 5 times.
+REMOVAL can be performed up to 5 times.
 
 */

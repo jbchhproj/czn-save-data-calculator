@@ -7,7 +7,7 @@ export default function ResultsSection({
   tier,
   totalFaintMemory,
 }: ResultsSectionProps) {
-  let faintMemoryLimit = tier * 10;
+  let faintMemoryLimit = 20 + (tier * 10);
 
   return (
     <div>

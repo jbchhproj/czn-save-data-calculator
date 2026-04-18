@@ -15,7 +15,7 @@ export default function Header({
   setIsDeepTraumaActive,
 }: TierSelectorProps) {
   return (
-    <header className="flex justify-between py-2 px-4 shadow-sm">
+    <header className="flex justify-between items-center w-full py-2 px-4 shadow-sm overflow-x-hidden">
       <ResetButton
         onReset={() => {
           setTier(1);

@@ -51,21 +51,21 @@ export default function SelectionBlockStepper({
   };
 
   return (
-    <div className="flex items-center gap-2 max-w-full flex-shrink">
+    <div className="flex items-center gap-2">
       <button
         aria-label="Decrease card removals"
         type="button"
-        className="bg-blue-500 hover:bg-blue-400 rounded text-sm sm:text-base py-1 sm:py-2 px-2 sm:px-4"
+        className="bg-blue-500 hover:bg-blue-400 rounded py-1 px-2"
         disabled={!canDecrement}
         onClick={handleDecrement}
       >
         <MinusIcon />
       </button>
-      <span className="text-sm sm:text-base">{stepperCount}</span>
+      <span className="text-sm">{stepperCount}</span>
       <button
         aria-label="Increase card removals"
         type="button"
-        className="bg-blue-500 hover:bg-blue-400 rounded text-sm sm:text-base py-1 sm:py-2 px-2 sm:px-4"
+        className="bg-blue-500 hover:bg-blue-400 rounded py-1 px-2"
         disabled={!canIncrement}
         onClick={handleIncrement}
       >

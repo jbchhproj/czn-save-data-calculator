@@ -28,11 +28,11 @@ export default function TierStepper({
   };
 
   return (
-    <div className="flex items-center gap-2 max-w-full flex-shrink">
+    <div className="flex items-center gap-2 max-w-full">
       <button
         aria-label="Decrease tier"
         type="button"
-        className="bg-blue-500 hover:bg-blue-400 rounded text-sm sm:text-base py-1 sm:py-2 px-2 sm:px-4"
+        className="bg-blue-500 hover:bg-blue-400 rounded py-1 px-2"
         disabled={tier <= minTier}
         onClick={() => setTier(tier - 1)}
       >
@@ -42,7 +42,7 @@ export default function TierStepper({
         <div className="relative">
           <select
             id="tier-select"
-            className="bg-blue-500 hover:bg-blue-400 px-2 sm:px-4 py-1 sm:py-2 text-sm sm:text-base pr-8 appearance-none rounded"
+            className="bg-blue-500 hover:bg-blue-400 px-2 py-1 pr-8 appearance-none rounded"
             value={tier}
             onChange={handleTierChange}
           >
@@ -56,7 +56,7 @@ export default function TierStepper({
       <button
         aria-label="Increase tier"
         type="button"
-        className="bg-blue-500 hover:bg-blue-400 rounded text-sm sm:text-base py-1 sm:py-2 px-2 sm:px-4"
+        className="bg-blue-500 hover:bg-blue-400 rounded py-1 px-2"
         disabled={tier >= maxTier}
         onClick={() => setTier(tier + 1)}
       >

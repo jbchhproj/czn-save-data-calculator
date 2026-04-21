@@ -17,7 +17,7 @@ export default function Header({
   onReset,
 }: TierSelectorProps) {
   return (
-    <header className="flex justify-between items-center w-full py-2 px-2 shadow-sm overflow-x-hidden">
+    <header className="flex items-center py-2 px-2">
       <ResetButton onReset={onReset} />
       <div className="mr-2">LOGO</div>
       <TierSelector

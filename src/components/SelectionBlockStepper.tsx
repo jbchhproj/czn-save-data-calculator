@@ -64,7 +64,7 @@ export default function SelectionBlockStepper({
         </span>
       </button>
 
-      <span className="inline-flex w-6 justify-center text-sm">
+      <span className="inline-flex w-4 justify-center text-sm">
         {stepperCount}
       </span>
 

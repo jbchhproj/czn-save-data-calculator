@@ -7,7 +7,7 @@ export const SelectionBlockConfigs: SelectionBlockConfig[] = [
     id: "block1",
     type: "acquisition",
     /* user-facing title */
-    label: "Acquire Neutral Card",
+    label: "Neutral Card",
     /* user-facing explanatory text */
     description: [
       "Acquired in shops or chaos events.",
@@ -27,7 +27,7 @@ export const SelectionBlockConfigs: SelectionBlockConfig[] = [
     id: "block2",
     type: "acquisition",
     /* user-facing title */
-    label: "Acquire Common Monster Card",
+    label: "Common Monster Card",
     /* user-facing explanatory text */
     description: [
       "Acquired by defeating enemies.",
@@ -47,7 +47,7 @@ export const SelectionBlockConfigs: SelectionBlockConfig[] = [
     id: "block3",
     type: "acquisition",
     /* user-facing title */
-    label: "Acquire Rare Monster Card",
+    label: "Rare Monster Card",
     /* user-facing explanatory text */
     description: [
       "Acquired by defeating enemies.",
@@ -67,7 +67,7 @@ export const SelectionBlockConfigs: SelectionBlockConfig[] = [
     id: "block4",
     type: "acquisition",
     /* user-facing title */
-    label: "Acquire Legendary Monster Card",
+    label: "Legendary Monster Card",
     /* user-facing explanatory text */
     description: [
       "Acquired by defeating enemies.",
@@ -177,7 +177,7 @@ export const SelectionBlockConfigs: SelectionBlockConfig[] = [
     id: "block9",
     type: "seasonal",
     /* user-facing title */
-    label: "Acquire Forbidden Card",
+    label: "Forbidden Card",
     /* user-facing explanatory text */
     description: ["Obtained during Season 1: Forbidden Catalyst."],
     min: 0,
@@ -211,7 +211,7 @@ export const SelectionBlockConfigs: SelectionBlockConfig[] = [
     id: "block11",
     type: "seasonal",
     /* user-facing title */
-    label: "Acquire Persona Card",
+    label: "Persona Card",
     /* user-facing explanatory text */
     description: [
       "Obtained during Season 3: A Song Rippling Through the Stars.",

@@ -24,8 +24,8 @@ export default function Header({
     <header className="sticky top-0 h-29 flex flex-col gap-2 bg-gray-400 p-2">
       <div className="flex gap-2 justify-between">
         <ResetButton onReset={onReset} />
-        <span className="text-indigo-950 bg-gray-300">
-          <PhoneIcon className="w-10 h-10" />
+        <span className="text-indigo-950">
+          <PhoneIcon className="w-15 h-15" />
         </span>
         <TierSelector
           tier={tier}

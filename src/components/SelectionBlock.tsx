@@ -45,7 +45,7 @@ export default function SelectionBlock({
           type="button"
           aria-label="Show details"
           onClick={() => onToggleExpand(config.id)}
-          className="w-6 h-6 text-blue-500 rounded-full hover:bg-blue-100"
+          className="w-4 h-4 text-blue-500 rounded-full hover:bg-blue-100"
         >
           {isExpanded ? <ExpandMinusIcon /> : <QuestionCircleIcon />}
         </button>

@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { SelectionBlockConfigs } from "@/data/SelectionBlockConfigs";
 import SelectionBlock from "./SelectionBlock";
-import { config } from "process";
 
 interface SelectionSectionProps {
   faintMemories: number[];

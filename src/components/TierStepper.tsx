@@ -35,7 +35,7 @@ export default function TierStepper({
         <button
           aria-label="Decrease tier"
           type="button"
-          className="bg-slate-400 rounded py-1 px-1"
+          className="bg-slate-400 rounded py-1 px-2"
           disabled={tier <= minTier}
           onClick={() => setTier(tier - 1)}
         >
@@ -64,7 +64,7 @@ export default function TierStepper({
         <button
           aria-label="Increase tier"
           type="button"
-          className="bg-slate-400 rounded py-1 px-1"
+          className="bg-slate-400 rounded py-1 px-2"
           disabled={tier >= maxTier}
           onClick={() => setTier(tier + 1)}
         >

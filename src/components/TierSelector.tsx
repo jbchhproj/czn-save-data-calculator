@@ -1,6 +1,5 @@
 import TierStepper from "./TierStepper";
 import DeepTrauma from "./DeepTrauma";
-import LightBulbIcon from "./icons/LightBulbIcon";
 
 interface TierSelectorProps {
   tier: number;
@@ -16,20 +15,17 @@ export default function TierSelector({
   setIsDeepTraumaActive,
 }: TierSelectorProps) {
   return (
-    <div>
-      <div className="flex items-center gap-2">
-        <DeepTrauma
-          isDeepTraumaActive={isDeepTraumaActive}
-          setIsDeepTraumaActive={setIsDeepTraumaActive}
-        />
-      </div>
-      <div className="flex items-center gap-2">
-        <TierStepper
-          tier={tier}
-          setTier={setTier}
-          isDeepTraumaActive={isDeepTraumaActive}
-        />
-      </div>
+    <div className="flex flex-col items-start gap-2">
+      <DeepTrauma
+        isDeepTraumaActive={isDeepTraumaActive}
+        setIsDeepTraumaActive={setIsDeepTraumaActive}
+      />
+
+      <TierStepper
+        tier={tier}
+        setTier={setTier}
+        isDeepTraumaActive={isDeepTraumaActive}
+      />
     </div>
   );
 }

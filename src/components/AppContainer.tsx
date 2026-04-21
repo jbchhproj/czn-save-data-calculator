@@ -72,15 +72,14 @@ export default function AppContainer({
         isDeepTraumaActive={isDeepTraumaActive}
         setIsDeepTraumaActive={setIsDeepTraumaActive}
         tier={tier}
+        totalFaintMemory={totalFaintMemory}
         setTier={setTier}
         onReset={handleReset}
       />
       <main>{children}</main>
       <MainContent
-        tier={tier}
         faintMemories={faintMemories}
         setFaintMemories={setFaintMemories}
-        totalFaintMemory={totalFaintMemory}
         cardRemovals={cardRemovals}
         setCardRemovals={setCardRemovals}
       />

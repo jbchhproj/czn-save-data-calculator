@@ -1,3 +1,21 @@
+# CZN Save Data Calculator
+
+An unofficial community tool for calculating save data in Chaos Zero Nightmare.
+
+## Disclaimer
+
+This is an unofficial fan-made tool and is not affiliated with, endorsed by, or sponsored by Smilegate or Super Creative.
+
+Chaos Zero Nightmare and all related names, logos, and assets are trademarks of Smilegate & Super Creative. All game data referenced in this tool belongs to their respective owners.
+
+This project does not reproduce, distribute, or claim ownership of any proprietary game assets or content.
+
+### Donations
+
+A Ko-fi link is provided for anyone who wishes to voluntarily support the development of this tool. Donations are entirely optional and are not a payment for any service or product. This project is not a commercial venture and is not intended to generate profit.
+
+---
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started

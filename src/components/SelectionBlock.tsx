@@ -50,7 +50,7 @@ export default function SelectionBlock({
           {isExpanded ? <ExpandMinusIcon /> : <QuestionCircleIcon />}
         </button>
 
-        <div className="h-15 w-25 bg-gray-400 w-20">{labelElements}</div>
+        <div className="h-15 w-30 bg-gray-400 w-20">{labelElements}</div>
 
         <span className="w-20 bg-gray-200 text-indigo-950 text-sm rounded">
           {config.faintMemoryContribution(stepperCount)}

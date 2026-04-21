@@ -1,3 +1,4 @@
+import PhoneIcon from "./icons/PhoneIcon";
 import ResetButton from "./ResetButton";
 import TierSelector from "./TierSelector";
 
@@ -19,7 +20,7 @@ export default function Header({
   return (
     <header className="flex items-center py-2 px-2">
       <ResetButton onReset={onReset} />
-      <div className="mr-2">LOGO</div>
+      <PhoneIcon />
       <TierSelector
         tier={tier}
         setTier={setTier}

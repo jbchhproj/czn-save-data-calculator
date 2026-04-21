@@ -18,9 +18,11 @@ export default function Header({
   onReset,
 }: TierSelectorProps) {
   return (
-    <header className="flex items-center py-2 px-2">
+    <header className="flex items-center">
       <ResetButton onReset={onReset} />
-      <PhoneIcon />
+      <span className="text-indigo-950">
+        <PhoneIcon />
+      </span>
       <TierSelector
         tier={tier}
         setTier={setTier}

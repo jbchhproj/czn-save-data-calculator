@@ -28,40 +28,51 @@ export default function TierStepper({
   };
 
   return (
-    <div className="flex items-center gap-2 max-w-full">
-      <button
-        aria-label="Decrease tier"
-        type="button"
-        className="bg-blue-500 hover:bg-blue-400 rounded py-1 px-2"
-        disabled={tier <= minTier}
-        onClick={() => setTier(tier - 1)}
-      >
-        <MinusIcon />
-      </button>
-      <label htmlFor="tier-select" className="mx-2">
-        <div className="relative">
-          <select
-            id="tier-select"
-            className="bg-blue-500 hover:bg-blue-400 px-2 py-1 pr-8 appearance-none rounded"
-            value={tier}
-            onChange={handleTierChange}
-          >
-            {options}
-          </select>
-          <span className="pointer-events-none absolute inset-y-0 right-2 flex items-center">
-            <ChevronDownIcon />
+    <div className="flex items-center gap-2 max-w-full bg-gray-300 rounded-sm p-1">
+      <span className="text-indigo-950">TIER</span>
+
+      <div className="flex items-center">
+        <button
+          aria-label="Decrease tier"
+          type="button"
+          className="bg-slate-400 rounded py-1 px-1"
+          disabled={tier <= minTier}
+          onClick={() => setTier(tier - 1)}
+        >
+          <span className="text-indigo-950">
+            <MinusIcon />
           </span>
-        </div>
-      </label>
-      <button
-        aria-label="Increase tier"
-        type="button"
-        className="bg-blue-500 hover:bg-blue-400 rounded py-1 px-2"
-        disabled={tier >= maxTier}
-        onClick={() => setTier(tier + 1)}
-      >
-        <PlusIcon />
-      </button>
+        </button>
+
+        <label htmlFor="tier-select">
+          <div className="relative -mx-px">
+            {" "}
+            <select
+              id="tier-select"
+              className="bg-slate-600 text-indigo-100 px-2 pr-8 appearance-none rounded-none"
+              value={tier}
+              onChange={handleTierChange}
+            >
+              {options}
+            </select>
+            <span className="text-indigo-100 pointer-events-none absolute inset-y-0 right-2 flex items-center">
+              <ChevronDownIcon />
+            </span>
+          </div>
+        </label>
+
+        <button
+          aria-label="Increase tier"
+          type="button"
+          className="bg-slate-400 rounded py-1 px-1"
+          disabled={tier >= maxTier}
+          onClick={() => setTier(tier + 1)}
+        >
+          <span className="text-indigo-950">
+            <PlusIcon />
+          </span>
+        </button>
+      </div>
     </div>
   );
 }

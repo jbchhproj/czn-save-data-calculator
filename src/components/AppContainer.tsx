@@ -67,7 +67,7 @@ export default function AppContainer({
   };
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col p-2">
       <Header
         isDeepTraumaActive={isDeepTraumaActive}
         setIsDeepTraumaActive={setIsDeepTraumaActive}

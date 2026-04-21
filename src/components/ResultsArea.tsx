@@ -10,8 +10,8 @@ export default function ResultsSection({
   let faintMemoryLimit = 20 + tier * 10;
 
   return (
-    <div>
+    <span className="text-indigo-950 bg-gray-300 rounded px-2 py-1">
       FAINT MEMORY: {totalFaintMemory} / {faintMemoryLimit}
-    </div>
+    </span>
   );
 }

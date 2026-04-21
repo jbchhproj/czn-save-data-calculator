@@ -6,6 +6,7 @@ import AppContainer from "@/components/AppContainer";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
 const geistMono = Geist_Mono({
@@ -25,7 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="min-h-screen flex flex-col">
+      <body className={`${geistSans.variable} ${geistMono.variable} min-h-screen`}>
         <AppContainer>{children}</AppContainer>
       </body>
     </html>

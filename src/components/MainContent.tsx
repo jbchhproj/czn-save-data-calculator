@@ -19,7 +19,7 @@ export default function MainContent({
   setCardRemovals,
 }: MainContentProps) {
   return (
-    <main className="">
+    <main>
       <ResultsArea tier={tier} totalFaintMemory={totalFaintMemory} />
       <SelectionArea
         faintMemories={faintMemories}

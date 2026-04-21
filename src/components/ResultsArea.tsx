@@ -12,7 +12,7 @@ export default function ResultsSection({
   let faintMemoryLimit = 20 + tier * 10;
 
   return (
-    <div className="flex justify-center items-center text-indigo-950 bg-gray-300 px-2 py-1">
+    <div className="flex justify-center items-center text-indigo-950 bg-amber-200 px-2 rounded">
       <span className="inline-flex items-center gap-1">
         <span>FAINT MEMORY:</span>
         <span>{totalFaintMemory}</span>

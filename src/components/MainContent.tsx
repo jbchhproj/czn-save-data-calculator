@@ -15,12 +15,15 @@ export default function MainContent({
 }: MainContentProps) {
   return (
     <main>
-      <SelectionArea
+      <div className="p-2">
+              <SelectionArea
         faintMemories={faintMemories}
         setFaintMemories={setFaintMemories}
         cardRemovals={cardRemovals}
         setCardRemovals={setCardRemovals}
       />
+      </div>
+
     </main>
   );
 }

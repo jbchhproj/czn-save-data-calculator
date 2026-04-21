@@ -18,7 +18,6 @@ export default function TierSelector({
   return (
     <div>
       <div className="flex items-center gap-2">
-        <LightBulbIcon />
         <DeepTrauma
           isDeepTraumaActive={isDeepTraumaActive}
           setIsDeepTraumaActive={setIsDeepTraumaActive}

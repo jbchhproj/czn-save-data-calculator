@@ -1,3 +1,5 @@
+import SlashIcon from "./icons/SlashIcon";
+
 interface ResultsSectionProps {
   tier: number;
   totalFaintMemory: number;
@@ -10,8 +12,13 @@ export default function ResultsSection({
   let faintMemoryLimit = 20 + tier * 10;
 
   return (
-    <span className="text-indigo-950 bg-gray-300 rounded px-2 py-1">
-      FAINT MEMORY: {totalFaintMemory} / {faintMemoryLimit}
-    </span>
+    <div className="flex justify-center items-center text-indigo-950 bg-gray-300 px-2 py-1">
+      <span className="inline-flex items-center gap-1">
+        <span>FAINT MEMORY:</span>
+        <span>{totalFaintMemory}</span>
+        <SlashIcon />
+        <span>{faintMemoryLimit}</span>
+      </span>
+    </div>
   );
 }

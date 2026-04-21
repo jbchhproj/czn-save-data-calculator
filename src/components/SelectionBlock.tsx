@@ -32,22 +32,18 @@ export default function SelectionBlock({
 
   return (
     <div>
-      <div className="items-center gap-2">
+      <div>
         <span>
           {config.label}: {config.faintMemoryContribution(stepperCount)}
         </span>
-        <div className="flex items-center gap-2">
+        <div className="flex">
           <button
             type="button"
             aria-label="Show details"
             onClick={() => onToggleExpand(config.id)}
-            className="w-6 h-6 flex items-center justify-center text-blue-500 text-lg rounded-full hover:bg-blue-100 focus:outline-none"
+            className="w-6 h-6 text-blue-500 rounded-full hover:bg-blue-100"
           >
-            {isExpanded ? (
-              <ExpandMinusIcon />
-            ) : (
-              <QuestionCircleIcon />
-            )}
+            {isExpanded ? <ExpandMinusIcon /> : <QuestionCircleIcon />}
           </button>
           <SelectionBlockStepper
             config={config}
@@ -60,7 +56,7 @@ export default function SelectionBlock({
       </div>
 
       {isExpanded && (
-        <div className="text-sm text-gray-600 mb-1 mt-2">{descriptionList}</div>
+        <div className="text-sm text-gray-600">{descriptionList}</div>
       )}
     </div>
   );

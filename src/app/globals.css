@@ -3,7 +3,7 @@
 :root {
   --background: #f3f4f6;
   --foreground: #171717;
-  --font-sans: Arial, Helvetica, sans-serif;
+  --font-sans: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
 }
 
 body {

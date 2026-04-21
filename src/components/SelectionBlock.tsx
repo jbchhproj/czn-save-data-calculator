@@ -33,7 +33,7 @@ export default function SelectionBlock({
   return (
     <div>
       <div>
-        <span>
+        <span className="text-indigo-950">
           {config.label}: {config.faintMemoryContribution(stepperCount)}
         </span>
         <div className="flex">

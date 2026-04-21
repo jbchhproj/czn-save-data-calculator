@@ -29,7 +29,7 @@ export default function TierStepper({
 
   return (
     <div className="flex items-center gap-2 max-w-full bg-gray-300 rounded-sm p-1">
-      <span>TIER</span>
+      <span className="text-indigo-950">TIER</span>
 
       <div className="flex items-center">
         <button

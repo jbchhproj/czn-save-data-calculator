@@ -24,7 +24,6 @@ export default function TierSelector({
         />
       </div>
       <div className="flex items-center gap-2">
-        TIER
         <TierStepper
           tier={tier}
           setTier={setTier}

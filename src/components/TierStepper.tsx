@@ -28,7 +28,8 @@ export default function TierStepper({
   };
 
   return (
-    <div className="flex items-center gap-2 max-w-full">
+    <div className="flex items-center gap-2 max-w-full rounded-sm bg-gray-300">
+      <span>TIER</span>
       <button
         aria-label="Decrease tier"
         type="button"

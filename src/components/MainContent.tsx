@@ -16,14 +16,13 @@ export default function MainContent({
   return (
     <main>
       <div className="p-2">
-              <SelectionArea
-        faintMemories={faintMemories}
-        setFaintMemories={setFaintMemories}
-        cardRemovals={cardRemovals}
-        setCardRemovals={setCardRemovals}
-      />
+        <SelectionArea
+          faintMemories={faintMemories}
+          setFaintMemories={setFaintMemories}
+          cardRemovals={cardRemovals}
+          setCardRemovals={setCardRemovals}
+        />
       </div>
-
     </main>
   );
 }

@@ -15,7 +15,7 @@ export default function TierSelector({
   setIsDeepTraumaActive,
 }: TierSelectorProps) {
   return (
-    <div className="flex flex-col items-start gap-2">
+    <div className="flex flex-col items-end gap-2">
       <DeepTrauma
         isDeepTraumaActive={isDeepTraumaActive}
         setIsDeepTraumaActive={setIsDeepTraumaActive}

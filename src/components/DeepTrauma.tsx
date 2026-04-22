@@ -1,5 +1,6 @@
 import { Switch } from "@headlessui/react";
 import LightBulbIcon from "./icons/LightBulbIcon";
+import MindIcon from "./icons/MindIcon";
 
 interface DeepTraumaProps {
   isDeepTraumaActive: boolean;
@@ -16,8 +17,8 @@ export default function DeepTrauma({
       onChange={setIsDeepTraumaActive}
       className="group inline-flex items-center rounded-full bg-indigo-500"
     >
-      <span className="text-indigo-100">
-        <LightBulbIcon />
+      <span className="pl-1 text-indigo-100">
+        <MindIcon />
       </span>
       <span className="relative w-10 h-6 rounded-full bg-gray-300 transition group-data-checked:bg-indigo-950">
         <span className="absolute top-1 left-1 size-4 rounded-full bg-indigo-950 transition-transform group-data-checked:translate-x-4 group-data-checked:bg-gray-300" />

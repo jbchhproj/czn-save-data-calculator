@@ -9,7 +9,6 @@ interface SelectionBlockStepperProps {
   setStepperCount: (value: number) => void;
   cardRemovals: number;
   setCardRemovals: (value: number) => void;
-  cardRemovalLimit?: number;
 }
 
 export default function SelectionBlockStepper({
@@ -18,12 +17,11 @@ export default function SelectionBlockStepper({
   setStepperCount,
   cardRemovals,
   setCardRemovals,
-  cardRemovalLimit = CARD_REMOVAL_LIMIT,
 }: SelectionBlockStepperProps) {
   const isRemoval = config.type === "removal";
   const canIncrement =
     stepperCount < config.max &&
-    (!isRemoval || cardRemovals < cardRemovalLimit);
+    (!isRemoval || cardRemovals < CARD_REMOVAL_LIMIT);
   const canDecrement = stepperCount > config.min;
 
   const handleIncrement = () => {
@@ -55,13 +53,11 @@ export default function SelectionBlockStepper({
       <button
         aria-label="Decrease card removals"
         type="button"
-        className="bg-slate-400 rounded py-1 px-2"
+        className="bg-slate-400 rounded py-1 px-2 text-indigo-950"
         disabled={!canDecrement}
         onClick={handleDecrement}
       >
-        <span className="text-indigo-950">
-          <MinusIcon />
-        </span>
+        <MinusIcon />
       </button>
 
       <span className="inline-flex w-4 justify-center text-sm">
@@ -71,13 +67,11 @@ export default function SelectionBlockStepper({
       <button
         aria-label="Increase card removals"
         type="button"
-        className="bg-slate-400 rounded py-1 px-2"
+        className="bg-slate-400 rounded py-1 px-2 text-indigo-950"
         disabled={!canIncrement}
         onClick={handleIncrement}
       >
-        <span className="text-indigo-950">
-          <PlusIcon />
-        </span>
+        <PlusIcon />
       </button>
     </div>
   );

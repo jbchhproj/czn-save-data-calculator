@@ -2,25 +2,24 @@ import { useState } from "react";
 import { SelectionBlockConfigs } from "@/data/SelectionBlockConfigs";
 import SelectionBlock from "./SelectionBlock";
 
-interface SelectionSectionProps {
+interface SelectionAreaProps {
   faintMemories: number[];
   setFaintMemories: (value: number[]) => void;
   cardRemovals: number;
   setCardRemovals: (value: number) => void;
 }
 
-export default function SelectionSection({
+export default function SelectionArea({
   faintMemories,
   setFaintMemories,
   cardRemovals,
   setCardRemovals,
-}: SelectionSectionProps) {
+}: SelectionAreaProps) {
   const [expandedBlockId, setExpandedBlockId] = useState<string | null>(null);
   const handleToggleExpand = (id: string) => {
     setExpandedBlockId((prev) => (prev === id ? null : id));
   };
 
-  // Helper to update a single block's value in the array
   const handleSetStepperCount = (idx: number, val: number) => {
     const newMemories = [...faintMemories];
     newMemories[idx] = val;

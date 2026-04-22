@@ -30,7 +30,9 @@ export default function SelectionBlock({
     </ul>
   );
 
-  const [leadingLabel, ...trailingLabelParts] = config.label.trim().split(/\s+/);
+  const [leadingLabel, ...trailingLabelParts] = config.label
+    .trim()
+    .split(/\s+/);
   const trailingLabel = trailingLabelParts.join(" ");
 
   return (

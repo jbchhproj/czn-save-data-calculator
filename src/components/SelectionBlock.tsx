@@ -30,33 +30,30 @@ export default function SelectionBlock({
     </ul>
   );
 
-  const labelList = config.label.trim().split(/\s+/).slice(0, 3);
-
-  const labelElements = labelList.map((line, idx) => (
-    <span className="block text-indigo-950 text-sm" key={idx}>
-      {line}
-    </span>
-  ));
+  const [leadingLabel, ...trailingLabelParts] = config.label.trim().split(/\s+/);
+  const trailingLabel = trailingLabelParts.join(" ");
 
   return (
     <div>
-      <div className="h-15 flex items-center gap-3 mt-3 p-1 bg-gray-300 rounded">
-        <button
-          type="button"
-          aria-label="Show details"
-          onClick={() => onToggleExpand(config.id)}
-          className="w-4 h-4 text-blue-500 rounded-full hover:bg-blue-100"
-        >
-          {isExpanded ? <ExpandMinusIcon /> : <QuestionCircleIcon />}
-        </button>
-
-        <div className="h-15 w-30 bg-gray-400 w-20">{labelElements}</div>
+      <div className="-ml-2 mt-3 flex h-15 w-[calc(100%+0.5rem)] items-center gap-3 overflow-hidden rounded-r bg-gray-300 px-1">
+        <div className="-ml-4 flex h-full w-24 shrink-0 flex-col justify-center bg-gray-400 py-1 pl-5 pr-2 text-indigo-950">
+          <span className="leading-tight text-sm">{leadingLabel}</span>
+          {trailingLabel && <span className="text-sm">{trailingLabel}</span>}
+        </div>
 
         <span className="w-20 bg-gray-200 text-indigo-950 text-sm rounded">
           {config.faintMemoryContribution(stepperCount)}
         </span>
 
-        <div>
+        <div className="ml-auto flex items-center gap-3">
+          <button
+            type="button"
+            aria-label="Show details"
+            onClick={() => onToggleExpand(config.id)}
+            className="w-4 h-4 text-blue-500 rounded-full hover:bg-blue-100"
+          >
+            {isExpanded ? <ExpandMinusIcon /> : <QuestionCircleIcon />}
+          </button>
           <SelectionBlockStepper
             config={config}
             stepperCount={stepperCount}

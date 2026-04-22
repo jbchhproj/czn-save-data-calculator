@@ -16,7 +16,7 @@ export default function ResultsSection({
       <span className="leading-tight">FAINT</span>
 
       <div className="grid grid-cols-[auto_3ch_auto_2ch] items-center gap-1 whitespace-nowrap tabular-nums">
-        <span>MEMORY:</span>
+        <span>MEMORY</span>
         <span className="text-right">{totalFaintMemory}</span>
         <span className="flex justify-center">
           <SlashIcon className="h-4 w-4" />

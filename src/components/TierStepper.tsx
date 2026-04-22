@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import type { ChangeEvent } from "react";
 import PlusIcon from "./icons/PlusIcon";
 import MinusIcon from "./icons/MinusIcon";
 import ChevronDownIcon from "./icons/ChevronDownIcon";
@@ -23,13 +23,13 @@ export default function TierStepper({
     </option>
   ));
 
-  const handleTierChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleTierChange = (event: ChangeEvent<HTMLSelectElement>) => {
     setTier(Number(event.target.value));
   };
 
   return (
     <div className="flex items-center gap-2 max-w-full bg-gray-300 rounded-sm p-1">
-      <span className="text-indigo-950">TIER</span>
+      <span className="text-sm text-indigo-950">TIER</span>
 
       <div className="flex items-center">
         <button
@@ -46,7 +46,6 @@ export default function TierStepper({
 
         <label htmlFor="tier-select">
           <div className="relative -mx-px">
-            {" "}
             <select
               id="tier-select"
               className="bg-slate-600 text-indigo-100 px-2 pr-8 appearance-none rounded-none"

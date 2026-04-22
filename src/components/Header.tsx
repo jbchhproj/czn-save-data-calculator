@@ -1,4 +1,3 @@
-import PhoneIcon from "./icons/PhoneIcon";
 import DeepTrauma from "./DeepTrauma";
 import ResetButton from "./ResetButton";
 import ResultsArea from "./ResultsArea";
@@ -22,24 +21,25 @@ export default function Header({
   onReset,
 }: TierSelectorProps) {
   return (
-    <header className="sticky top-0 h-29 flex flex-col gap-2 bg-gray-400 p-2">
-      <div className="flex items-center gap-2 justify-between">
-        <ResetButton onReset={onReset} />
-        <span className="text-indigo-950">
-          <PhoneIcon className="w-9 h-9" />
-        </span>
-        <DeepTrauma
-          isDeepTraumaActive={isDeepTraumaActive}
-          setIsDeepTraumaActive={setIsDeepTraumaActive}
-        />
+    <header className="sticky top-0 flex items-stretch gap-2 overflow-hidden bg-gray-400 p-2">
+      <div className="flex-1 min-w-0">
+        <ResultsArea tier={tier} totalFaintMemory={totalFaintMemory} />
+      </div>
+
+      <div className="flex flex-col gap-1">
+        <div className="flex items-center justify-end gap-2">
+          <ResetButton onReset={onReset} />
+          <DeepTrauma
+            isDeepTraumaActive={isDeepTraumaActive}
+            setIsDeepTraumaActive={setIsDeepTraumaActive}
+          />
+        </div>
+
         <TierSelector
           tier={tier}
           setTier={setTier}
           isDeepTraumaActive={isDeepTraumaActive}
         />
-      </div>
-      <div>
-        <ResultsArea tier={tier} totalFaintMemory={totalFaintMemory} />
       </div>
     </header>
   );

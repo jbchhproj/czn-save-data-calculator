@@ -12,7 +12,7 @@ export default function TierSelector({
   isDeepTraumaActive,
 }: TierSelectorProps) {
   return (
-    <div className="flex items-center">
+    <div>
       <TierStepper
         tier={tier}
         setTier={setTier}

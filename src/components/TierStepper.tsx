@@ -28,7 +28,7 @@ export default function TierStepper({
   };
 
   return (
-    <div className="flex items-center gap-2 max-w-full bg-gray-300 rounded-sm p-1">
+    <div className="flex items-center gap-1 max-w-full bg-gray-300 rounded-sm p-1">
       <span className="text-sm text-indigo-950">TIER</span>
 
       <div className="flex items-center">
@@ -48,14 +48,14 @@ export default function TierStepper({
           <div className="relative -mx-px">
             <select
               id="tier-select"
-              className="bg-slate-600 text-indigo-100 px-2 pr-8 appearance-none rounded-none"
+              className="bg-slate-600 text-sm text-indigo-100 px-2 pr-8 appearance-none rounded-none"
               value={tier}
               onChange={handleTierChange}
             >
               {options}
             </select>
             <span className="text-indigo-100 pointer-events-none absolute inset-y-0 right-2 flex items-center">
-              <ChevronDownIcon />
+              <ChevronDownIcon className="w-4 h-4" />
             </span>
           </div>
         </label>

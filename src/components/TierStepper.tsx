@@ -29,7 +29,7 @@ export default function TierStepper({
 
   return (
     <div className="h-9 flex items-center gap-1 max-w-full bg-gray-200 rounded-sm px-1">
-      <span className="text-sm text-indigo-950">TIER</span>
+      <span className="text-sm text-slate-950">TIER</span>
 
       <div className="flex items-center">
         <button
@@ -39,7 +39,7 @@ export default function TierStepper({
           disabled={tier <= minTier}
           onClick={() => setTier(tier - 1)}
         >
-          <span className="text-indigo-950">
+          <span className="text-slate-950">
             <MinusIcon />
           </span>
         </button>
@@ -67,7 +67,7 @@ export default function TierStepper({
           disabled={tier >= maxTier}
           onClick={() => setTier(tier + 1)}
         >
-          <span className="text-indigo-950">
+          <span className="text-slate-950">
             <PlusIcon />
           </span>
         </button>

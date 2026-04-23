@@ -1,4 +1,5 @@
 import DeepTrauma from "./DeepTrauma";
+import PhoneIcon from "./icons/PhoneIcon";
 import ResetButton from "./ResetButton";
 import ResultsArea from "./ResultsArea";
 import TierSelector from "./TierSelector";
@@ -26,8 +27,9 @@ export default function Header({
         <ResultsArea tier={tier} totalFaintMemory={totalFaintMemory} />
       </div>
 
-      <div className="flex flex-col gap-1">
-        <div className="flex items-center justify-end gap-2">
+      <div className="flex flex-col gap-2">
+        <div className="h-9 bg-gray-200 rounded px-2 flex items-center justify-end gap-3">
+          <PhoneIcon />
           <ResetButton onReset={onReset} />
           <DeepTrauma
             isDeepTraumaActive={isDeepTraumaActive}

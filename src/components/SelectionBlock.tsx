@@ -23,7 +23,7 @@ export default function SelectionBlock({
   onToggleExpand,
 }: SelectionBlockProps) {
   const descriptionList = (
-    <ul className="list-disc pl-8">
+    <ul className="list-disc pl-6">
       {config.description.map((line, idx) => (
         <li key={idx}>{line}</li>
       ))}
@@ -40,7 +40,7 @@ export default function SelectionBlock({
       {/* wrapper for depth effect */}
       <div className="relative mt-3">
         {/* bottom outline (the "3D" effect) */}
-        <div className="pointer-events-none absolute bottom-[-4px] left-[-0.5rem] right-0 h-3 rounded-br-lg border-b-2 border-gray-400 shadow-md/30" />
+        <div className="pointer-events-none absolute bottom-[-4px] left-[-0.5rem] right-0 h-3 rounded-br-lg border-b-2 border-gray-400 shadow-[0_2px_2px_rgba(0,0,0,0.15)]" />
 
         {/* main block */}
         <div className="-ml-2 flex h-15 w-[calc(100%+0.5rem)] items-center gap-3 overflow-hidden rounded-r bg-gray-200 px-1">
@@ -75,7 +75,7 @@ export default function SelectionBlock({
       </div>
 
       {isExpanded && (
-        <div className="text-sm text-gray-600">{descriptionList}</div>
+        <div className="pt-3 text-sm text-slate-700">{descriptionList}</div>
       )}
     </div>
   );

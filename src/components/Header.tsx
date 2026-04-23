@@ -22,13 +22,15 @@ export default function Header({
   onReset,
 }: TierSelectorProps) {
   return (
-    <header className="sticky top-0 flex items-stretch gap-2 overflow-hidden bg-gray-400 p-2">
-      <div className="flex-1 min-w-0">
+<header className="relative sticky top-0 flex items-stretch gap-2 bg-slate-600 p-2">
+      <div className="pointer-events-none absolute bottom-[-4px] left-0 right-0 border-b-2 border-gray-400" />
+
+      <div className="min-w-0 flex-1">
         <ResultsArea tier={tier} totalFaintMemory={totalFaintMemory} />
       </div>
 
       <div className="flex flex-col gap-2">
-        <div className="h-9 bg-gray-200 rounded px-2 flex items-center justify-end gap-3">
+        <div className="flex h-9 items-center justify-end gap-3 rounded bg-gray-200 px-2">
           <PhoneIcon />
           <ResetButton onReset={onReset} />
           <DeepTrauma

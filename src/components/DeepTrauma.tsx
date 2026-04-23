@@ -14,7 +14,7 @@ export default function DeepTrauma({
     <Switch
       checked={isDeepTraumaActive}
       onChange={setIsDeepTraumaActive}
-      className="group inline-flex items-center rounded-full bg-indigo-500"
+      className="group inline-flex items-center rounded-full bg-indigo-500 border border-indigo-500/40 shadow-[0_3px_0_rgb(0_0_0/0.1)]"
     >
       <span className="pl-2 pr-1 text-indigo-100">
         <MindIcon />

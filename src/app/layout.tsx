@@ -1,7 +1,13 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Allerta_Stencil } from "next/font/google";
 import "./globals.css";
 import AppContainer from "@/components/AppContainer";
+
+const allertaStencil = Allerta_Stencil({
+  variable: "--font-allerta-stencil",
+  subsets: ["latin"],
+  weight: "400",
+});
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,7 +33,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} min-h-screen`}
+        className={`${geistSans.variable} ${geistMono.variable} ${allertaStencil.variable} min-h-screen`}
       >
         <AppContainer>{children}</AppContainer>
       </body>

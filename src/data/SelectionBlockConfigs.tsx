@@ -123,7 +123,7 @@ export const SelectionBlockConfigs: SelectionBlockConfig[] = [
       return current;
     },
     faintMemoryContribution: (current) =>
-      current < 3 ? 0 : 60 + (current - 3) * 40,
+      current < 3 ? 0 : 40 + (current - 3) * 40,
   },
   {
     /* unique identifier for this selection block used internally by react */

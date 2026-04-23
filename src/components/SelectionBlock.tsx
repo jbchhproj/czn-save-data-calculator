@@ -47,7 +47,7 @@ export default function SelectionBlock({
           {config.faintMemoryContribution(stepperCount)}
         </span>
 
-        <div className="ml-auto flex items-center gap-3">
+        <div className="ml-auto flex self-stretch items-center gap-3 border-l border-gray-400 pl-3">
           <button
             type="button"
             aria-label="Show details"

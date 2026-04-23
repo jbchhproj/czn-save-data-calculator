@@ -179,7 +179,9 @@ export const SelectionBlockConfigs: SelectionBlockConfig[] = [
     /* user-facing title */
     label: "Forbidden Card",
     /* user-facing explanatory text */
-    description: ["Obtained during Season 1: Forbidden Catalyst."],
+    description: ["Obtained during Season 1: Forbidden Catalyst.",
+      "Adding forbidden cards: 20 points."
+    ],
     min: 0,
     max: 999,
     stepRule: (current, action, config) => {
@@ -196,7 +198,9 @@ export const SelectionBlockConfigs: SelectionBlockConfig[] = [
     /* user-facing title */
     label: "Equipment Refinement",
     /* user-facing explanatory text */
-    description: ["Obtained during Season 2: Seed of Karmic Fire."],
+    description: ["Obtained during Season 2: Seed of Karmic Fire.",
+      "Refining equipment: 10 points."
+    ],
     min: 0,
     max: 999,
     stepRule: (current, action, config) => {
@@ -215,6 +219,7 @@ export const SelectionBlockConfigs: SelectionBlockConfig[] = [
     /* user-facing explanatory text */
     description: [
       "Obtained during Season 3: A Song Rippling Through the Stars.",
+      "Adding persona cards: 20 points."
     ],
     min: 0,
     max: 999,

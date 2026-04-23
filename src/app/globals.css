@@ -13,4 +13,6 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans);
   font-weight: 500;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }

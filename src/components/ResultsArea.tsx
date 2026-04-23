@@ -10,7 +10,7 @@ export default function ResultsSection({
   const faintMemoryLimit = 20 + tier * 10;
 
   return (
-    <div className="-ml-8 flex h-full w-[calc(100%+2rem)] items-center rounded-r bg-amber-200 py-1 pl-8 pr-2 text-sm text-slate-950 [font-family:var(--font-allerta-stencil)]">
+    <div className="-ml-8 flex h-full w-[calc(100%+2rem)] items-center rounded-r border-b-2 border-amber-400 bg-amber-200 py-1 pl-8 pr-2 text-sm text-slate-950 [font-family:var(--font-allerta-stencil)]">
       <div className="flex w-full flex-col justify-center leading-tight text-lg">
         <span>FAINT MEMORY</span>
 

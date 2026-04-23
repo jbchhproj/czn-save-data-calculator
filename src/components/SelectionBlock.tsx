@@ -37,17 +37,17 @@ export default function SelectionBlock({
 
   return (
     <div>
-      <div className="-ml-2 mt-3 flex h-15 w-[calc(100%+0.5rem)] items-center gap-3 overflow-hidden rounded-r bg-gray-300 px-1">
-        <div className="-ml-4 flex h-full w-28 shrink-0 flex-col justify-center bg-gray-400 py-1 pl-5 pr-3 text-indigo-950">
+      <div className="-ml-2 mt-3 flex h-15 w-[calc(100%+0.5rem)] items-center gap-3 overflow-hidden rounded-r bg-gray-200 px-1">
+        <div className="-ml-4 flex h-full w-28 shrink-0 flex-col justify-center bg-gray-300 py-1 pl-5 pr-3 text-indigo-950">
           <span className="leading-tight text-sm">{leadingLabel}</span>
           {trailingLabel && <span className="text-sm">{trailingLabel}</span>}
         </div>
 
-        <span className="w-15 bg-gray-200 text-indigo-950 text-sm rounded">
+        <span className="w-15 bg-gray-100 text-indigo-950 text-sm rounded">
           {config.faintMemoryContribution(stepperCount)}
         </span>
 
-        <div className="ml-auto flex items-center gap-3">
+        <div className="ml-auto flex self-stretch items-center gap-3 border-l border-gray-400 pl-3">
           <button
             type="button"
             aria-label="Show details"

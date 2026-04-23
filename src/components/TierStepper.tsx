@@ -27,6 +27,9 @@ export default function TierStepper({
     setTier(Number(event.target.value));
   };
 
+  const buttonClasses =
+    "relative z-10 rounded border border-slate-500/40 bg-slate-400 px-[7px] py-[3px] text-slate-950 shadow-[0_3px_0_rgb(0_0_0/0.2)] transition-transform duration-50 ease-out active:duration-0 active:scale-99 active:translate-y-[2px] active:shadow-[0_1px_0_rgb(0_0_0/0.2)] active:bg-slate-500/50";
+
   return (
     <div className="flex h-9 max-w-full items-center gap-1 rounded-sm bg-gray-200 px-1">
       <span className="text-sm text-slate-950">TIER</span>
@@ -35,7 +38,7 @@ export default function TierStepper({
         <button
           aria-label="Decrease tier"
           type="button"
-          className="relative z-10 rounded border border-slate-500/40 bg-slate-400 px-[7px] py-[3px] text-slate-950 shadow-[0_3px_0_rgb(0_0_0/0.2)]"
+          className={buttonClasses}
           disabled={tier <= minTier}
           onClick={() => setTier(tier - 1)}
         >
@@ -63,7 +66,7 @@ export default function TierStepper({
         <button
           aria-label="Increase tier"
           type="button"
-          className="relative z-10 rounded border border-slate-500/40 bg-slate-400 px-[7px] py-[3px] text-slate-950 shadow-[0_3px_0_rgb(0_0_0/0.2)]"
+          className={buttonClasses}
           disabled={tier >= maxTier}
           onClick={() => setTier(tier + 1)}
         >

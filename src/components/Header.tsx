@@ -28,7 +28,7 @@ export default function Header({
       </div>
 
       <div className="flex flex-col gap-2">
-        <div className="flex h-9 items-center justify-end gap-3 rounded bg-slate-200 px-2 border-b-2 border-r-2 border-slate-400">
+        <div className="flex h-10 items-center justify-end gap-3 rounded bg-slate-200 px-3 border-b-2 border-r-2 border-slate-400">
           <PhoneIcon />
           <ResetButton onReset={onReset} />
           <DeepTrauma

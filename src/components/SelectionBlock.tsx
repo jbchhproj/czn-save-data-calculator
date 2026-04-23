@@ -45,11 +45,11 @@ export default function SelectionBlock({
         {/* main block */}
         <div className="-ml-2 flex h-15 w-[calc(100%+0.5rem)] items-center gap-3 overflow-hidden rounded-r bg-gray-200 px-1">
           <div className="-ml-4 flex h-full w-28 shrink-0 flex-col justify-center bg-gray-300 py-1 pl-5 pr-3 text-slate-950">
-            <span className="text-sm leading-tight">{leadingLabel}</span>
-            {trailingLabel && <span className="text-sm">{trailingLabel}</span>}
+            <span className="text-md leading-tight">{leadingLabel}</span>
+            {trailingLabel && <span className="text-md">{trailingLabel}</span>}
           </div>
 
-          <span className="w-15 rounded bg-gray-100 text-sm text-slate-950">
+          <span className="w-15 rounded bg-gray-100 text-md text-slate-950">
             {config.faintMemoryContribution(stepperCount)}
           </span>
 
@@ -75,7 +75,7 @@ export default function SelectionBlock({
       </div>
 
       {isExpanded && (
-        <div className="bg-gray-200 pl-8 py-3 text-sm text-slate-700">
+        <div className="bg-gray-200 pl-8 py-3 text-md text-slate-700">
           {descriptionList}
         </div>
       )}

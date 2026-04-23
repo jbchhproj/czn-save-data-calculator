@@ -53,7 +53,7 @@ export default function SelectionBlockStepper({
       <button
         aria-label="Decrease card removals"
         type="button"
-        className="bg-slate-400 rounded py-1 px-2 text-slate-950"
+        className="bg-slate-400 rounded py-[3px] px-[7px] text-slate-950 border border-slate-500/40 shadow-[0_3px_0_rgb(0_0_0/0.1)]"
         disabled={!canDecrement}
         onClick={handleDecrement}
       >
@@ -67,7 +67,7 @@ export default function SelectionBlockStepper({
       <button
         aria-label="Increase card removals"
         type="button"
-        className="bg-slate-400 rounded py-1 px-2 text-slate-950"
+        className="bg-slate-400 rounded py-[3px] px-[7px] text-slate-950 border border-slate-500/40 shadow-[0_3px_0_rgb(0_0_0/0.1)]"
         disabled={!canIncrement}
         onClick={handleIncrement}
       >

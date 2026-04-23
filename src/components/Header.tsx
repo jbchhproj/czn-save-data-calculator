@@ -22,7 +22,7 @@ export default function Header({
   onReset,
 }: TierSelectorProps) {
   return (
-    <header className="sticky top-0 z-50 flex items-stretch gap-2 border-b-4 border-gray-400 bg-slate-600 p-2 shadow-lg">
+    <header className="sticky top-0 z-50 flex items-stretch gap-2 border-b-4 border-gray-400 bg-slate-600 p-2 shadow-md/30">
       <div className="min-w-0 flex-1">
         <ResultsArea tier={tier} totalFaintMemory={totalFaintMemory} />
       </div>

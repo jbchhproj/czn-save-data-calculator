@@ -35,7 +35,7 @@ export default function TierStepper({
         <button
           aria-label="Decrease tier"
           type="button"
-          className="bg-slate-400 rounded py-1 px-2"
+          className="bg-slate-400 rounded py-[3px] px-[7px] text-slate-950 border border-slate-500/40 shadow-[0_3px_0_rgb(0_0_0/0.1)]"
           disabled={tier <= minTier}
           onClick={() => setTier(tier - 1)}
         >
@@ -45,10 +45,10 @@ export default function TierStepper({
         </button>
 
         <label htmlFor="tier-select">
-          <div className="relative -mx-px">
+          <div className="relative">
             <select
               id="tier-select"
-              className="bg-slate-600 text-sm text-indigo-100 px-2 pr-8 appearance-none rounded-none"
+              className="bg-slate-600 text-sm text-indigo-100 px-2 pr-8 appearance-none rounded-none shadow-[0_3px_0_rgb(0_0_0/0.1)]"
               value={tier}
               onChange={handleTierChange}
             >
@@ -63,7 +63,7 @@ export default function TierStepper({
         <button
           aria-label="Increase tier"
           type="button"
-          className="bg-slate-400 rounded py-1 px-2"
+          className="bg-slate-400 rounded py-[3px] px-[7px] text-slate-950 border border-slate-500/40 shadow-[0_3px_0_rgb(0_0_0/0.1)]"
           disabled={tier >= maxTier}
           onClick={() => setTier(tier + 1)}
         >

@@ -52,7 +52,7 @@ export default function SelectionBlockStepper({
     "bg-slate-400 rounded py-[4px] px-[8px] text-slate-950 border border-slate-500/40 shadow-[0_3px_0_rgb(0_0_0/0.2)] transition-transform duration-50 ease-out active:duration-0 active:scale-[0.99] active:translate-y-[2px] active:shadow-[0_1px_0_rgb(0_0_0/0.2)] active:bg-slate-500/50";
 
   return (
-    <div className="flex items-center gap-2">
+    <div className="flex items-center gap-2 pr-2">
       <button
         aria-label="Decrement"
         type="button"

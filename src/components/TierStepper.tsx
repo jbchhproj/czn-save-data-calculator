@@ -32,7 +32,7 @@ export default function TierStepper({
 
   return (
     <div className="flex h-9 max-w-full items-center gap-1 rounded-sm bg-gray-200 px-1">
-      <span className="text-sm text-slate-950">TIER</span>
+      <span className="text-md text-slate-950">TIER</span>
 
       <div className="flex items-center">
         <button
@@ -51,7 +51,7 @@ export default function TierStepper({
           <div className="relative -mx-px z-0">
             <select
               id="tier-select"
-              className="appearance-none rounded-none bg-slate-600 px-2 pr-8 text-sm text-indigo-100 shadow-[0_3px_0_rgb(0_0_0/0.2)]"
+              className="appearance-none rounded-none bg-slate-600 px-2 pr-8 text-md text-indigo-100 shadow-[0_3px_0_rgb(0_0_0/0.2)]"
               value={tier}
               onChange={handleTierChange}
             >

@@ -28,14 +28,14 @@ export default function TierStepper({
   };
 
   return (
-    <div className="h-9 flex items-center gap-1 max-w-full bg-gray-200 rounded-sm px-1">
+    <div className="flex h-9 max-w-full items-center gap-1 rounded-sm bg-gray-200 px-1">
       <span className="text-sm text-slate-950">TIER</span>
 
       <div className="flex items-center">
         <button
           aria-label="Decrease tier"
           type="button"
-          className="bg-slate-400 rounded py-[3px] px-[7px] text-slate-950 border border-slate-500/40 shadow-[0_3px_0_rgb(0_0_0/0.1)]"
+          className="relative z-10 rounded border border-slate-500/40 bg-slate-400 px-[7px] py-[3px] text-slate-950 shadow-[0_3px_0_rgb(0_0_0/0.1)]"
           disabled={tier <= minTier}
           onClick={() => setTier(tier - 1)}
         >
@@ -45,17 +45,17 @@ export default function TierStepper({
         </button>
 
         <label htmlFor="tier-select">
-          <div className="relative">
+          <div className="relative -mx-px z-0">
             <select
               id="tier-select"
-              className="bg-slate-600 text-sm text-indigo-100 px-2 pr-8 appearance-none rounded-none shadow-[0_3px_0_rgb(0_0_0/0.1)]"
+              className="appearance-none rounded-none bg-slate-600 px-2 pr-8 text-sm text-indigo-100 shadow-[0_3px_0_rgb(0_0_0/0.1)]"
               value={tier}
               onChange={handleTierChange}
             >
               {options}
             </select>
-            <span className="text-indigo-100 pointer-events-none absolute inset-y-0 right-2 flex items-center">
-              <ChevronDownIcon className="w-4 h-4" />
+            <span className="pointer-events-none absolute inset-y-0 right-2 flex items-center text-indigo-100">
+              <ChevronDownIcon className="h-4 w-4" />
             </span>
           </div>
         </label>
@@ -63,7 +63,7 @@ export default function TierStepper({
         <button
           aria-label="Increase tier"
           type="button"
-          className="bg-slate-400 rounded py-[3px] px-[7px] text-slate-950 border border-slate-500/40 shadow-[0_3px_0_rgb(0_0_0/0.1)]"
+          className="relative z-10 rounded border border-slate-500/40 bg-slate-400 px-[7px] py-[3px] text-slate-950 shadow-[0_3px_0_rgb(0_0_0/0.1)]"
           disabled={tier >= maxTier}
           onClick={() => setTier(tier + 1)}
         >

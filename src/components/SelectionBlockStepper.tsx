@@ -49,12 +49,12 @@ export default function SelectionBlockStepper({
   };
 
   const buttonClasses =
-    "bg-slate-400 rounded py-[3px] px-[7px] text-slate-950 border border-slate-500/40 shadow-[0_3px_0_rgb(0_0_0/0.2)] transition-transform duration-50 ease-out active:duration-0 active:scale-[0.99] active:translate-y-[2px] active:shadow-[0_1px_0_rgb(0_0_0/0.2)] active:bg-slate-500/50";
+    "bg-slate-400 rounded py-[4px] px-[8px] text-slate-950 border border-slate-500/40 shadow-[0_3px_0_rgb(0_0_0/0.2)] transition-transform duration-50 ease-out active:duration-0 active:scale-[0.99] active:translate-y-[2px] active:shadow-[0_1px_0_rgb(0_0_0/0.2)] active:bg-slate-500/50";
 
   return (
     <div className="flex items-center gap-2">
       <button
-        aria-label="Decrease card removals"
+        aria-label="Decrement"
         type="button"
         className={buttonClasses}
         disabled={!canDecrement}
@@ -68,7 +68,7 @@ export default function SelectionBlockStepper({
       </span>
 
       <button
-        aria-label="Increase card removals"
+        aria-label="Increment"
         type="button"
         className={buttonClasses}
         disabled={!canIncrement}

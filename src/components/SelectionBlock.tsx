@@ -49,16 +49,16 @@ export default function SelectionBlock({
             {labelWordElements}
           </div>
 
-          <span className="w-15 rounded bg-gray-100 text-md text-slate-950">
+          <span className="w-15 pl-1 rounded bg-gray-100 text-md text-slate-950 border border-slate-300">
             {config.faintMemoryContribution(stepperCount)}
           </span>
 
-          <div className="ml-auto flex self-stretch items-center gap-3 border-l border-gray-400 pl-3">
+          <div className="ml-auto flex self-stretch items-center gap-4 border-l border-gray-400 pl-4 pr-2">
             <button
               type="button"
               aria-label="Show details"
               onClick={() => onToggleExpand(config.id)}
-              className="h-4 w-4 rounded-full text-blue-500 hover:bg-blue-100"
+              className="rounded-full text-blue-500 hover:bg-blue-100"
             >
               {isExpanded ? <ExpandMinusIcon /> : <QuestionCircleIcon />}
             </button>

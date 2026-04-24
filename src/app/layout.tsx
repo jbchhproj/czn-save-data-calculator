@@ -1,23 +1,25 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono, Allerta_Stencil } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import AppContainer from "@/components/AppContainer";
 
-const allertaStencil = Allerta_Stencil({
+const allertaStencil = localFont({
+  src: "./fonts/allerta-stencil-latin.woff2",
   variable: "--font-allerta-stencil",
-  subsets: ["latin"],
   weight: "400",
+  style: "normal",
 });
 
-const geistSans = Geist({
+const geistSans = localFont({
+  src: "./fonts/geist-sans-latin.woff2",
   variable: "--font-geist-sans",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  style: "normal",
 });
 
-const geistMono = Geist_Mono({
+const geistMono = localFont({
+  src: "./fonts/geist-mono-latin.woff2",
   variable: "--font-geist-mono",
-  subsets: ["latin"],
+  style: "normal",
 });
 
 export const metadata: Metadata = {

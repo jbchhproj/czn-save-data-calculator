@@ -6,7 +6,7 @@ import { SelectionBlockConfigs } from "@/data/SelectionBlockConfigs";
 
 function SiteFooter() {
   return (
-    <div className="w-full p-2 text-center text-xs text-gray-500 border-t border-gray-200">
+    <div className="p-2 text-center text-xs text-gray-500">
       <p>
         This is an unofficial community tool for Chaos Zero Nightmare. Chaos
         Zero Nightmare and all related assets are trademarks of Smilegate &amp;

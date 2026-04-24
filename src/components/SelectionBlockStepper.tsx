@@ -63,7 +63,7 @@ export default function SelectionBlockStepper({
         <MinusIcon />
       </button>
 
-      <span className="justify-center text-md text-slate-950">
+      <span className="inline-flex w-[3ch] justify-center text-md tabular-nums text-slate-950">
         {stepperCount}
       </span>
 

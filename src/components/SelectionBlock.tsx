@@ -44,7 +44,7 @@ export default function SelectionBlock({
         <div className="pointer-events-none absolute bottom-[-6px] left-[-0.5rem] right-0 h-3 rounded-br-lg border-b-2 border-gray-500 shadow-[0_2px_2px_rgba(0,0,0,0.20)]" />
 
         {/* main block */}
-        <div className="-ml-2 flex h-17 w-[calc(100%+0.5rem)] items-center gap-3 overflow-hidden rounded-r bg-gray-300/40 px-1">
+        <div className="-ml-2 flex h-17 w-[calc(100%+0.5rem)] items-center gap-3 overflow-hidden rounded-r bg-gray-400/40 px-1">
           <div className="-ml-4 flex h-full w-30 shrink-0 flex-col justify-center bg-gray-400/40 pl-5 text-slate-950">
             {labelWordElements}
           </div>

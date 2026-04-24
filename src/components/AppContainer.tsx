@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import { useState, useEffect } from "react";
 import MainContent from "./MainContent";
 import { SelectionBlockConfigs } from "@/data/SelectionBlockConfigs";
+import FloatingParticles from "@/components/vfx/FloatingParticles";
 
 function SiteFooter() {
   return (
@@ -67,23 +68,32 @@ export default function AppContainer({
   };
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <Header
-        isDeepTraumaActive={isDeepTraumaActive}
-        setIsDeepTraumaActive={setIsDeepTraumaActive}
-        tier={tier}
-        totalFaintMemory={totalFaintMemory}
-        setTier={setTier}
-        onReset={handleReset}
-      />
-      <main>{children}</main>
-      <MainContent
-        faintMemories={faintMemories}
-        setFaintMemories={setFaintMemories}
-        cardRemovals={cardRemovals}
-        setCardRemovals={setCardRemovals}
-      />
-      <SiteFooter />
+    <div className="relative min-h-screen flex flex-col">
+      {/* background layer */}
+      <FloatingParticles />
+
+      {/* content layer */}
+      <div className="relative z-10 flex flex-col min-h-screen">
+        <Header
+          isDeepTraumaActive={isDeepTraumaActive}
+          setIsDeepTraumaActive={setIsDeepTraumaActive}
+          tier={tier}
+          totalFaintMemory={totalFaintMemory}
+          setTier={setTier}
+          onReset={handleReset}
+        />
+
+        <main>{children}</main>
+
+        <MainContent
+          faintMemories={faintMemories}
+          setFaintMemories={setFaintMemories}
+          cardRemovals={cardRemovals}
+          setCardRemovals={setCardRemovals}
+        />
+
+        <SiteFooter />
+      </div>
     </div>
   );
 }

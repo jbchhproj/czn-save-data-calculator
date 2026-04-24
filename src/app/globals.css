@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f1f1f5;
+  --background: #cbd5e1;
   --foreground: #171717;
   --font-sans: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
 }
@@ -15,4 +15,50 @@ body {
   font-weight: 500;
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
+}
+
+.floating-particles {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.floating-particle {
+  position: absolute;
+  bottom: -10%;
+
+  /* sharper leaf-like shape */
+  border-radius: 90% 5% 85% 10% / 10% 85% 15% 90%;
+  transform: scaleX(0.6);
+
+  /* subtle glow */
+  background: radial-gradient(
+    circle at 30% 30%,
+    rgba(255, 255, 255, 0.95),
+    rgba(255, 255, 255, 0.4)
+  );
+
+  filter: blur(0.2px);
+
+  animation-name: float-up;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes float-up {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(0.6);
+  }
+
+  10% {
+    opacity: var(--particle-opacity);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate3d(var(--drift-x), -120vh, 0) rotate(120deg) scale(0.5);
+  }
 }

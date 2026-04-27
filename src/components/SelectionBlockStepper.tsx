@@ -49,7 +49,7 @@ export default function SelectionBlockStepper({
   };
 
   const buttonClasses =
-    "bg-slate-400 rounded py-[4px] px-[8px] text-slate-950 border border-slate-500/40 shadow-[0_3px_0_rgb(0_0_0/0.2)] transition-transform duration-50 ease-out active:duration-0 active:scale-[0.99] active:translate-y-[2px] active:shadow-[0_1px_0_rgb(0_0_0/0.2)] active:bg-slate-500/50";
+    "bg-slate-400 rounded py-[6px] px-[10px] text-slate-950 border border-slate-500/40 shadow-[0_3px_0_rgb(0_0_0/0.2)] transition-transform duration-50 ease-out active:duration-0 active:scale-[0.99] active:translate-y-[2px] active:shadow-[0_1px_0_rgb(0_0_0/0.2)] active:bg-slate-500/50";
 
   return (
     <div className="flex items-center gap-3 pr-2">
@@ -63,7 +63,7 @@ export default function SelectionBlockStepper({
         <MinusIcon />
       </button>
 
-      <span className="inline-flex w-[3ch] justify-center text-md tabular-nums text-slate-950">
+      <span className="inline-flex w-[3ch] justify-center text-md tabular-nums text-slate-950 select-none [-webkit-touch-callout:none]">
         {stepperCount}
       </span>
 

@@ -28,7 +28,7 @@ export default function TierStepper({
   };
 
   const buttonClasses =
-    "relative z-10 rounded border border-slate-500/40 bg-slate-400 px-[8px] py-[4px] text-slate-950 shadow-[0_3px_0_rgb(0_0_0/0.2)] transition-transform duration-50 ease-out active:duration-0 active:scale-99 active:translate-y-[2px] active:shadow-[0_1px_0_rgb(0_0_0/0.2)] active:bg-slate-500/50";
+    "relative z-10 rounded border border-slate-500/40 bg-slate-400 py-[6px] px-[10px] text-slate-950 shadow-[0_3px_0_rgb(0_0_0/0.2)] transition-transform duration-50 ease-out active:duration-0 active:scale-99 active:translate-y-[2px] active:shadow-[0_1px_0_rgb(0_0_0/0.2)] active:bg-slate-500/50";
 
   return (
     <div className="flex items-center justify-end gap-3">

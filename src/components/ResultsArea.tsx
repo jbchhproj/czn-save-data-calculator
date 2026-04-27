@@ -1,19 +1,28 @@
 import { clsx } from "clsx";
+import FaceFrownIcon from "./icons/FaceFrownIcon";
+import FaceSmileIcon from "./icons/FaceSmileIcon";
 
 interface ResultsSectionProps {
   tier: number;
   totalFaintMemory: number;
+  isDeepTraumaActive: boolean;
 }
 
 export default function ResultsSection({
   tier,
   totalFaintMemory,
+  isDeepTraumaActive,
 }: ResultsSectionProps) {
   const faintMemoryLimit = 20 + tier * 10;
 
   return (
     <div className="-ml-8 flex flex-col w-[calc(100%+2rem)] rounded-r border-b-2 border-amber-400 bg-amber-200 py-1 pl-8 pr-2 text-xl text-slate-950 [font-family:var(--font-allerta-stencil)]">
-      <div>
+      <div className="inline-flex items-center gap-1">
+        {isDeepTraumaActive ? (
+          <FaceFrownIcon className="size-5" />
+        ) : (
+          <FaceSmileIcon className="size-5" />
+        )}
         <span>FAINT</span>
       </div>
       <div>

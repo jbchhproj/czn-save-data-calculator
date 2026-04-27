@@ -1,7 +1,7 @@
 .floating-particles {
   position: fixed;
   inset: 0;
-  z-index: 0;
+  z-index: 5;
   pointer-events: none;
   overflow: hidden;
 }
@@ -10,18 +10,19 @@
   position: absolute;
   bottom: -10%;
 
-  /* sharper leaf-like shape */
   border-radius: 90% 5% 85% 10% / 10% 85% 15% 90%;
   transform: scaleX(0.6);
 
-  /* subtle glow */
   background: radial-gradient(
     circle at 30% 30%,
-    rgba(255, 255, 255, 0.95),
-    rgba(255, 255, 255, 0.4)
+    rgba(255, 255, 255, 1),
+    rgba(255, 255, 255, 0.75) 45%,
+    rgba(255, 255, 255, 0.2) 100%
   );
 
-  filter: blur(0.2px);
+  filter: blur(0.6px);
+
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
 
   animation-name: float-up;
   animation-timing-function: linear;

@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --background: #e2e8f0;
+  --background: #d9e0eb;
   --foreground: #171717;
   --font-sans: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
 }

@@ -16,8 +16,8 @@ export default function FloatingParticles() {
   const [particles, setParticles] = useState<Particle[]>([]);
 
   useEffect(() => {
-    const generated = Array.from({ length: 30 }, (_, i) => {
-      const size = 5 + Math.random() * 7;
+    const generated = Array.from({ length: 40 }, (_, i) => {
+      const size = 5 + Math.random() * 9;
       const speedBias = Math.random();
 
       return {

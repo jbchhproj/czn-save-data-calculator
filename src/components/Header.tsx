@@ -24,7 +24,11 @@ export default function Header({
   return (
     <header className="sticky top-0 z-50 flex items-stretch gap-2 bg-slate-600 p-2 shadow-md/30">
       <div className="min-w-0 flex flex-1">
-        <ResultsArea tier={tier} totalFaintMemory={totalFaintMemory} />
+        <ResultsArea
+          tier={tier}
+          totalFaintMemory={totalFaintMemory}
+          isDeepTraumaActive={isDeepTraumaActive}
+        />
       </div>
 
       <div className="flex flex-col gap-2">

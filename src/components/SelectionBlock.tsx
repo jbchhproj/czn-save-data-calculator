@@ -44,8 +44,8 @@ export default function SelectionBlock({
         <div className="pointer-events-none absolute bottom-[-6px] left-[-0.5rem] right-0 h-3 rounded-br-lg border-b-2 border-gray-500 shadow-[0_2px_2px_rgba(0,0,0,0.20)]" />
 
         {/* main block */}
-        <div className="-ml-2 flex h-17 w-[calc(100%+0.5rem)] items-center gap-3 overflow-hidden rounded-r bg-gray-500/10 px-1">
-          <div className="-ml-4 flex h-full w-30 shrink-0 flex-col justify-center bg-gray-600/10 pl-5 text-slate-950">
+        <div className="-ml-2 flex h-17 w-[calc(100%+0.5rem)] items-center gap-3 overflow-hidden rounded-r bg-gray-500/30 px-1">
+          <div className="-ml-4 flex h-full w-30 shrink-0 flex-col justify-center bg-gray-600/30 pl-5 text-slate-950">
             {labelWordElements}
           </div>
 
@@ -75,7 +75,7 @@ export default function SelectionBlock({
       </div>
 
       {isExpanded && (
-        <div className="bg-gray-200 pl-8 py-3 text-sm text-slate-700">
+        <div className="bg-gray-200/50 pl-8 py-3 text-sm text-slate-700">
           {descriptionList}
         </div>
       )}

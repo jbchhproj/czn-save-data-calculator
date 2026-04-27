@@ -1,4 +1,6 @@
 @import "tailwindcss";
+@import "./particles.css";
+@import "./trauma-burst.css";
 
 :root {
   --background: #d9e0eb;

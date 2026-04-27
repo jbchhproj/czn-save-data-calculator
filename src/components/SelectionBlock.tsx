@@ -49,7 +49,7 @@ export default function SelectionBlock({
             {labelWordElements}
           </div>
 
-          <span className="w-15 pl-1 rounded bg-gray-100 text-md text-slate-950 border border-slate-300">
+          <span className="w-15 pl-1 rounded bg-gray-100 text-md text-slate-950 border border-slate-300 select-none [-webkit-touch-callout:none]">
             {config.faintMemoryContribution(stepperCount)}
           </span>
 

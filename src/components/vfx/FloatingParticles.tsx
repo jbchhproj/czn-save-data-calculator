@@ -26,7 +26,7 @@ export default function FloatingParticles() {
         size: `${size}px`,
         duration: `${6 + speedBias * speedBias * 18}s`, // slower bias
         delay: `${Math.random() * -20}s`,
-        opacity: 0.3 + Math.random() * 0.6,
+        opacity: 0.55 + Math.random() * 0.6,
         driftX: `${(Math.random() - 0.5) * 80}px`, // horizontal drift
       };
     });

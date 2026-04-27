@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import "./particles.css";
+import "./deep-trauma-gradient.css";
 import AppContainer from "@/components/AppContainer";
 
 const allertaStencil = localFont({

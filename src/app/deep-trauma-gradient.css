@@ -1,0 +1,50 @@
+.deep-trauma-gradient {
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+  z-index: 0;
+
+  opacity: 0;
+
+  transition:
+    opacity 300ms ease,
+    filter 300ms ease;
+
+  background: radial-gradient(
+    circle at 85% 5%,
+    rgba(150, 130, 190, 0.45) 0%,
+    rgba(140, 120, 185, 0.4) 18%,
+    rgba(125, 105, 175, 0.32) 35%,
+    rgba(110, 95, 165, 0.22) 50%,
+    rgba(217, 224, 235, 0.92) 70%,
+    rgba(217, 224, 235, 1) 100%
+  );
+
+  filter: blur(80px); /* softer */
+}
+
+.deep-trauma-gradient.active {
+  opacity: 1;
+  filter: blur(70px);
+}
+
+/* mobile */
+@media (max-width: 640px) {
+  .deep-trauma-gradient {
+    background: radial-gradient(
+      circle at 90% 5%,
+      rgba(150, 130, 190, 0.45) 0%,
+      rgba(135, 115, 180, 0.38) 22%,
+      rgba(120, 100, 170, 0.3) 42%,
+      rgba(217, 224, 235, 0.92) 70%,
+      rgba(217, 224, 235, 1) 100%
+    );
+
+    filter: blur(90px);
+  }
+
+  .deep-trauma-gradient.active {
+    filter: blur(75px);
+  }
+}

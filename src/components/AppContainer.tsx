@@ -71,9 +71,9 @@ export default function AppContainer({
     <div className="relative min-h-screen flex flex-col">
       {/* background layer */}
       <FloatingParticles />
-      <div
+      {/* <div
         className={`deep-trauma-gradient ${isDeepTraumaActive ? "active" : ""}`}
-      />
+      /> */}
 
       {/* content layer */}
       <div className="relative z-10 flex flex-col min-h-screen">

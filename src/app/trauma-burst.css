@@ -165,7 +165,6 @@
   filter: blur(2px);
 }
 
-/* mobile */
 @media (max-width: 640px) {
   .deep-trauma-burst {
     top: -120vh;
@@ -174,7 +173,7 @@
     width: 180vw;
     height: 290vh;
 
-    transform: translateX(65vw) translateY(12vh) scaleX(0.25) scaleY(0.75);
+    transform: translateX(35vw) translateY(8vh) scaleX(0.45) scaleY(0.85);
   }
 
   .deep-trauma-burst.active {

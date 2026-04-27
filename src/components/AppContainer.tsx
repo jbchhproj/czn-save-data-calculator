@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import MainContent from "./MainContent";
 import { SelectionBlockConfigs } from "@/data/SelectionBlockConfigs";
 import FloatingParticles from "@/components/vfx/FloatingParticles";
+import DeepTraumaBurst from "@/components/vfx/DeepTraumaBurst";
 
 function SiteFooter() {
   return (
@@ -68,9 +69,10 @@ export default function AppContainer({
   };
 
   return (
-    <div className="relative min-h-screen flex flex-col">
+    <div className="relative min-h-screen flex flex-col overflow-x-clip">
       {/* background layer */}
       <FloatingParticles />
+      <DeepTraumaBurst active={isDeepTraumaActive} />
 
       {/* content layer */}
       <div className="relative z-10 flex flex-col min-h-screen">

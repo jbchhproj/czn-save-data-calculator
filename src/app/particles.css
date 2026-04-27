@@ -11,18 +11,19 @@
   bottom: -10%;
 
   border-radius: 90% 5% 85% 10% / 10% 85% 15% 90%;
-  transform: scaleX(0.6);
 
   background: radial-gradient(
     circle at 30% 30%,
     rgba(255, 255, 255, 1),
-    rgba(255, 255, 255, 0.75) 45%,
-    rgba(255, 255, 255, 0.2) 100%
+    rgba(255, 255, 255, 0.65) 45%,
+    rgba(255, 255, 255, 0.15) 100%
   );
 
-  filter: blur(0.6px);
+  /* cheaper than blur + box-shadow */
+  filter: none;
+  box-shadow: none;
 
-  box-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+  will-change: transform, opacity;
 
   animation-name: float-up;
   animation-timing-function: linear;
@@ -32,15 +33,19 @@
 @keyframes float-up {
   0% {
     opacity: 0;
-    transform: translate3d(0, 0, 0) rotate(0deg) scale(0.6);
+    transform: translate3d(0, 0, 0) rotate(0deg) scaleX(0.6) scaleY(1);
   }
 
   10% {
     opacity: var(--particle-opacity);
   }
 
+  85% {
+    opacity: var(--particle-opacity);
+  }
+
   100% {
     opacity: 0;
-    transform: translate3d(var(--drift-x), -120vh, 0) rotate(120deg) scale(0.5);
+    transform: translate3d(var(--drift-x), -120vh, 0) rotate(80deg) scaleX(0.45) scaleY(0.8);
   }
 }

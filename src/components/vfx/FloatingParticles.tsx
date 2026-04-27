@@ -12,26 +12,30 @@ type Particle = {
   driftX: string;
 };
 
+const PARTICLE_COUNT = 20;
+
+function createParticles(): Particle[] {
+  return Array.from({ length: PARTICLE_COUNT }, (_, i) => {
+    const size = 4 + Math.random() * 8;
+    const speedBias = Math.random();
+
+    return {
+      id: i,
+      left: `${Math.random() * 100}%`,
+      size: `${size}px`,
+      duration: `${8 + speedBias * speedBias * 18}s`,
+      delay: `${Math.random() * -24}s`,
+      opacity: 0.45 + Math.random() * 0.45,
+      driftX: `${(Math.random() - 0.5) * 70}px`,
+    };
+  });
+}
+
 export default function FloatingParticles() {
   const [particles, setParticles] = useState<Particle[]>([]);
 
   useEffect(() => {
-    const generated = Array.from({ length: 40 }, (_, i) => {
-      const size = 5 + Math.random() * 9;
-      const speedBias = Math.random();
-
-      return {
-        id: i,
-        left: `${Math.random() * 100}%`,
-        size: `${size}px`,
-        duration: `${6 + speedBias * speedBias * 18}s`, // slower bias
-        delay: `${Math.random() * -20}s`,
-        opacity: 0.55 + Math.random() * 0.6,
-        driftX: `${(Math.random() - 0.5) * 80}px`, // horizontal drift
-      };
-    });
-
-    setParticles(generated);
+    setParticles(createParticles());
   }, []);
 
   return (

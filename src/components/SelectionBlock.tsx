@@ -49,11 +49,11 @@ export default function SelectionBlock({
             {labelWordElements}
           </div>
 
-          <span className="w-15 pl-1 rounded bg-gray-100 text-md text-slate-950 border border-slate-300 select-none [-webkit-touch-callout:none]">
+          <span className="pl-1 rounded bg-gray-100 text-md text-slate-950 border border-slate-300 select-none [-webkit-touch-callout:none] tabular-nums w-[7ch]">
             {config.faintMemoryContribution(stepperCount)}
           </span>
 
-          <div className="ml-auto flex self-stretch items-center gap-4 border-l border-gray-400 pl-3">
+          <div className="ml-auto flex self-stretch items-center gap-2 border-l border-gray-400 pl-3">
             <button
               type="button"
               aria-label="Show details"

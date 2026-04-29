@@ -23,7 +23,7 @@ export default function ResultsSection({
         ) : (
           <FaceSmileIcon className="size-5" />
         )}
-        <span>DEV</span>
+        <span>FAINT</span>
       </div>
       <div>
         <span>MEMORY</span>

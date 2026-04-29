@@ -5,6 +5,7 @@ interface MainContentProps {
   setFaintMemories: (value: number[]) => void;
   cardRemovals: number;
   setCardRemovals: (value: number) => void;
+  isPostProcessingEnabled: boolean;
 }
 
 export default function MainContent({
@@ -12,6 +13,7 @@ export default function MainContent({
   setFaintMemories,
   cardRemovals,
   setCardRemovals,
+  isPostProcessingEnabled,
 }: MainContentProps) {
   return (
     <main>
@@ -21,6 +23,7 @@ export default function MainContent({
           setFaintMemories={setFaintMemories}
           cardRemovals={cardRemovals}
           setCardRemovals={setCardRemovals}
+          isPostProcessingEnabled={isPostProcessingEnabled}
         />
       </div>
     </main>

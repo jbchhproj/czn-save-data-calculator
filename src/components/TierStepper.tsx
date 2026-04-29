@@ -8,12 +8,14 @@ interface TierStepperProps {
   tier: number;
   setTier: (tier: number) => void;
   isDeepTraumaActive: boolean;
+  isPostProcessingEnabled: boolean;
 }
 
 export default function TierStepper({
   tier,
   setTier,
   isDeepTraumaActive,
+  isPostProcessingEnabled,
 }: TierStepperProps) {
   const minTier = isDeepTraumaActive ? 2 : 1;
   const maxTier = isDeepTraumaActive ? 16 : 15;
@@ -36,7 +38,9 @@ export default function TierStepper({
       <span
         className={clsx(
           "text-md",
-          isDeepTraumaActive ? "text-amber-200" : "text-slate-950",
+          isPostProcessingEnabled && isDeepTraumaActive
+            ? "text-amber-200"
+            : "text-slate-950",
         )}
       >
         TIER

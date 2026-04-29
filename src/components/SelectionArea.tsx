@@ -7,6 +7,7 @@ interface SelectionAreaProps {
   setFaintMemories: (value: number[]) => void;
   cardRemovals: number;
   setCardRemovals: (value: number) => void;
+  isPostProcessingEnabled: boolean;
 }
 
 export default function SelectionArea({
@@ -14,6 +15,7 @@ export default function SelectionArea({
   setFaintMemories,
   cardRemovals,
   setCardRemovals,
+  isPostProcessingEnabled,
 }: SelectionAreaProps) {
   const [expandedBlockId, setExpandedBlockId] = useState<string | null>(null);
   const handleToggleExpand = (id: string) => {
@@ -38,6 +40,7 @@ export default function SelectionArea({
           setCardRemovals={setCardRemovals}
           isExpanded={expandedBlockId === config.id}
           onToggleExpand={handleToggleExpand}
+          isPostProcessingEnabled={isPostProcessingEnabled}
         />
       ))}
     </>

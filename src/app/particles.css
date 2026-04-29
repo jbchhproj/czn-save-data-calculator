@@ -10,7 +10,7 @@
   position: absolute;
   bottom: -10%;
 
-  border-radius: 90% 5% 85% 10% / 10% 85% 15% 90%;
+  border-radius: 65% 35% 58% 42% / 45% 62% 38% 55%;
 
   background: radial-gradient(
     circle at 30% 30%,
@@ -28,6 +28,17 @@
   animation-name: float-up;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
+}
+
+.phone-particle-indicator {
+  top: 50%;
+  left: 50%;
+  bottom: auto;
+  width: 4px;
+  height: 4px;
+  opacity: 0.9;
+  animation-name: phone-particle-spin;
+  animation-duration: 1.8s;
 }
 
 @keyframes float-up {
@@ -48,5 +59,15 @@
     opacity: 0;
     transform: translate3d(var(--drift-x), -120vh, 0) rotate(80deg) scaleX(0.45)
       scaleY(0.8);
+  }
+}
+
+@keyframes phone-particle-spin {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg) scaleX(0.6) scaleY(1);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg) scaleX(0.6) scaleY(1);
   }
 }

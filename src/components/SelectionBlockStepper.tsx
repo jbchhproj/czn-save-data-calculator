@@ -2,6 +2,7 @@ import { SelectionBlockConfig } from "@/types/SelectionBlockConfig";
 import { CARD_REMOVAL_LIMIT } from "@/data/SelectionBlockConfigs";
 import PlusIcon from "./icons/PlusIcon";
 import MinusIcon from "./icons/MinusIcon";
+import clsx from "clsx";
 
 interface SelectionBlockStepperProps {
   config: SelectionBlockConfig;
@@ -9,6 +10,7 @@ interface SelectionBlockStepperProps {
   setStepperCount: (value: number) => void;
   cardRemovals: number;
   setCardRemovals: (value: number) => void;
+  isPostProcessingEnabled: boolean;
 }
 
 export default function SelectionBlockStepper({
@@ -17,6 +19,7 @@ export default function SelectionBlockStepper({
   setStepperCount,
   cardRemovals,
   setCardRemovals,
+  isPostProcessingEnabled,
 }: SelectionBlockStepperProps) {
   const isRemoval = config.type === "removal";
   const canIncrement =
@@ -48,8 +51,10 @@ export default function SelectionBlockStepper({
     }
   };
 
-  const buttonClasses =
-    "bg-slate-400 rounded py-[6px] px-[10px] text-slate-950 border border-slate-500/40 shadow-[0_3px_0_rgb(0_0_0/0.2)] transition-transform duration-50 ease-out active:duration-0 active:scale-[0.99] active:translate-y-[2px] active:shadow-[0_1px_0_rgb(0_0_0/0.2)] active:bg-slate-500/50";
+  const buttonClasses = clsx(
+    "bg-slate-400 rounded py-[6px] px-[10px] text-slate-950 border border-slate-500/40 shadow-[0_3px_0_rgb(0_0_0/0.2)] transition-transform duration-50 ease-out active:duration-0 active:scale-[0.99] active:translate-y-[2px] active:shadow-[0_1px_0_rgb(0_0_0/0.2)]",
+    isPostProcessingEnabled && "active:bg-slate-500/50",
+  );
 
   return (
     <div className="flex items-center gap-3 pr-2">

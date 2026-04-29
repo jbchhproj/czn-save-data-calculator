@@ -12,6 +12,8 @@ interface TierSelectorProps {
   isDeepTraumaActive: boolean;
   setIsDeepTraumaActive: (isActive: boolean) => void;
   onReset: () => void;
+  isPostProcessingEnabled: boolean;
+  setIsPostProcessingEnabled: (isEnabled: boolean) => void;
 }
 
 export default function Header({
@@ -21,6 +23,8 @@ export default function Header({
   isDeepTraumaActive,
   setIsDeepTraumaActive,
   onReset,
+  isPostProcessingEnabled,
+  setIsPostProcessingEnabled,
 }: TierSelectorProps) {
   return (
     <header className="sticky top-0 z-50 flex items-stretch gap-2 bg-slate-600 p-2 shadow-md/30">
@@ -34,7 +38,28 @@ export default function Header({
 
       <div className="flex flex-col gap-2">
         <div className="flex flex-1 items-center justify-end gap-5 p-2 rounded bg-slate-200 px-3 border-b-2 border-r-2 border-slate-400">
-          <PhoneIcon />
+          <button
+            aria-label="Toggle post processing effects"
+            aria-pressed={isPostProcessingEnabled}
+            className={clsx(
+              "relative rounded py-[3px] px-[7px] border shadow-[0_3px_0_rgb(0_0_0/0.2)] transition-transform duration-50 ease-out active:duration-0 active:scale-[0.99] active:translate-y-[2px] active:shadow-[0_1px_0_rgb(0_0_0/0.2)]",
+              isPostProcessingEnabled
+                ? "bg-slate-800 border-slate-800/40 text-indigo-100 active:bg-slate-700"
+                : "bg-slate-300 border-slate-500/40 text-slate-700 active:bg-slate-400",
+            )}
+            onClick={() =>
+              setIsPostProcessingEnabled(!isPostProcessingEnabled)
+            }
+            type="button"
+          >
+            {isPostProcessingEnabled && (
+              <span
+                aria-hidden="true"
+                className="floating-particle phone-particle-indicator"
+              />
+            )}
+            <PhoneIcon />
+          </button>
           <ResetButton onReset={onReset} />
           <DeepTrauma
             isDeepTraumaActive={isDeepTraumaActive}
@@ -45,13 +70,16 @@ export default function Header({
         <div
           className={clsx(
             "flex flex-1 items-center p-2 rounded border-b-2 border-r-2 border-slate-400",
-            isDeepTraumaActive ? "bg-slate-800" : "bg-slate-200",
+            isPostProcessingEnabled && isDeepTraumaActive
+              ? "bg-slate-800"
+              : "bg-slate-200",
           )}
         >
           <TierSelector
             tier={tier}
             setTier={setTier}
             isDeepTraumaActive={isDeepTraumaActive}
+            isPostProcessingEnabled={isPostProcessingEnabled}
           />
         </div>
       </div>

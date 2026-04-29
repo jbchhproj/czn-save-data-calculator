@@ -11,6 +11,7 @@ interface SelectionBlockProps {
   setCardRemovals: (value: number) => void;
   isExpanded: boolean;
   onToggleExpand: (id: string) => void;
+  isPostProcessingEnabled: boolean;
 }
 
 export default function SelectionBlock({
@@ -21,6 +22,7 @@ export default function SelectionBlock({
   setCardRemovals,
   isExpanded,
   onToggleExpand,
+  isPostProcessingEnabled,
 }: SelectionBlockProps) {
   const descriptionList = (
     <ul className="list-disc">
@@ -69,6 +71,7 @@ export default function SelectionBlock({
               setStepperCount={setStepperCount}
               cardRemovals={cardRemovals}
               setCardRemovals={setCardRemovals}
+              isPostProcessingEnabled={isPostProcessingEnabled}
             />
           </div>
         </div>

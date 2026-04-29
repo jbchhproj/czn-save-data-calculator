@@ -36,6 +36,7 @@ export default function AppContainer({
   children: React.ReactNode;
 }) {
   const [isDeepTraumaActive, setIsDeepTraumaActive] = useState(false);
+  const [isPostProcessingEnabled, setIsPostProcessingEnabled] = useState(true);
   const [tier, setTier] = useState(1);
   const [faintMemories, setFaintMemories] = useState(() =>
     Array(SelectionBlockConfigs.length).fill(0),
@@ -77,9 +78,11 @@ export default function AppContainer({
   return (
     <div className="relative min-h-screen flex flex-col">
       {/* background layer */}
-      <FloatingParticles />
+      {isPostProcessingEnabled && <FloatingParticles />}
       <div
-        className={`deep-trauma-gradient ${isDeepTraumaActive ? "active" : ""}`}
+        className={`deep-trauma-gradient ${
+          isPostProcessingEnabled && isDeepTraumaActive ? "active" : ""
+        }`}
       />
 
       {/* content layer */}
@@ -91,6 +94,8 @@ export default function AppContainer({
           totalFaintMemory={totalFaintMemory}
           setTier={setTier}
           onReset={handleReset}
+          isPostProcessingEnabled={isPostProcessingEnabled}
+          setIsPostProcessingEnabled={setIsPostProcessingEnabled}
         />
 
         <main>{children}</main>
@@ -100,6 +105,7 @@ export default function AppContainer({
           setFaintMemories={setFaintMemories}
           cardRemovals={cardRemovals}
           setCardRemovals={setCardRemovals}
+          isPostProcessingEnabled={isPostProcessingEnabled}
         />
 
         <SiteFooter />

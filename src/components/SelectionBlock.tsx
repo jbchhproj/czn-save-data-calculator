@@ -78,7 +78,7 @@ export default function SelectionBlock({
       </div>
 
       {isExpanded && (
-        <div className="bg-gray-200 pl-8 py-3 text-sm text-slate-700">
+        <div className="bg-gray-200/60 pl-8 py-3 text-sm text-slate-700">
           {descriptionList}
         </div>
       )}

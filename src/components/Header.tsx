@@ -10,7 +10,7 @@ interface TierSelectorProps {
   totalFaintMemory: number;
   setTier: (tier: number) => void;
   isDeepTraumaActive: boolean;
-  setIsDeepTraumaActive: (isActive: boolean) => void;
+  onToggleDeepTrauma: () => void;
   onReset: () => void;
   isPostProcessingEnabled: boolean;
   setIsPostProcessingEnabled: (isEnabled: boolean) => void;
@@ -21,7 +21,7 @@ export default function Header({
   totalFaintMemory,
   setTier,
   isDeepTraumaActive,
-  setIsDeepTraumaActive,
+  onToggleDeepTrauma,
   onReset,
   isPostProcessingEnabled,
   setIsPostProcessingEnabled,
@@ -47,9 +47,7 @@ export default function Header({
                 ? "bg-slate-800 border-slate-800/40 text-indigo-100 active:bg-slate-700"
                 : "bg-slate-300 border-slate-500/40 text-slate-700 active:bg-slate-400",
             )}
-            onClick={() =>
-              setIsPostProcessingEnabled(!isPostProcessingEnabled)
-            }
+            onClick={() => setIsPostProcessingEnabled(!isPostProcessingEnabled)}
             type="button"
           >
             {isPostProcessingEnabled && (
@@ -63,7 +61,7 @@ export default function Header({
           <ResetButton onReset={onReset} />
           <DeepTrauma
             isDeepTraumaActive={isDeepTraumaActive}
-            setIsDeepTraumaActive={setIsDeepTraumaActive}
+            onToggleDeepTrauma={onToggleDeepTrauma}
           />
         </div>
 

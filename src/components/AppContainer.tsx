@@ -43,14 +43,12 @@ export default function AppContainer({
   );
   const [cardRemovals, setCardRemovals] = useState(0);
 
-  const handleDeepTraumaChange = (isActive: boolean) => {
-    if (isActive === isDeepTraumaActive) {
-      return;
-    }
+  const handleToggleDeepTrauma = () => {
+    const nextIsActive = !isDeepTraumaActive;
 
-    setIsDeepTraumaActive(isActive);
+    setIsDeepTraumaActive(nextIsActive);
     setTier((previousTier) => {
-      if (isActive) {
+      if (nextIsActive) {
         if (previousTier < 2) {
           return 2;
         }
@@ -89,7 +87,7 @@ export default function AppContainer({
       <div className="relative z-10 flex flex-col min-h-screen">
         <Header
           isDeepTraumaActive={isDeepTraumaActive}
-          setIsDeepTraumaActive={handleDeepTraumaChange}
+          onToggleDeepTrauma={handleToggleDeepTrauma}
           tier={tier}
           totalFaintMemory={totalFaintMemory}
           setTier={setTier}

@@ -1,9 +1,9 @@
 import clsx from "clsx";
-import DeepTrauma from "./DeepTrauma";
-import PhoneIcon from "./icons/PhoneIcon";
-import ResetButton from "./ResetButton";
-import ResultsArea from "./ResultsArea";
-import TierSelector from "./TierSelector";
+import DeepTrauma from "@/components/controls/DeepTrauma";
+import PhoneIcon from "@/components/icons/PhoneIcon";
+import ResetButton from "@/components/controls/ResetButton";
+import ResultsArea from "@/components/results/ResultsArea";
+import TierSelector from "@/components/controls/TierSelector";
 
 interface TierSelectorProps {
   tier: number;

@@ -1,4 +1,4 @@
-import RefreshIcon from "./icons/RefreshIcon";
+import RefreshIcon from "@/components/icons/RefreshIcon";
 
 interface ResetButtonProps {
   onReset: () => void;

@@ -1,6 +1,6 @@
 import { clsx } from "clsx";
-import FaceFrownIcon from "./icons/FaceFrownIcon";
-import FaceSmileIcon from "./icons/FaceSmileIcon";
+import FaceFrownIcon from "@/components/icons/FaceFrownIcon";
+import FaceSmileIcon from "@/components/icons/FaceSmileIcon";
 
 interface ResultsSectionProps {
   tier: number;

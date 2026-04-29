@@ -1,7 +1,7 @@
 import { SelectionBlockConfig } from "@/types/SelectionBlockConfig";
 import { CARD_REMOVAL_LIMIT } from "@/data/SelectionBlockConfigs";
-import PlusIcon from "./icons/PlusIcon";
-import MinusIcon from "./icons/MinusIcon";
+import PlusIcon from "@/components/icons/PlusIcon";
+import MinusIcon from "@/components/icons/MinusIcon";
 import clsx from "clsx";
 
 interface SelectionBlockStepperProps {

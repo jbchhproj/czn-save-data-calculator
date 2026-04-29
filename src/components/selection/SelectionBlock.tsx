@@ -1,7 +1,7 @@
 import { SelectionBlockConfig } from "@/types/SelectionBlockConfig";
-import SelectionBlockStepper from "./SelectionBlockStepper";
-import QuestionCircleIcon from "./icons/QuestionCircleIcon";
-import ExpandMinusIcon from "./icons/ExpandMinusIcon";
+import SelectionBlockStepper from "@/components/controls/SelectionBlockStepper";
+import QuestionCircleIcon from "@/components/icons/QuestionCircleIcon";
+import ExpandMinusIcon from "@/components/icons/ExpandMinusIcon";
 
 interface SelectionBlockProps {
   config: SelectionBlockConfig;

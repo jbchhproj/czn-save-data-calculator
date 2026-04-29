@@ -1,7 +1,7 @@
 import type { ChangeEvent } from "react";
-import PlusIcon from "./icons/PlusIcon";
-import MinusIcon from "./icons/MinusIcon";
-import ChevronDownIcon from "./icons/ChevronDownIcon";
+import PlusIcon from "@/components/icons/PlusIcon";
+import MinusIcon from "@/components/icons/MinusIcon";
+import ChevronDownIcon from "@/components/icons/ChevronDownIcon";
 import clsx from "clsx";
 
 interface TierStepperProps {

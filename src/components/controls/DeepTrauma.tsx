@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import { useRef } from "react";
-import MindIcon from "./icons/MindIcon";
+import MindIcon from "@/components/icons/MindIcon";
 
 interface DeepTraumaProps {
   isDeepTraumaActive: boolean;

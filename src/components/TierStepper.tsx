@@ -2,6 +2,7 @@ import type { ChangeEvent } from "react";
 import PlusIcon from "./icons/PlusIcon";
 import MinusIcon from "./icons/MinusIcon";
 import ChevronDownIcon from "./icons/ChevronDownIcon";
+import clsx from "clsx";
 
 interface TierStepperProps {
   tier: number;
@@ -32,7 +33,14 @@ export default function TierStepper({
 
   return (
     <div className="flex items-center justify-end gap-3">
-      <span className="text-md text-slate-950">TIER</span>
+      <span
+        className={clsx(
+          "text-md",
+          isDeepTraumaActive ? "text-amber-200" : "text-slate-950",
+        )}
+      >
+        TIER
+      </span>
 
       <div className="flex items-center">
         <button

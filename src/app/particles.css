@@ -46,6 +46,7 @@
 
   100% {
     opacity: 0;
-    transform: translate3d(var(--drift-x), -120vh, 0) rotate(80deg) scaleX(0.45) scaleY(0.8);
+    transform: translate3d(var(--drift-x), -120vh, 0) rotate(80deg) scaleX(0.45)
+      scaleY(0.8);
   }
 }

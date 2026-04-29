@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import DeepTrauma from "./DeepTrauma";
 import PhoneIcon from "./icons/PhoneIcon";
 import ResetButton from "./ResetButton";
@@ -32,7 +33,7 @@ export default function Header({
       </div>
 
       <div className="flex flex-col gap-2">
-        <div className="flex flex-1 items-center justify-end gap-4 p-2 rounded bg-slate-200 px-3 border-b-2 border-r-2 border-slate-400">
+        <div className="flex flex-1 items-center justify-end gap-5 p-2 rounded bg-slate-200 px-3 border-b-2 border-r-2 border-slate-400">
           <PhoneIcon />
           <ResetButton onReset={onReset} />
           <DeepTrauma
@@ -41,7 +42,12 @@ export default function Header({
           />
         </div>
 
-        <div className="flex flex-1 items-center p-2 rounded bg-slate-200 border-b-2 border-r-2 border-slate-400">
+        <div
+          className={clsx(
+            "flex flex-1 items-center p-2 rounded border-b-2 border-r-2 border-slate-400",
+            isDeepTraumaActive ? "bg-slate-800" : "bg-slate-200",
+          )}
+        >
           <TierSelector
             tier={tier}
             setTier={setTier}

@@ -10,12 +10,12 @@
 
   background: radial-gradient(
     circle at 85% 5%,
-    rgba(170, 150, 210, 0.35) 0%,   /* lighter core */
-    rgba(155, 135, 200, 0.28) 18%,
+    rgba(170, 150, 210, 0.35) 0%,
+    /* lighter core */ rgba(155, 135, 200, 0.28) 18%,
     rgba(140, 120, 190, 0.2) 35%,
     rgba(125, 105, 180, 0.12) 50%,
-    rgba(217, 224, 235, 0.97) 70%,  /* faster return to bg */
-    rgba(217, 224, 235, 1) 100%
+    rgba(217, 224, 235, 0.97) 70%,
+    /* faster return to bg */ rgba(217, 224, 235, 1) 100%
   );
 }
 

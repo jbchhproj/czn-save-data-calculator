@@ -1,6 +1,6 @@
 "use client";
 import Header from "@/components/Header";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import MainContent from "./MainContent";
 import { SelectionBlockConfigs } from "@/data/SelectionBlockConfigs";
 import FloatingParticles from "@/components/vfx/FloatingParticles";
@@ -42,17 +42,24 @@ export default function AppContainer({
   );
   const [cardRemovals, setCardRemovals] = useState(0);
 
-  useEffect(() => {
-    if (isDeepTraumaActive) {
-      if (tier < 2) {
-        setTier(2);
-      } else if (tier < 16) {
-        setTier(tier + 1);
-      }
-    } else {
-      setTier((prev) => Math.max(1, prev - 1));
+  const handleDeepTraumaChange = (isActive: boolean) => {
+    if (isActive === isDeepTraumaActive) {
+      return;
     }
-  }, [isDeepTraumaActive]);
+
+    setIsDeepTraumaActive(isActive);
+    setTier((previousTier) => {
+      if (isActive) {
+        if (previousTier < 2) {
+          return 2;
+        }
+
+        return Math.min(16, previousTier + 1);
+      }
+
+      return Math.max(1, previousTier - 1);
+    });
+  };
 
   const totalFaintMemory = SelectionBlockConfigs.reduce(
     (sum, config, idx) =>
@@ -79,7 +86,7 @@ export default function AppContainer({
       <div className="relative z-10 flex flex-col min-h-screen">
         <Header
           isDeepTraumaActive={isDeepTraumaActive}
-          setIsDeepTraumaActive={setIsDeepTraumaActive}
+          setIsDeepTraumaActive={handleDeepTraumaChange}
           tier={tier}
           totalFaintMemory={totalFaintMemory}
           setTier={setTier}

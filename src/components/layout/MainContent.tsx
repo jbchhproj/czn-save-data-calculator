@@ -1,4 +1,4 @@
-import SelectionArea from "./SelectionArea";
+import SelectionArea from "@/components/selection/SelectionArea";
 
 interface MainContentProps {
   faintMemories: number[];

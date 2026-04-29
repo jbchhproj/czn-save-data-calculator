@@ -1,7 +1,7 @@
 import type { ChangeEvent } from "react";
-import PlusIcon from "./icons/PlusIcon";
-import MinusIcon from "./icons/MinusIcon";
-import ChevronDownIcon from "./icons/ChevronDownIcon";
+import PlusIcon from "@/components/icons/PlusIcon";
+import MinusIcon from "@/components/icons/MinusIcon";
+import ChevronDownIcon from "@/components/icons/ChevronDownIcon";
 import clsx from "clsx";
 
 interface TierStepperProps {
@@ -34,12 +34,12 @@ export default function TierStepper({
   const isIncreaseDisabled = tier >= maxTier;
   const hasDeepTraumaEffects = isPostProcessingEnabled && isDeepTraumaActive;
   const buttonClasses = clsx(
-    "relative z-10 rounded border border-slate-500/40 bg-slate-400 py-[6px] px-[10px] text-slate-950 transition-transform duration-50 ease-out active:duration-0 active:scale-99 active:translate-y-[2px] active:bg-slate-500/50",
+    "relative z-10 rounded border border-slate-500/40 bg-slate-300 py-[6px] px-[10px] text-slate-950 transition-transform duration-50 ease-out active:duration-0 active:scale-99 active:translate-y-[2px] active:bg-slate-500/50",
     hasDeepTraumaEffects
       ? "shadow-[0_3px_0_rgb(148_163_184/0.55),0_0_5px_rgb(148_163_184/0.3)] active:shadow-[0_1px_0_rgb(148_163_184/0.55),0_0_3px_rgb(148_163_184/0.25)] disabled:active:shadow-[0_3px_0_rgb(148_163_184/0.55),0_0_5px_rgb(148_163_184/0.3)]"
       : "shadow-[0_3px_0_rgb(0_0_0/0.2)] active:shadow-[0_1px_0_rgb(0_0_0/0.2)] disabled:active:shadow-[0_3px_0_rgb(0_0_0/0.2)]",
     "disabled:cursor-not-allowed disabled:active:translate-y-0 disabled:active:scale-100",
-    "disabled:bg-slate-300 disabled:text-slate-500",
+    "disabled:bg-[#b6c2d1] disabled:text-slate-500",
   );
   const selectClasses = clsx(
     "appearance-none rounded-none bg-slate-600 px-2 pr-8 text-md text-indigo-100",

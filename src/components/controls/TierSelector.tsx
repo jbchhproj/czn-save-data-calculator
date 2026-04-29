@@ -1,4 +1,4 @@
-import TierStepper from "./TierStepper";
+import TierStepper from "@/components/controls/TierStepper";
 
 interface TierSelectorProps {
   tier: number;

@@ -24,7 +24,7 @@ export default function SelectionBlock({
   onToggleExpand,
   isPostProcessingEnabled,
 }: SelectionBlockProps) {
-  const descriptionList = (
+  const rulesList = (
     <ul className="list-disc">
       {config.description.map((line, idx) => (
         <li key={idx}>{line}</li>
@@ -79,7 +79,7 @@ export default function SelectionBlock({
 
       {isExpanded && (
         <div className="bg-gray-200/60 pl-8 py-3 text-sm text-slate-700">
-          {descriptionList}
+          {rulesList}
         </div>
       )}
     </>

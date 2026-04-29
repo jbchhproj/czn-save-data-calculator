@@ -47,7 +47,7 @@ export default function SelectionBlock({
 
         {/* main block */}
         <div className="-ml-2 flex h-17 w-[calc(100%+0.5rem)] items-center gap-3 overflow-hidden rounded-r bg-gray-400/30 px-1">
-          <div className="-ml-4 flex h-full w-30 shrink-0 flex-col justify-center bg-gray-500/30 pl-5 text-slate-950">
+          <div className="-ml-4 flex h-full w-30 shrink-0 select-none flex-col justify-center bg-gray-500/30 pl-5 text-slate-950 [-webkit-touch-callout:none]">
             {labelWordElements}
           </div>
 

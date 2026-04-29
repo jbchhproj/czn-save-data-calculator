@@ -69,7 +69,7 @@ export default function SelectionBlockStepper({
         <MinusIcon />
       </button>
 
-      <span className="inline-flex w-[3ch] justify-center text-md tabular-nums text-slate-950 select-none [-webkit-touch-callout:none]">
+      <span className="inline-flex w-[3ch] justify-center text-md tabular-nums text-slate-950">
         {stepperCount}
       </span>
 

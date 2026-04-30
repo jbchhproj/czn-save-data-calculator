@@ -54,15 +54,17 @@ export default function AppContainer({
   return (
     <div className="relative min-h-screen flex flex-col">
       {/* background layer */}
-      <Image
-        fill
-        priority
-        src={tipheraBackground}
-        alt=""
-        aria-hidden="true"
-        sizes="100vw"
-        className="fixed inset-0 z-0 object-cover opacity-20"
-      />
+      <div className="fixed inset-0 z-0">
+        <Image
+          fill
+          priority
+          src={tipheraBackground}
+          alt=""
+          aria-hidden="true"
+          sizes="100vw"
+          className="object-cover opacity-20"
+        />
+      </div>
       {isPostProcessingEnabled && <FloatingParticles />}
       <div
         className={`deep-trauma-gradient ${

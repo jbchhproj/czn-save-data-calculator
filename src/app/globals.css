@@ -3,12 +3,12 @@
 :root {
   --background: #d9e0eb;
   --foreground: #171717;
-  --header-background: #475569;
+  --browser-chrome-background: rgba(217, 224, 235, 0.25);
   --font-sans: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
 }
 
 html {
-  background: var(--header-background);
+  background: var(--browser-chrome-background);
 }
 
 body {

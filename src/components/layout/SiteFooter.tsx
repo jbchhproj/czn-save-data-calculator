@@ -1,6 +1,7 @@
 export default function SiteFooter() {
   return (
     <div className="p-2 text-center text-xs text-gray-500">
+      <hr className="my-1 border-gray-200" />
       <p>
         This is an unofficial community tool for Chaos Zero Nightmare. Chaos
         Zero Nightmare and all related assets are trademarks of Smilegate &amp;

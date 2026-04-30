@@ -72,6 +72,8 @@ export default function AppContainer({
           setIsPostProcessingEnabled={setIsPostProcessingEnabled}
         />
 
+        <div aria-hidden="true" className="h-[112px] shrink-0" />
+
         <main>{children}</main>
 
         <MainContent

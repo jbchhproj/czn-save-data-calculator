@@ -28,10 +28,7 @@ export default function Header({
 }: TierSelectorProps) {
   return (
     <header
-      className={clsx(
-        "sticky top-0 z-50 flex items-stretch gap-2 bg-slate-600 p-2 shadow-md/30",
-        "before:absolute before:inset-x-0 before:-top-8 before:h-8 before:bg-slate-600 before:content-['']",
-      )}
+      className="fixed inset-x-0 top-0 z-50 flex min-h-[112px] items-stretch gap-2 bg-slate-600 p-2 shadow-md/30"
     >
       <div className="min-w-0 flex flex-1">
         <ResultsArea

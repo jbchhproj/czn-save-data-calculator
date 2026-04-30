@@ -1,10 +1,12 @@
 "use client";
 import Header from "@/components/layout/Header";
+import Image from "next/image";
 import { useState } from "react";
 import MainContent from "./MainContent";
 import { SelectionBlockConfigs } from "@/data/SelectionBlockConfigs";
 import FloatingParticles from "@/components/vfx/FloatingParticles";
 import SiteFooter from "./SiteFooter";
+import tipheraBackground from "@/imgs/tiphera_1440x3200_EN.jpg";
 
 export default function AppContainer({
   children,
@@ -52,6 +54,15 @@ export default function AppContainer({
   return (
     <div className="relative min-h-screen flex flex-col">
       {/* background layer */}
+      <Image
+        fill
+        priority
+        src={tipheraBackground}
+        alt=""
+        aria-hidden="true"
+        sizes="100vw"
+        className="fixed inset-0 z-0 object-cover opacity-20"
+      />
       {isPostProcessingEnabled && <FloatingParticles />}
       <div
         className={`deep-trauma-gradient ${

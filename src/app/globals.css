@@ -3,7 +3,7 @@
 :root {
   --background: #d9e0eb;
   --foreground: #171717;
-  --browser-chrome-background: rgba(217, 224, 235, 0.25);
+  --browser-chrome-background: rgba(148, 163, 184, 0.12);
   --font-sans: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
 }
 

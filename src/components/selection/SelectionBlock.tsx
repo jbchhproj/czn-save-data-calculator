@@ -1,4 +1,4 @@
-import { SelectionBlockConfig } from "@/types/SelectionBlockConfig";
+import { SelectionBlockConfig } from "@/lib/calculator/types";
 import SelectionBlockStepper from "@/components/controls/SelectionBlockStepper";
 import QuestionCircleIcon from "@/components/icons/QuestionCircleIcon";
 import ExpandMinusIcon from "@/components/icons/ExpandMinusIcon";

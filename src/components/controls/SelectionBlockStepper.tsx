@@ -1,5 +1,5 @@
-import { SelectionBlockConfig } from "@/types/SelectionBlockConfig";
-import { CARD_REMOVAL_LIMIT } from "@/data/SelectionBlockConfigs";
+import { SelectionBlockConfig } from "@/lib/calculator/types";
+import { cardRemovalLimit } from "@/lib/calculator/selectionBlocks";
 import PlusIcon from "@/components/icons/PlusIcon";
 import MinusIcon from "@/components/icons/MinusIcon";
 import clsx from "clsx";
@@ -24,7 +24,7 @@ export default function SelectionBlockStepper({
   const isRemoval = config.type === "removal";
   const canIncrement =
     stepperCount < config.max &&
-    (!isRemoval || cardRemovals < CARD_REMOVAL_LIMIT);
+    (!isRemoval || cardRemovals < cardRemovalLimit);
   const canDecrement = stepperCount > config.min;
 
   const handleIncrement = () => {

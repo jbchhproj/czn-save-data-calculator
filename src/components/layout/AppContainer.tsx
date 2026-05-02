@@ -2,7 +2,7 @@
 import Header from "@/components/layout/Header";
 import { useState } from "react";
 import MainContent from "./MainContent";
-import { SelectionBlockConfigs } from "@/data/SelectionBlockConfigs";
+import { selectionBlocks } from "@/lib/calculator/selectionBlocks";
 import FloatingParticles from "@/components/vfx/FloatingParticles";
 import SiteFooter from "./SiteFooter";
 
@@ -15,7 +15,7 @@ export default function AppContainer({
   const [isPostProcessingEnabled, setIsPostProcessingEnabled] = useState(true);
   const [tier, setTier] = useState(1);
   const [faintMemories, setFaintMemories] = useState(() =>
-    Array(SelectionBlockConfigs.length).fill(0),
+    Array(selectionBlocks.length).fill(0),
   );
   const [cardRemovals, setCardRemovals] = useState(0);
 
@@ -36,7 +36,7 @@ export default function AppContainer({
     });
   };
 
-  const totalFaintMemory = SelectionBlockConfigs.reduce(
+  const totalFaintMemory = selectionBlocks.reduce(
     (sum, config, idx) =>
       sum + config.faintMemoryContribution(faintMemories[idx]),
     0,
@@ -45,7 +45,7 @@ export default function AppContainer({
   const handleReset = () => {
     setTier(1);
     setIsDeepTraumaActive(false);
-    setFaintMemories(Array(SelectionBlockConfigs.length).fill(0));
+    setFaintMemories(Array(selectionBlocks.length).fill(0));
     setCardRemovals(0);
   };
 
@@ -71,6 +71,8 @@ export default function AppContainer({
           isPostProcessingEnabled={isPostProcessingEnabled}
           setIsPostProcessingEnabled={setIsPostProcessingEnabled}
         />
+
+        <div aria-hidden="true" className="h-[112px] shrink-0" />
 
         <main>{children}</main>
 

@@ -1,6 +1,6 @@
-import type { SelectionBlockConfig } from "@/types/SelectionBlockConfig";
+import type { SelectionBlockConfig } from "./types";
 
-export const CARD_REMOVAL_LIMIT = 5;
+export const cardRemovalLimit = 5;
 
 const defaultStepRule: SelectionBlockConfig["stepRule"] = (
   current,
@@ -31,7 +31,7 @@ const removalNotes = [
   "All count toward the 5-removal limit.",
 ];
 
-export const SelectionBlockConfigs: SelectionBlockConfig[] = [
+export const selectionBlocks: SelectionBlockConfig[] = [
   createSelectionBlock({
     id: "block1",
     type: "acquisition",

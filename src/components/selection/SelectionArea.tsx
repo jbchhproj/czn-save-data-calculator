@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { SelectionBlockConfigs } from "@/data/SelectionBlockConfigs";
+import { selectionBlocks } from "@/lib/calculator/selectionBlocks";
 import SelectionBlock from "./SelectionBlock";
 
 interface SelectionAreaProps {
@@ -30,7 +30,7 @@ export default function SelectionArea({
 
   return (
     <>
-      {SelectionBlockConfigs.map((config, idx) => (
+      {selectionBlocks.map((config, idx) => (
         <SelectionBlock
           key={config.id}
           config={config}

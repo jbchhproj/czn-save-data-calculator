@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 type Particle = {
   id: number;
@@ -32,11 +32,7 @@ function createParticles(): Particle[] {
 }
 
 export default function FloatingParticles() {
-  const [particles, setParticles] = useState<Particle[]>([]);
-
-  useEffect(() => {
-    setParticles(createParticles());
-  }, []);
+  const [particles] = useState(() => createParticles());
 
   return (
     <div className="floating-particles" aria-hidden="true">

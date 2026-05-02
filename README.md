@@ -10,6 +10,12 @@ Chaos Zero Nightmare and all related names, logos, and assets are trademarks of 
 
 This project does not reproduce, distribute, or claim ownership of any proprietary game assets or content.
 
+## Privacy
+
+This project collects a persistent pseudonymous ID to understand basic usage patterns.
+
+No personal information is collected, stored, or shared.
+
 ### Donations
 
 A Ko-fi link is provided for anyone who wishes to voluntarily support the development of this tool. Donations are entirely optional and are not a payment for any service or product. This project is not a commercial venture and is not intended to generate profit.

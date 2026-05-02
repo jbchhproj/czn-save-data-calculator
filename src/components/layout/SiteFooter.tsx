@@ -1,6 +1,15 @@
+import { trackTelemetryEvent } from "@/lib/telemetry/trackTelemetryEvent";
+
 export default function SiteFooter() {
+  const handleClick = () => {
+    void trackTelemetryEvent("kofi_link_click", false, {
+      source: "footer",
+    });
+  };
+
   return (
     <div className="p-2 text-center text-xs text-gray-500">
+      <hr className="my-1 border-gray-200" />
       <p>
         This is an unofficial community tool for Chaos Zero Nightmare. Chaos
         Zero Nightmare and all related assets are trademarks of Smilegate &amp;
@@ -15,6 +24,7 @@ export default function SiteFooter() {
           target="_blank"
           rel="noopener noreferrer"
           className="underline"
+          onClick={handleClick}
         >
           Ko-fi
         </a>

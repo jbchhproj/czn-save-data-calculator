@@ -1,7 +1,8 @@
-import { SelectionBlockConfig } from "@/types/SelectionBlockConfig";
+import { SelectionBlockConfig } from "@/lib/calculator/types";
 import SelectionBlockStepper from "@/components/controls/SelectionBlockStepper";
 import QuestionCircleIcon from "@/components/icons/QuestionCircleIcon";
 import ExpandMinusIcon from "@/components/icons/ExpandMinusIcon";
+import { trackTelemetryEvent } from "@/lib/telemetry/trackTelemetryEvent";
 
 interface SelectionBlockProps {
   config: SelectionBlockConfig;
@@ -24,7 +25,7 @@ export default function SelectionBlock({
   onToggleExpand,
   isPostProcessingEnabled,
 }: SelectionBlockProps) {
-  const descriptionList = (
+  const rulesList = (
     <ul className="list-disc">
       {config.description.map((line, idx) => (
         <li key={idx}>{line}</li>
@@ -38,6 +39,17 @@ export default function SelectionBlock({
       {word}
     </span>
   ));
+
+  const handleToggleRules = () => {
+    void trackTelemetryEvent("selection_rules_toggle", false, {
+      source: "selection_block",
+      blockId: config.id,
+      label: config.label,
+      expandedAfter: !isExpanded,
+    });
+
+    onToggleExpand(config.id);
+  };
 
   return (
     <>
@@ -59,7 +71,7 @@ export default function SelectionBlock({
             <button
               type="button"
               aria-label="Show details"
-              onClick={() => onToggleExpand(config.id)}
+              onClick={handleToggleRules}
               className="rounded-full text-blue-500 hover:bg-blue-100"
             >
               {isExpanded ? <ExpandMinusIcon /> : <QuestionCircleIcon />}
@@ -79,7 +91,7 @@ export default function SelectionBlock({
 
       {isExpanded && (
         <div className="bg-gray-200/60 pl-8 py-3 text-sm text-slate-700">
-          {descriptionList}
+          {rulesList}
         </div>
       )}
     </>

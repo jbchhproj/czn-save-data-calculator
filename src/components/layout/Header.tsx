@@ -4,6 +4,7 @@ import PhoneIcon from "@/components/icons/PhoneIcon";
 import ResetButton from "@/components/controls/ResetButton";
 import ResultsArea from "@/components/results/ResultsArea";
 import TierSelector from "@/components/controls/TierSelector";
+import { trackTelemetryEvent } from "@/lib/telemetry/trackTelemetryEvent";
 
 interface TierSelectorProps {
   tier: number;
@@ -26,13 +27,17 @@ export default function Header({
   isPostProcessingEnabled,
   setIsPostProcessingEnabled,
 }: TierSelectorProps) {
+  const handleToggle = () => {
+    void trackTelemetryEvent("post_processing_toggle", false, {
+      source: "header",
+      effectsEnabled: !isPostProcessingEnabled,
+    });
+
+    setIsPostProcessingEnabled(!isPostProcessingEnabled);
+  };
+
   return (
-    <header
-      className={clsx(
-        "sticky top-0 z-50 flex items-stretch gap-2 bg-slate-600 p-2 shadow-md/30",
-        "before:absolute before:inset-x-0 before:-top-8 before:h-8 before:bg-slate-600 before:content-['']",
-      )}
-    >
+    <header className="fixed inset-x-0 top-0 z-50 flex min-h-[112px] items-stretch gap-2 bg-slate-600 p-2 shadow-md/30">
       <div className="min-w-0 flex flex-1">
         <ResultsArea
           tier={tier}
@@ -52,7 +57,7 @@ export default function Header({
                 ? "bg-slate-800 border-slate-800/40 text-indigo-100 active:bg-slate-700"
                 : "bg-slate-300 border-slate-500/40 text-slate-700 active:bg-slate-400",
             )}
-            onClick={() => setIsPostProcessingEnabled(!isPostProcessingEnabled)}
+            onClick={handleToggle}
             type="button"
           >
             {isPostProcessingEnabled && (

@@ -3,6 +3,7 @@ import PlusIcon from "@/components/icons/PlusIcon";
 import MinusIcon from "@/components/icons/MinusIcon";
 import ChevronDownIcon from "@/components/icons/ChevronDownIcon";
 import clsx from "clsx";
+import { trackTelemetryEvent } from "@/lib/telemetry/trackTelemetryEvent";
 
 interface TierStepperProps {
   tier: number;
@@ -27,19 +28,53 @@ export default function TierStepper({
   ));
 
   const handleTierChange = (event: ChangeEvent<HTMLSelectElement>) => {
-    setTier(Number(event.target.value));
+    const nextTier = Number(event.target.value);
+
+    void trackTelemetryEvent("tier_select_change", false, {
+      source: "header",
+      tierBefore: tier,
+      tierAfter: nextTier,
+    });
+
+    setTier(nextTier);
   };
 
   const isDecreaseDisabled = tier <= minTier;
   const isIncreaseDisabled = tier >= maxTier;
   const hasDeepTraumaEffects = isPostProcessingEnabled && isDeepTraumaActive;
+  const handleDecrement = () => {
+    void trackTelemetryEvent("tier_decrement_click", isDecreaseDisabled, {
+      source: "header",
+      tierBefore: tier,
+      tierAfter: isDecreaseDisabled ? tier : tier - 1,
+    });
+
+    if (isDecreaseDisabled) {
+      return;
+    }
+
+    setTier(tier - 1);
+  };
+  const handleIncrement = () => {
+    void trackTelemetryEvent("tier_increment_click", isIncreaseDisabled, {
+      source: "header",
+      tierBefore: tier,
+      tierAfter: isIncreaseDisabled ? tier : tier + 1,
+    });
+
+    if (isIncreaseDisabled) {
+      return;
+    }
+
+    setTier(tier + 1);
+  };
   const buttonClasses = clsx(
     "relative z-10 rounded border border-slate-500/40 bg-slate-300 py-[6px] px-[10px] text-slate-950 transition-transform duration-50 ease-out active:duration-0 active:scale-99 active:translate-y-[2px] active:bg-slate-500/50",
     hasDeepTraumaEffects
-      ? "shadow-[0_3px_0_rgb(148_163_184/0.55),0_0_5px_rgb(148_163_184/0.3)] active:shadow-[0_1px_0_rgb(148_163_184/0.55),0_0_3px_rgb(148_163_184/0.25)] disabled:active:shadow-[0_3px_0_rgb(148_163_184/0.55),0_0_5px_rgb(148_163_184/0.3)]"
-      : "shadow-[0_3px_0_rgb(0_0_0/0.2)] active:shadow-[0_1px_0_rgb(0_0_0/0.2)] disabled:active:shadow-[0_3px_0_rgb(0_0_0/0.2)]",
-    "disabled:cursor-not-allowed disabled:active:translate-y-0 disabled:active:scale-100",
-    "disabled:bg-[#b6c2d1] disabled:text-slate-500",
+      ? "shadow-[0_3px_0_rgb(148_163_184/0.55),0_0_5px_rgb(148_163_184/0.3)] active:shadow-[0_1px_0_rgb(148_163_184/0.55),0_0_3px_rgb(148_163_184/0.25)] aria-disabled:active:shadow-[0_3px_0_rgb(148_163_184/0.55),0_0_5px_rgb(148_163_184/0.3)]"
+      : "shadow-[0_3px_0_rgb(0_0_0/0.2)] active:shadow-[0_1px_0_rgb(0_0_0/0.2)] aria-disabled:active:shadow-[0_3px_0_rgb(0_0_0/0.2)]",
+    "aria-disabled:cursor-not-allowed aria-disabled:active:translate-y-0 aria-disabled:active:scale-100 aria-disabled:active:bg-[#b6c2d1]",
+    "aria-disabled:bg-[#b6c2d1] aria-disabled:text-slate-500",
   );
   const selectClasses = clsx(
     "appearance-none rounded-none bg-slate-600 px-2 pr-8 text-md text-indigo-100",
@@ -64,10 +99,10 @@ export default function TierStepper({
       <div className="flex items-center">
         <button
           aria-label="Decrease tier"
+          aria-disabled={isDecreaseDisabled}
           type="button"
           className={buttonClasses}
-          disabled={isDecreaseDisabled}
-          onClick={() => setTier(tier - 1)}
+          onClick={handleDecrement}
         >
           <span>
             <MinusIcon />
@@ -92,10 +127,10 @@ export default function TierStepper({
 
         <button
           aria-label="Increase tier"
+          aria-disabled={isIncreaseDisabled}
           type="button"
           className={buttonClasses}
-          disabled={isIncreaseDisabled}
-          onClick={() => setTier(tier + 1)}
+          onClick={handleIncrement}
         >
           <span>
             <PlusIcon />

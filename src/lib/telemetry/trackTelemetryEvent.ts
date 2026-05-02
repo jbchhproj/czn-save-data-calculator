@@ -1,8 +1,5 @@
 import type { TelemetryEventName } from "./events";
 
-const country = "US";
-const region = "TX";
-
 function getAnonymousUserId(): string {
   const storageKey = "czn_anonymous_user_id";
 
@@ -28,8 +25,6 @@ export async function trackTelemetryEvent(
 
   const payload = {
     anonymousUserId,
-    country,
-    region,
     events: [
       {
         eventName,

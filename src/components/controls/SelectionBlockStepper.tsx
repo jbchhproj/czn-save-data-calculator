@@ -3,6 +3,7 @@ import { cardRemovalLimit } from "@/lib/calculator/selectionBlocks";
 import PlusIcon from "@/components/icons/PlusIcon";
 import MinusIcon from "@/components/icons/MinusIcon";
 import clsx from "clsx";
+import { trackTelemetryEvent } from "@/lib/telemetry/trackTelemetryEvent";
 
 interface SelectionBlockStepperProps {
   config: SelectionBlockConfig;
@@ -28,26 +29,50 @@ export default function SelectionBlockStepper({
   const canDecrement = stepperCount > config.min;
 
   const handleIncrement = () => {
-    if (canIncrement) {
-      const nextCount = config.stepRule(stepperCount, "increment", config);
-      if (nextCount === stepperCount) return;
+    const isDisabled = !canIncrement;
+    const nextCount = isDisabled
+      ? stepperCount
+      : config.stepRule(stepperCount, "increment", config);
 
-      setStepperCount(nextCount);
-      if (isRemoval) {
-        setCardRemovals(cardRemovals + (nextCount - stepperCount));
-      }
+    void trackTelemetryEvent("selection_increment_click", isDisabled, {
+      source: "selection_block",
+      blockId: config.id,
+      label: config.label,
+      countBefore: stepperCount,
+      countAfter: nextCount,
+    });
+
+    if (isDisabled || nextCount === stepperCount) {
+      return;
+    }
+
+    setStepperCount(nextCount);
+    if (isRemoval) {
+      setCardRemovals(cardRemovals + (nextCount - stepperCount));
     }
   };
 
   const handleDecrement = () => {
-    if (canDecrement) {
-      const nextCount = config.stepRule(stepperCount, "decrement", config);
-      if (nextCount === stepperCount) return;
+    const isDisabled = !canDecrement;
+    const nextCount = isDisabled
+      ? stepperCount
+      : config.stepRule(stepperCount, "decrement", config);
 
-      setStepperCount(nextCount);
-      if (isRemoval) {
-        setCardRemovals(cardRemovals - (stepperCount - nextCount));
-      }
+    void trackTelemetryEvent("selection_decrement_click", isDisabled, {
+      source: "selection_block",
+      blockId: config.id,
+      label: config.label,
+      countBefore: stepperCount,
+      countAfter: nextCount,
+    });
+
+    if (isDisabled || nextCount === stepperCount) {
+      return;
+    }
+
+    setStepperCount(nextCount);
+    if (isRemoval) {
+      setCardRemovals(cardRemovals - (stepperCount - nextCount));
     }
   };
 

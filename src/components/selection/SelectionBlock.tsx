@@ -2,6 +2,7 @@ import { SelectionBlockConfig } from "@/lib/calculator/types";
 import SelectionBlockStepper from "@/components/controls/SelectionBlockStepper";
 import QuestionCircleIcon from "@/components/icons/QuestionCircleIcon";
 import ExpandMinusIcon from "@/components/icons/ExpandMinusIcon";
+import { trackTelemetryEvent } from "@/lib/telemetry/trackTelemetryEvent";
 
 interface SelectionBlockProps {
   config: SelectionBlockConfig;
@@ -39,6 +40,17 @@ export default function SelectionBlock({
     </span>
   ));
 
+  const handleToggleRules = () => {
+    void trackTelemetryEvent("selection_rules_toggle", false, {
+      source: "selection_block",
+      blockId: config.id,
+      label: config.label,
+      expandedAfter: !isExpanded,
+    });
+
+    onToggleExpand(config.id);
+  };
+
   return (
     <>
       <div className="relative mt-3 select-none [-webkit-touch-callout:none]">
@@ -59,7 +71,7 @@ export default function SelectionBlock({
             <button
               type="button"
               aria-label="Show details"
-              onClick={() => onToggleExpand(config.id)}
+              onClick={handleToggleRules}
               className="rounded-full text-blue-500 hover:bg-blue-100"
             >
               {isExpanded ? <ExpandMinusIcon /> : <QuestionCircleIcon />}

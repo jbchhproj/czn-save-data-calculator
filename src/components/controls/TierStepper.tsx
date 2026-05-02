@@ -3,6 +3,7 @@ import PlusIcon from "@/components/icons/PlusIcon";
 import MinusIcon from "@/components/icons/MinusIcon";
 import ChevronDownIcon from "@/components/icons/ChevronDownIcon";
 import clsx from "clsx";
+import { trackTelemetryEvent } from "@/lib/telemetry/trackTelemetryEvent";
 
 interface TierStepperProps {
   tier: number;
@@ -27,13 +28,27 @@ export default function TierStepper({
   ));
 
   const handleTierChange = (event: ChangeEvent<HTMLSelectElement>) => {
-    setTier(Number(event.target.value));
+    const nextTier = Number(event.target.value);
+
+    void trackTelemetryEvent("tier_select_change", false, {
+      source: "header",
+      tierBefore: tier,
+      tierAfter: nextTier,
+    });
+
+    setTier(nextTier);
   };
 
   const isDecreaseDisabled = tier <= minTier;
   const isIncreaseDisabled = tier >= maxTier;
   const hasDeepTraumaEffects = isPostProcessingEnabled && isDeepTraumaActive;
   const handleDecrement = () => {
+    void trackTelemetryEvent("tier_decrement_click", isDecreaseDisabled, {
+      source: "header",
+      tierBefore: tier,
+      tierAfter: isDecreaseDisabled ? tier : tier - 1,
+    });
+
     if (isDecreaseDisabled) {
       return;
     }
@@ -41,6 +56,12 @@ export default function TierStepper({
     setTier(tier - 1);
   };
   const handleIncrement = () => {
+    void trackTelemetryEvent("tier_increment_click", isIncreaseDisabled, {
+      source: "header",
+      tierBefore: tier,
+      tierAfter: isIncreaseDisabled ? tier : tier + 1,
+    });
+
     if (isIncreaseDisabled) {
       return;
     }

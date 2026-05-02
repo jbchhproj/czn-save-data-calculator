@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import { useRef } from "react";
 import MindIcon from "@/components/icons/MindIcon";
+import { trackTelemetryEvent } from "@/lib/telemetry/trackTelemetryEvent";
 
 interface DeepTraumaProps {
   isDeepTraumaActive: boolean;
@@ -21,6 +22,12 @@ export default function DeepTrauma({
     }
 
     lastToggleAt.current = now;
+
+    void trackTelemetryEvent("deep_trauma_toggle", false, {
+      source: "header",
+      deepTraumaEnabled: !isDeepTraumaActive,
+    });
+
     onToggleDeepTrauma();
   };
 

@@ -5,7 +5,6 @@ import ResetButton from "@/components/controls/ResetButton";
 import ResultsArea from "@/components/results/ResultsArea";
 import TierSelector from "@/components/controls/TierSelector";
 import { trackTelemetryEvent } from "@/lib/telemetry/trackTelemetryEvent";
-import next from "next";
 
 interface TierSelectorProps {
   tier: number;

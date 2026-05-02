@@ -8,7 +8,7 @@ interface ResetButtonProps {
 export default function ResetButton({ onReset }: ResetButtonProps) {
   const handleClick = () => {
     void trackTelemetryEvent("reset_click", false, {
-      source: "reset_button_test",
+      source: "header",
     });
 
     onReset();

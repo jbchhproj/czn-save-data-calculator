@@ -11,7 +11,7 @@ export async function POST(request: Request) {
     body = await request.json();
   } catch {
     return NextResponse.json(
-      { ok: false, error: "Invalid JSON" },
+      { ok: false, error: "Bad request" },
       { status: 400 },
     );
   }
@@ -20,7 +20,7 @@ export async function POST(request: Request) {
 
   if (!payload) {
     return NextResponse.json(
-      { ok: false, error: "Invalid payload" },
+      { ok: false, error: "Bad request" },
       { status: 400 },
     );
   }
@@ -29,7 +29,7 @@ export async function POST(request: Request) {
 
   if (!databaseUrl) {
     return NextResponse.json(
-      { ok: false, error: "DATABASE_URL is not configured" },
+      { ok: false, error: "Unable to process request" },
       { status: 500 },
     );
   }
@@ -48,26 +48,22 @@ export async function POST(request: Request) {
           region,
           metadata
         )
-          values (
-            ${event.eventName},
-            ${payload.anonymousUserId},
-            ${event.wasDisabled},
-            ${event.clientCreatedAt},
-            ${payload.country ?? null},
-            ${payload.region ?? null},
-            ${JSON.stringify(event.metadata)}
-          )
-      
+        values (
+          ${event.eventName},
+          ${payload.anonymousUserId},
+          ${event.wasDisabled},
+          ${event.clientCreatedAt},
+          ${payload.country ?? null},
+          ${payload.region ?? null},
+          ${JSON.stringify(event.metadata)}
+        )
       `;
     }
   } catch (error) {
     console.error("Failed to save telemetry", error);
 
-    const errorMessage =
-      error instanceof Error ? error.message : "Unknown database error";
-
     return NextResponse.json(
-      { ok: false, error: "Failed to save telemetry" },
+      { ok: false, error: "Unable to process request" },
       { status: 500 },
     );
   }

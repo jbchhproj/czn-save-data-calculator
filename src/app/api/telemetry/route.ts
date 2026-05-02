@@ -2,7 +2,16 @@ import { NextResponse } from "next/server";
 import { validateTelemetryPayload } from "@/lib/telemetry/validateTelemetryPayload";
 
 export async function POST(request: Request) {
-  const body = await request.json();
+  let body: unknown;
+
+  try {
+    body = await request.json();
+  } catch {
+    return NextResponse.json(
+      { ok: false, error: "Invalid JSON" },
+      { status: 400 },
+    );
+  }
 
   const payload = validateTelemetryPayload(body);
 

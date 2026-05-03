@@ -1,6 +1,6 @@
-import { useState } from "react";
 import { selectionBlocks } from "@/lib/calculator/selectionBlocks";
 import SelectionBlock from "./SelectionBlock";
+import type { Dispatch, SetStateAction } from "react";
 
 interface SelectionAreaProps {
   faintMemories: number[];
@@ -8,6 +8,8 @@ interface SelectionAreaProps {
   cardRemovals: number;
   setCardRemovals: (value: number) => void;
   isPostProcessingEnabled: boolean;
+  expandedBlockId: string | null;
+  setExpandedBlockId: Dispatch<SetStateAction<string | null>>;
 }
 
 export default function SelectionArea({
@@ -16,8 +18,9 @@ export default function SelectionArea({
   cardRemovals,
   setCardRemovals,
   isPostProcessingEnabled,
+  expandedBlockId,
+  setExpandedBlockId,
 }: SelectionAreaProps) {
-  const [expandedBlockId, setExpandedBlockId] = useState<string | null>(null);
   const handleToggleExpand = (id: string) => {
     setExpandedBlockId((prev) => (prev === id ? null : id));
   };

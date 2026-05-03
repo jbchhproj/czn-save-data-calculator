@@ -1,4 +1,5 @@
 import SelectionArea from "@/components/selection/SelectionArea";
+import type { Dispatch, SetStateAction } from "react";
 
 interface MainContentProps {
   faintMemories: number[];
@@ -6,6 +7,8 @@ interface MainContentProps {
   cardRemovals: number;
   setCardRemovals: (value: number) => void;
   isPostProcessingEnabled: boolean;
+  expandedBlockId: string | null;
+  setExpandedBlockId: Dispatch<SetStateAction<string | null>>;
 }
 
 export default function MainContent({
@@ -14,6 +17,8 @@ export default function MainContent({
   cardRemovals,
   setCardRemovals,
   isPostProcessingEnabled,
+  expandedBlockId,
+  setExpandedBlockId,
 }: MainContentProps) {
   return (
     <main>
@@ -24,6 +29,8 @@ export default function MainContent({
           cardRemovals={cardRemovals}
           setCardRemovals={setCardRemovals}
           isPostProcessingEnabled={isPostProcessingEnabled}
+          expandedBlockId={expandedBlockId}
+          setExpandedBlockId={setExpandedBlockId}
         />
       </div>
     </main>

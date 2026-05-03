@@ -18,6 +18,7 @@ export default function AppContainer({
     Array(selectionBlocks.length).fill(0),
   );
   const [cardRemovals, setCardRemovals] = useState(0);
+  const [expandedBlockId, setExpandedBlockId] = useState<string | null>(null);
 
   const handleToggleDeepTrauma = () => {
     const nextIsActive = !isDeepTraumaActive;
@@ -47,6 +48,7 @@ export default function AppContainer({
     setIsDeepTraumaActive(false);
     setFaintMemories(Array(selectionBlocks.length).fill(0));
     setCardRemovals(0);
+    setExpandedBlockId(null);
   };
 
   return (
@@ -82,6 +84,8 @@ export default function AppContainer({
           cardRemovals={cardRemovals}
           setCardRemovals={setCardRemovals}
           isPostProcessingEnabled={isPostProcessingEnabled}
+          expandedBlockId={expandedBlockId}
+          setExpandedBlockId={setExpandedBlockId}
         />
 
         <SiteFooter />

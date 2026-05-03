@@ -18,6 +18,12 @@ export default function SiteFooter() {
       </p>
       <hr className="my-1 border-gray-200" />
       <p>
+        To help improve this community tool, basic anonymous usage data may be
+        collected, such as which features are used. No names, emails, precise
+        location, or account information are collected.
+      </p>
+      <hr className="my-1 border-gray-200" />
+      <p>
         Support me on{" "}
         <a
           href="https://ko-fi.com/wanpoenjoyer"

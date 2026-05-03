@@ -71,3 +71,10 @@
     transform: translate(-50%, -50%) rotate(360deg) scaleX(0.6) scaleY(1);
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .floating-particles,
+  .phone-particle-indicator {
+    display: none;
+  }
+}

@@ -1,7 +1,5 @@
 "use client";
 
-import { useState } from "react";
-
 type Particle = {
   id: number;
   left: string;
@@ -14,26 +12,31 @@ type Particle = {
 
 const PARTICLE_COUNT = 20;
 
+function getParticleValue(index: number, salt: number): number {
+  const value = Math.sin(index * 999 + salt) * 10000;
+  return value - Math.floor(value);
+}
+
 function createParticles(): Particle[] {
   return Array.from({ length: PARTICLE_COUNT }, (_, i) => {
-    const size = 4 + Math.random() * 8;
-    const speedBias = Math.random();
+    const size = 4 + getParticleValue(i, 1) * 8;
+    const speedBias = getParticleValue(i, 2);
 
     return {
       id: i,
-      left: `${Math.random() * 100}%`,
+      left: `${getParticleValue(i, 3) * 100}%`,
       size: `${size}px`,
       duration: `${8 + speedBias * speedBias * 18}s`,
-      delay: `${Math.random() * -24}s`,
-      opacity: 0.45 + Math.random() * 0.45,
-      driftX: `${(Math.random() - 0.5) * 70}px`,
+      delay: `${getParticleValue(i, 4) * -24}s`,
+      opacity: 0.45 + getParticleValue(i, 5) * 0.45,
+      driftX: `${(getParticleValue(i, 6) - 0.5) * 70}px`,
     };
   });
 }
 
-export default function FloatingParticles() {
-  const [particles] = useState(() => createParticles());
+const particles = createParticles();
 
+export default function FloatingParticles() {
   return (
     <div className="floating-particles" aria-hidden="true">
       {particles.map((p) => (

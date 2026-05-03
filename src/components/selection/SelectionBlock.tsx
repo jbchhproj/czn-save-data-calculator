@@ -52,8 +52,8 @@ export default function SelectionBlock({
   };
 
   return (
-    <>
-      <div className="relative mt-3 select-none [-webkit-touch-callout:none]">
+    <div className="mt-3 select-none [-webkit-touch-callout:none]">
+      <div className="relative">
         {/* bottom outline (the "3D" effect) */}
         <div className="pointer-events-none absolute bottom-[-6px] left-[-0.5rem] right-0 h-3 rounded-br-lg border-b-2 border-gray-300 shadow-[0_2px_2px_rgba(0,0,0,0.20)]" />
 
@@ -90,10 +90,10 @@ export default function SelectionBlock({
       </div>
 
       {isExpanded && (
-        <div className="bg-gray-200/60 pl-8 py-3 text-sm text-slate-700">
+        <div className="mr-2 mt-[7px] -ml-2 bg-gray-300/40 pl-6 pt-3 pb-3 text-sm text-gray-600 shadow-[inset_0_0_6px_1px_rgb(0_0_0/0.18)]">
           {rulesList}
         </div>
       )}
-    </>
+    </div>
   );
 }

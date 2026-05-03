@@ -26,7 +26,7 @@ export default function SelectionBlock({
   isPostProcessingEnabled,
 }: SelectionBlockProps) {
   const rulesList = (
-    <ul className="list-disc">
+    <ul className="list-outside list-disc pl-4">
       {config.description.map((line, idx) => (
         <li key={idx}>{line}</li>
       ))}
@@ -90,7 +90,7 @@ export default function SelectionBlock({
       </div>
 
       {isExpanded && (
-        <div className="mr-2 mt-[7px] -ml-2 bg-gray-300/40 pl-6 pt-3 pb-4 text-sm text-gray-600 shadow-[inset_0_0_6px_1px_rgb(0_0_0/0.18)]">
+        <div className="mr-2 mt-[7px] -ml-2 bg-gray-300/40 px-4 pt-3 pb-4 text-sm text-gray-600 shadow-[inset_0_0_6px_1px_rgb(0_0_0/0.18)]">
           {rulesList}
         </div>
       )}

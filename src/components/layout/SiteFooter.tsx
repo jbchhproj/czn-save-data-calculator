@@ -24,7 +24,7 @@ export default function SiteFooter() {
       </p>
       <hr className="my-1 border-gray-200" />
       <p>
-        Support me on{" "}
+        If this tool helped, you can support future updates on{" "}
         <a
           href="https://ko-fi.com/wanpoenjoyer"
           target="_blank"

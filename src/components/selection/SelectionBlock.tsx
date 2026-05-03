@@ -58,16 +58,16 @@ export default function SelectionBlock({
         <div className="pointer-events-none absolute bottom-[-6px] left-[-0.5rem] right-0 h-3 rounded-br-lg border-b-2 border-gray-300 shadow-[0_2px_2px_rgba(0,0,0,0.20)]" />
 
         {/* main block */}
-        <div className="-ml-2 flex h-17 w-[calc(100%+0.5rem)] items-center gap-3 overflow-hidden rounded-r bg-gray-400/30 px-1">
+        <div className="-ml-2 flex h-17 w-[calc(100%+0.5rem)] items-center gap-2 overflow-hidden rounded-r bg-gray-400/30 px-1">
           <div className="-ml-4 flex h-full w-30 shrink-0 flex-col justify-center bg-gray-500/30 pl-5 text-slate-950">
             {labelWordElements}
           </div>
 
-          <span className="pl-1 rounded bg-gray-100 text-md text-slate-950 border border-slate-300 tabular-nums w-[7ch]">
+          <span className="inline-flex min-w-[7ch] flex-1 justify-center rounded bg-gray-100 text-md text-slate-950 border border-slate-300 tabular-nums">
             {config.faintMemoryContribution(stepperCount)}
           </span>
 
-          <div className="ml-auto flex self-stretch items-center gap-2 border-l border-gray-400 pl-3">
+          <div className="flex shrink-0 self-stretch items-center gap-1 border-l border-gray-400 pl-2">
             <button
               type="button"
               aria-label="Show details"
@@ -90,7 +90,7 @@ export default function SelectionBlock({
       </div>
 
       {isExpanded && (
-        <div className="mr-2 mt-[7px] -ml-2 bg-gray-300/40 pl-6 pt-3 pb-3 text-sm text-gray-600 shadow-[inset_0_0_6px_1px_rgb(0_0_0/0.18)]">
+        <div className="mr-2 mt-[7px] -ml-2 bg-gray-300/40 pl-6 pt-3 pb-4 text-sm text-gray-600 shadow-[inset_0_0_6px_1px_rgb(0_0_0/0.18)]">
           {rulesList}
         </div>
       )}

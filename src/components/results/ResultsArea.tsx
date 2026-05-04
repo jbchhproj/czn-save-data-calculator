@@ -30,13 +30,13 @@ export default function ResultsSection({
       </div>
       <div
         className={clsx(
-          "inline-flex gap-1 whitespace-nowrap tabular-nums",
+          "inline-flex max-w-full gap-1 whitespace-nowrap pr-1 tabular-nums",
           totalFaintMemory > faintMemoryLimit && "text-red-500",
         )}
       >
         <span className="w-[5ch] text-right">{totalFaintMemory}</span>
         <span className="w-[1ch] text-center">/</span>
-        <span className="w-[1ch] text-right">{faintMemoryLimit}</span>
+        <span className="w-[3ch] text-left">{faintMemoryLimit}</span>
       </div>
     </div>
   );

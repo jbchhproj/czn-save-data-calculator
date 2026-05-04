@@ -1,5 +1,5 @@
 .floating-particles {
-  position: fixed;
+  position: absolute;
   inset: 0;
   z-index: 1;
   pointer-events: none;
@@ -69,5 +69,12 @@
 
   100% {
     transform: translate(-50%, -50%) rotate(360deg) scaleX(0.6) scaleY(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .floating-particles,
+  .phone-particle-indicator {
+    display: none;
   }
 }

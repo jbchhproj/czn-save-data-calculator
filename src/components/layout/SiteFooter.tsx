@@ -8,7 +8,7 @@ export default function SiteFooter() {
   };
 
   return (
-    <div className="p-2 text-center text-xs text-gray-500">
+    <div className="mt-2 p-2 text-center text-xs text-gray-500">
       <hr className="my-1 border-gray-200" />
       <p>
         This is an unofficial community tool for Chaos Zero Nightmare. Chaos
@@ -18,7 +18,13 @@ export default function SiteFooter() {
       </p>
       <hr className="my-1 border-gray-200" />
       <p>
-        Support me on{" "}
+        To help improve this community tool, basic anonymous usage data may be
+        collected, such as which features are used. No names, emails, precise
+        location, or account information are collected.
+      </p>
+      <hr className="my-1 border-gray-200" />
+      <p>
+        If this tool helped, you can support future updates on{" "}
         <a
           href="https://ko-fi.com/wanpoenjoyer"
           target="_blank"

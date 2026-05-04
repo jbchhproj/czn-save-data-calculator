@@ -4,6 +4,7 @@ import "./globals.css";
 import "./particles.css";
 import "./deep-trauma-gradient.css";
 import AppContainer from "@/components/layout/AppContainer";
+import PhoneStatusBar from "@/components/layout/PhoneStatusBar";
 
 const allertaStencil = localFont({
   src: "./fonts/allerta-stencil-latin.woff2",
@@ -44,7 +45,13 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${allertaStencil.variable} min-h-screen`}
       >
-        <AppContainer>{children}</AppContainer>
+        <div className="mx-auto w-full sm:w-[430px] sm:rounded-[2rem] sm:bg-slate-950 sm:p-[10px] sm:shadow-2xl">
+          <PhoneStatusBar />
+
+          <div className="phone-screen sm:h-[calc(100vh-20.25rem)] sm:overflow-y-auto sm:rounded-b-[1.35rem]">
+            <AppContainer>{children}</AppContainer>
+          </div>
+        </div>
       </body>
     </html>
   );

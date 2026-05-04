@@ -1,6 +1,74 @@
 # CZN Save Data Calculator
 
-An unofficial community tool for calculating save data in Chaos Zero Nightmare.
+An unofficial mobile-first calculator for Chaos Zero Nightmare players to plan save data requirements and card capacity across combatants.
+
+## Features
+
+- Save data and faint memory calculations by tier
+- Deep trauma mode support
+- Interactive card acquisition, duplication, removal, and seasonal counters
+- Mobile-first layout with constrained desktop presentation
+- Anonymous usage telemetry for understanding feature usage and UX friction
+
+## Tech Stack
+
+- React
+- Next.js
+- TypeScript
+- PostgreSQL
+- Neon
+- Vercel
+
+## Telemetry
+
+The app records basic anonymous interaction events, such as button presses and disabled-control clicks, to help improve the tool. Telemetry requests are validated server-side before being stored in Neon PostgreSQL.
+
+Telemetry includes:
+
+- event name
+- anonymous browser ID
+- disabled-click state
+- server and client timestamps
+- flexible JSON metadata
+
+Database setup is documented in [sql/telemetry_events.sql](sql/telemetry_events.sql). Example analysis queries are available in [sql/example_telemetry_queries.sql](sql/example_telemetry_queries.sql).
+
+## Privacy
+
+This project collects a persistent pseudonymous ID to understand basic usage patterns.
+
+No names, emails, precise location, account information, or personal information are collected, stored, or shared.
+
+## Local Development
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run the development server:
+
+```bash
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+Telemetry requires a local environment variable:
+
+```env
+DATABASE_URL="your_neon_connection_string"
+```
+
+Do not commit `.env.local`.
+
+## Verification
+
+```bash
+npm run lint
+npx tsc --noEmit --pretty false
+```
 
 ## Disclaimer
 
@@ -10,51 +78,6 @@ Chaos Zero Nightmare and all related names, logos, and assets are trademarks of 
 
 This project does not reproduce, distribute, or claim ownership of any proprietary game assets or content.
 
-## Privacy
+## Donations
 
-This project collects a persistent pseudonymous ID to understand basic usage patterns.
-
-No personal information is collected, stored, or shared.
-
-### Donations
-
-A Ko-fi link is provided for anyone who wishes to voluntarily support the development of this tool. Donations are entirely optional and are not a payment for any service or product. This project is not a commercial venture and is not intended to generate profit.
-
----
-
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
-
-## Getting Started
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+A Ko-fi link is provided for anyone who wishes to voluntarily support future updates to this tool. Donations are entirely optional and are not a payment for any service or product. This project is not a commercial venture and is not intended to generate profit.

@@ -38,7 +38,7 @@ export const selectionBlocks: SelectionBlockConfig[] = [
     label: "Neutral Card",
     description: [
       "Acquired in shops or chaos events.",
-      "Always worth 20 points, even with epiphany.",
+      "Always worth 20 points, even with standard epiphany.",
     ],
     min: 0,
     max: 999,
@@ -50,7 +50,7 @@ export const selectionBlocks: SelectionBlockConfig[] = [
     label: "Common Monster Card",
     description: [
       "Acquired by defeating enemies.",
-      "Always 20 points, even with epiphany.",
+      "Always 20 points, even with standard epiphany.",
     ],
     min: 0,
     max: 999,
@@ -62,7 +62,7 @@ export const selectionBlocks: SelectionBlockConfig[] = [
     label: "Rare Monster Card",
     description: [
       "Acquired by defeating enemies.",
-      "Always 50 points, even with epiphany.",
+      "Always 50 points, even with standard epiphany.",
     ],
     min: 0,
     max: 999,
@@ -74,7 +74,7 @@ export const selectionBlocks: SelectionBlockConfig[] = [
     label: "Legendary Monster Card",
     description: [
       "Acquired by defeating enemies.",
-      "Always 80 points, even with epiphany.",
+      "Always 80 points, even with standard epiphany.",
     ],
     min: 0,
     max: 999,

@@ -1,4 +1,11 @@
 import type { TelemetryEventName } from "./events";
+import type { TelemetryEvent } from "./types";
+
+const maxBatchSize = 10;
+const flushDelayMilliseconds = 2000;
+
+let pendingEvents: TelemetryEvent[] = [];
+let flushTimer: ReturnType<typeof setTimeout> | null = null;
 
 function getAnonymousUserId(): string {
   const storageKey = "czn_anonymous_user_id";
@@ -16,23 +23,14 @@ function getAnonymousUserId(): string {
   return newUserId;
 }
 
-export async function trackTelemetryEvent(
-  eventName: TelemetryEventName,
-  wasDisabled: boolean,
-  metadata: Record<string, unknown>,
-) {
-  const anonymousUserId = getAnonymousUserId();
+async function sendTelemetryEvents(events: TelemetryEvent[]) {
+  if (events.length === 0) {
+    return;
+  }
 
   const payload = {
-    anonymousUserId,
-    events: [
-      {
-        eventName,
-        wasDisabled,
-        clientCreatedAt: new Date().toISOString(),
-        metadata,
-      },
-    ],
+    anonymousUserId: getAnonymousUserId(),
+    events,
   };
 
   await fetch("/api/telemetry", {
@@ -42,4 +40,46 @@ export async function trackTelemetryEvent(
     },
     body: JSON.stringify(payload),
   });
+}
+
+function scheduleFlush() {
+  if (flushTimer !== null) {
+    return;
+  }
+
+  flushTimer = setTimeout(() => {
+    void flushTelemetryEvents();
+  }, flushDelayMilliseconds);
+}
+
+async function flushTelemetryEvents() {
+  if (flushTimer !== null) {
+    clearTimeout(flushTimer);
+    flushTimer = null;
+  }
+
+  const eventsToSend = pendingEvents;
+  pendingEvents = [];
+
+  await sendTelemetryEvents(eventsToSend);
+}
+
+export function trackTelemetryEvent(
+  eventName: TelemetryEventName,
+  wasDisabled: boolean,
+  metadata: Record<string, unknown>,
+) {
+  pendingEvents.push({
+    eventName,
+    wasDisabled,
+    clientCreatedAt: new Date().toISOString(),
+    metadata,
+  });
+
+  if (pendingEvents.length >= maxBatchSize) {
+    void flushTelemetryEvents();
+    return;
+  }
+
+  scheduleFlush();
 }

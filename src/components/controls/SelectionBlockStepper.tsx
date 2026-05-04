@@ -83,7 +83,7 @@ export default function SelectionBlockStepper({
   );
 
   return (
-    <div className="flex items-center gap-3 pr-2">
+    <div className="flex items-center gap-2 pr-1">
       <button
         aria-label="Decrement"
         aria-disabled={!canDecrement}

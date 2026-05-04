@@ -18,6 +18,7 @@ export default function AppContainer({
     Array(selectionBlocks.length).fill(0),
   );
   const [cardRemovals, setCardRemovals] = useState(0);
+  const [expandedBlockId, setExpandedBlockId] = useState<string | null>(null);
 
   const handleToggleDeepTrauma = () => {
     const nextIsActive = !isDeepTraumaActive;
@@ -47,10 +48,11 @@ export default function AppContainer({
     setIsDeepTraumaActive(false);
     setFaintMemories(Array(selectionBlocks.length).fill(0));
     setCardRemovals(0);
+    setExpandedBlockId(null);
   };
 
   return (
-    <div className="relative min-h-screen flex flex-col">
+    <div className="relative flex min-h-screen w-full flex-col bg-[var(--background)] sm:min-h-full">
       {/* background layer */}
       {isPostProcessingEnabled && <FloatingParticles />}
       <div
@@ -60,7 +62,7 @@ export default function AppContainer({
       />
 
       {/* content layer */}
-      <div className="relative z-10 flex flex-col min-h-screen">
+      <div className="relative z-10 flex flex-col min-h-screen sm:min-h-full">
         <Header
           isDeepTraumaActive={isDeepTraumaActive}
           onToggleDeepTrauma={handleToggleDeepTrauma}
@@ -72,7 +74,7 @@ export default function AppContainer({
           setIsPostProcessingEnabled={setIsPostProcessingEnabled}
         />
 
-        <div aria-hidden="true" className="h-[112px] shrink-0" />
+        <div aria-hidden="true" className="h-[112px] shrink-0 sm:hidden" />
 
         <main>{children}</main>
 
@@ -82,6 +84,8 @@ export default function AppContainer({
           cardRemovals={cardRemovals}
           setCardRemovals={setCardRemovals}
           isPostProcessingEnabled={isPostProcessingEnabled}
+          expandedBlockId={expandedBlockId}
+          setExpandedBlockId={setExpandedBlockId}
         />
 
         <SiteFooter />

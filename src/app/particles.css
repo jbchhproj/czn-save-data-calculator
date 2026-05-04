@@ -1,5 +1,5 @@
 .floating-particles {
-  position: fixed;
+  position: absolute;
   inset: 0;
   z-index: 1;
   pointer-events: none;
@@ -76,14 +76,5 @@
   .floating-particles,
   .phone-particle-indicator {
     display: none;
-  }
-}
-
-@media (min-width: 640px) {
-  .floating-particles {
-    left: 50%;
-    right: auto;
-    width: 430px;
-    transform: translateX(-50%);
   }
 }

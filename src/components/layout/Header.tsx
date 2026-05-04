@@ -37,7 +37,7 @@ export default function Header({
   };
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 flex min-h-[112px] items-stretch gap-2 bg-slate-600 p-2 shadow-md/30">
+    <header className="fixed inset-x-0 top-0 z-50 flex min-h-[114px] items-stretch gap-2 bg-slate-600 p-2 shadow-md/30 sm:sticky sm:inset-x-auto sm:h-[122px] sm:w-full sm:shrink-0">
       <div className="min-w-0 flex flex-1">
         <ResultsArea
           tier={tier}

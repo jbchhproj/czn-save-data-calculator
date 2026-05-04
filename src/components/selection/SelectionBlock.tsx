@@ -68,14 +68,16 @@ export default function SelectionBlock({
           </span>
 
           <div className="flex shrink-0 self-stretch items-center gap-1 pl-1">
-            <button
-              type="button"
-              aria-label="Show details"
-              onClick={handleToggleRules}
-              className="flex self-stretch items-center border-l border-gray-500 pl-1 text-blue-500 hover:bg-blue-100"
-            >
-              {isExpanded ? <ExpandMinusIcon /> : <QuestionCircleIcon />}
-            </button>
+            <div className="flex self-stretch items-center border-l border-gray-400/50 pl-1">
+              <button
+                type="button"
+                aria-label="Show details"
+                onClick={handleToggleRules}
+                className="rounded-full text-blue-500 hover:bg-blue-100"
+              >
+                {isExpanded ? <ExpandMinusIcon /> : <QuestionCircleIcon />}
+              </button>
+            </div>
 
             <SelectionBlockStepper
               config={config}

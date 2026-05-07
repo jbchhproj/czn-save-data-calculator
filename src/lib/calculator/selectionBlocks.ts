@@ -97,13 +97,13 @@ export const selectionBlocks: SelectionBlockConfig[] = [
     type: "duplication",
     label: "Duplicate Card",
     description: [
-      "First 2 duplicates: no points.",
-      "Each extra duplicate: 40 points.",
-      "Max 4 copies of a card per save data.",
+      "First 2 duplications: no points.",
+      "Each extra duplication: 40 points.",
+      "Max 3 copy actions per save data.",
       "Transformed or removed duplicates are not counted.",
     ],
     min: 0,
-    max: 4,
+    max: 3,
     faintMemoryContribution: (current) => Math.max(current - 2, 0) * 40,
   }),
   createSelectionBlock({
